@@ -45,7 +45,7 @@ namespace CirkusApp1
 
                 return Fluently.Configure()
                     .Database(cfg.ShowSql())
-                    .Mappings(m => m.FluentMappings.AddFromAssemblyOf<MestoBoravkaMapiranja>())
+                    .Mappings(m => m.FluentMappings.AddFromAssemblyOf<MestoBoravkaMapiranja>())//pokupice sva mapiranja iz istog namespace-a
                     .BuildSessionFactory();
             }
             catch (Exception ec)

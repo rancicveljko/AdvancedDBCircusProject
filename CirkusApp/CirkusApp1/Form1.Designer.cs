@@ -33,6 +33,7 @@ namespace CirkusApp1
             this.btnDodajMesto = new System.Windows.Forms.Button();
             this.btnTEST = new System.Windows.Forms.Button();
             this.btnTEST2 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -75,18 +76,28 @@ namespace CirkusApp1
             this.btnTEST2.UseVisualStyleBackColor = true;
             this.btnTEST2.Click += new System.EventHandler(this.btnTEST2_Click);
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(12, 148);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(155, 28);
+            this.button2.TabIndex = 4;
+            this.button2.Text = "Zivotinje m-to-one";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // frmTest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1041, 490);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.btnTEST2);
             this.Controls.Add(this.btnTEST);
             this.Controls.Add(this.btnDodajMesto);
             this.Controls.Add(this.button1);
             this.Name = "frmTest";
             this.Text = "Test forma";
-            this.Load += new System.EventHandler(this.frmTest_Load);
             this.ResumeLayout(false);
 
         }
@@ -97,6 +108,7 @@ namespace CirkusApp1
         private System.Windows.Forms.Button btnDodajMesto;
         private System.Windows.Forms.Button btnTEST;
         private System.Windows.Forms.Button btnTEST2;
+        private System.Windows.Forms.Button button2;
     }
 }
 

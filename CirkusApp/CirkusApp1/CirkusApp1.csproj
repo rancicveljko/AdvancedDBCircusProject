@@ -72,6 +72,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataLayer.cs" />
+    <Compile Include="Entiteti\Akrobata.cs" />
+    <Compile Include="Entiteti\Artist.cs" />
+    <Compile Include="Entiteti\BacacNozeva.cs" />
+    <Compile Include="Entiteti\Dreser.cs" />
+    <Compile Include="Entiteti\GutacPlamena.cs" />
+    <Compile Include="Entiteti\Klovn.cs" />
+    <Compile Include="Entiteti\Vestina.cs" />
+    <Compile Include="Entiteti\Zivotinja.cs" />
+    <Compile Include="Entiteti\Zongler.cs" />
+    <Compile Include="Mapiranja\AkrobataMapiranja.cs" />
+    <Compile Include="Mapiranja\ArtistMapiranja.cs" />
+    <Compile Include="Mapiranja\BacacNozevaMapiranja.cs" />
     <Compile Include="Mapiranja\DirektorMapiranja.cs" />
     <Compile Include="Entiteti\Direktor.cs" />
     <Compile Include="Entiteti\CirkuskaPredstava.cs" />
@@ -87,11 +99,17 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Mapiranja\CirkuskaPredstavaMapiranja.cs" />
+    <Compile Include="Mapiranja\DreserMapiranja.cs" />
+    <Compile Include="Mapiranja\GutacPlamenaMapiranja.cs" />
     <Compile Include="Mapiranja\HumanitarnaPredstavaMapiranja.cs" />
+    <Compile Include="Mapiranja\KlovnMapiranja.cs" />
     <Compile Include="Mapiranja\MestoBoravkaMapiranja.cs" />
     <Compile Include="Mapiranja\NastupnaTackaMapiranja.cs" />
     <Compile Include="Mapiranja\PredstavaPoNarudzbiniMapiranja.cs" />
     <Compile Include="Mapiranja\SpecijalnaPredstavaMapiranja.cs" />
+    <Compile Include="Mapiranja\VestinaMapiranja.cs" />
+    <Compile Include="Mapiranja\ZivotinjaMapiranja.cs" />
+    <Compile Include="Mapiranja\ZonglerMapiranja.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Entiteti\Zaposleni.cs" />
