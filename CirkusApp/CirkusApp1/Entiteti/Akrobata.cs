@@ -8,6 +8,12 @@ namespace CirkusApp1.Entiteti
 {
     public class Akrobata: Artist
     {
+        public virtual IList<Vestina> Vestine { get; set; }
+
+        public Akrobata()
+        {
+            Vestine = new List<Vestina>();
+        }
 
     }
 }

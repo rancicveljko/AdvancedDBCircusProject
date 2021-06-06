@@ -18,7 +18,14 @@ namespace CirkusApp1.Mapiranja
 
             Map(x => x.Naziv, "NAZIV");
             Map(x => x.GodinaIskustva, "GODINA_ISKUSTVA");
-            
+
+            HasManyToMany(x => x.Akrobate)
+                .Table("JE_VEST_U")
+                .ParentKeyColumn("ID_VESTINE")
+                .ChildKeyColumn("ID_AKROBATE")
+                .Inverse()
+                .Cascade
+                .All();
         }
     }
 }

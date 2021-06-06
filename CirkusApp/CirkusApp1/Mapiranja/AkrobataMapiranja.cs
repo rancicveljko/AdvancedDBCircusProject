@@ -15,6 +15,14 @@ namespace CirkusApp1.Mapiranja
             Table("AKROBATA");
 
             KeyColumn("ID_PERFORMERA");
+
+            HasManyToMany(x => x.Vestine)
+                .Table("JE_VEST_U")
+                .ParentKeyColumn("ID_AKROBATE")
+                .ChildKeyColumn("ID_VESTINE")
+                .Inverse().
+                Cascade
+                .All();
             
         }
     }

@@ -9,7 +9,7 @@ namespace CirkusApp1.Entiteti
     public class PomocnoOsoblje : Zaposleni
     {
         public virtual Boolean AsistentFleg { get; set; }
-        public virtual int IdPerformera { get; set; }
+        public virtual Artist PomazeArtistu { get; set; }
     
     }
 

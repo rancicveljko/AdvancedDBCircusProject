@@ -98,9 +98,9 @@ namespace CirkusApp1
 
                 //Ucitavaju se podaci o prodavnici za zadatim brojem
                 //Prodavnica.Entiteti.Prodavnica p = s.Load<Prodavnica.Entiteti.Prodavnica>(61);
-                Direktor d = s.Load<Direktor>(1002);
+                Zaposleni z = s.Get<Zaposleni>(4001);
 
-                MessageBox.Show(d.Ime);
+                MessageBox.Show(z.Ime);
 
                 s.Close();
             }

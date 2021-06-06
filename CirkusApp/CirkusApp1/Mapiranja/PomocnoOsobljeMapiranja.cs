@@ -18,7 +18,7 @@ namespace CirkusApp1.Mapiranja
 
             Map(x => x.AsistentFleg, "ASISTENT_FLAG");
 
-            Map(x => x.IdPerformera, "FK_ID_PERFORMERA");
+            References(x => x.PomazeArtistu).Column("FK_ID_PERFORMERA");
 
         }
 

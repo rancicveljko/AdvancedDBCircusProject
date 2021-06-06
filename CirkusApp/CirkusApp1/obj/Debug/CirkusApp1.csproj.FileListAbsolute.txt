@@ -72,3 +72,6 @@ C:\Users\Lazar\Desktop\SBP Git\sbpcirkusprojekat\CirkusApp\CirkusApp1\bin\Debug\
 C:\Users\Lazar\Desktop\SBP Git\sbpcirkusprojekat\CirkusApp\CirkusApp1\obj\Debug\CirkusApp1.csproj.CopyComplete
 C:\Users\Lazar\Desktop\SBP Git\sbpcirkusprojekat\CirkusApp\CirkusApp1\obj\Debug\CirkusApp1.exe
 C:\Users\Lazar\Desktop\SBP Git\sbpcirkusprojekat\CirkusApp\CirkusApp1\obj\Debug\CirkusApp1.pdb
+E:\Rabote za fax\III\SBP\sbpcirkusprojekat\CirkusApp\CirkusApp1\obj\Debug\CirkusApp1.PocetnaStranica.resources
+E:\Rabote za fax\III\SBP\sbpcirkusprojekat\CirkusApp\CirkusApp1\obj\Debug\CirkusApp1.Forme.SveNastupneTackeForma.resources
+E:\Rabote za fax\III\SBP\sbpcirkusprojekat\CirkusApp\CirkusApp1\obj\Debug\CirkusApp1.Forme.SviArtistiForma.resources
