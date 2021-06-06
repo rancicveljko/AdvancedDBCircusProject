@@ -30,14 +30,14 @@ namespace CirkusApp1.Forme
         private void InitializeComponent()
         {
             this.lvSveNastupneTacke = new System.Windows.Forms.ListView();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btnIzmeniArtista = new System.Windows.Forms.Button();
-            this.btnDodajNastupnuTacku = new System.Windows.Forms.Button();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.btnObrisiNastupnuTacku = new System.Windows.Forms.Button();
+            this.btnIzmeniNastupnuTacku = new System.Windows.Forms.Button();
+            this.btnDodajNastupnuTacku = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lvSveNastupneTacke
@@ -48,6 +48,8 @@ namespace CirkusApp1.Forme
             this.columnHeader3,
             this.columnHeader4,
             this.columnHeader5});
+            this.lvSveNastupneTacke.FullRowSelect = true;
+            this.lvSveNastupneTacke.GridLines = true;
             this.lvSveNastupneTacke.HideSelection = false;
             this.lvSveNastupneTacke.Location = new System.Drawing.Point(12, 12);
             this.lvSveNastupneTacke.Name = "lvSveNastupneTacke";
@@ -55,33 +57,6 @@ namespace CirkusApp1.Forme
             this.lvSveNastupneTacke.TabIndex = 8;
             this.lvSveNastupneTacke.UseCompatibleStateImageBehavior = false;
             this.lvSveNastupneTacke.View = System.Windows.Forms.View.Details;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(643, 226);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(126, 42);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Obrisi nastupnu tacku";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // btnIzmeniArtista
-            // 
-            this.btnIzmeniArtista.Location = new System.Drawing.Point(643, 166);
-            this.btnIzmeniArtista.Name = "btnIzmeniArtista";
-            this.btnIzmeniArtista.Size = new System.Drawing.Size(126, 42);
-            this.btnIzmeniArtista.TabIndex = 6;
-            this.btnIzmeniArtista.Text = "Izmeni nastupnu tacku";
-            this.btnIzmeniArtista.UseVisualStyleBackColor = true;
-            // 
-            // btnDodajNastupnuTacku
-            // 
-            this.btnDodajNastupnuTacku.Location = new System.Drawing.Point(643, 105);
-            this.btnDodajNastupnuTacku.Name = "btnDodajNastupnuTacku";
-            this.btnDodajNastupnuTacku.Size = new System.Drawing.Size(126, 42);
-            this.btnDodajNastupnuTacku.TabIndex = 5;
-            this.btnDodajNastupnuTacku.Text = "Dodaj nastupnu tacku";
-            this.btnDodajNastupnuTacku.UseVisualStyleBackColor = true;
             // 
             // columnHeader1
             // 
@@ -104,17 +79,48 @@ namespace CirkusApp1.Forme
             this.columnHeader5.Text = "Opasni efekti";
             this.columnHeader5.Width = 101;
             // 
+            // btnObrisiNastupnuTacku
+            // 
+            this.btnObrisiNastupnuTacku.Location = new System.Drawing.Point(643, 226);
+            this.btnObrisiNastupnuTacku.Name = "btnObrisiNastupnuTacku";
+            this.btnObrisiNastupnuTacku.Size = new System.Drawing.Size(126, 42);
+            this.btnObrisiNastupnuTacku.TabIndex = 7;
+            this.btnObrisiNastupnuTacku.Text = "Obrisi nastupnu tacku";
+            this.btnObrisiNastupnuTacku.UseVisualStyleBackColor = true;
+            this.btnObrisiNastupnuTacku.Click += new System.EventHandler(this.btnObrisiNastupnuTacku_Click);
+            // 
+            // btnIzmeniNastupnuTacku
+            // 
+            this.btnIzmeniNastupnuTacku.Enabled = false;
+            this.btnIzmeniNastupnuTacku.Location = new System.Drawing.Point(643, 166);
+            this.btnIzmeniNastupnuTacku.Name = "btnIzmeniNastupnuTacku";
+            this.btnIzmeniNastupnuTacku.Size = new System.Drawing.Size(126, 42);
+            this.btnIzmeniNastupnuTacku.TabIndex = 6;
+            this.btnIzmeniNastupnuTacku.Text = "Izmeni nastupnu tacku";
+            this.btnIzmeniNastupnuTacku.UseVisualStyleBackColor = true;
+            // 
+            // btnDodajNastupnuTacku
+            // 
+            this.btnDodajNastupnuTacku.Enabled = false;
+            this.btnDodajNastupnuTacku.Location = new System.Drawing.Point(643, 105);
+            this.btnDodajNastupnuTacku.Name = "btnDodajNastupnuTacku";
+            this.btnDodajNastupnuTacku.Size = new System.Drawing.Size(126, 42);
+            this.btnDodajNastupnuTacku.TabIndex = 5;
+            this.btnDodajNastupnuTacku.Text = "Dodaj nastupnu tacku";
+            this.btnDodajNastupnuTacku.UseVisualStyleBackColor = true;
+            // 
             // SveNastupneTackeForma
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.lvSveNastupneTacke);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.btnIzmeniArtista);
+            this.Controls.Add(this.btnObrisiNastupnuTacku);
+            this.Controls.Add(this.btnIzmeniNastupnuTacku);
             this.Controls.Add(this.btnDodajNastupnuTacku);
             this.Name = "SveNastupneTackeForma";
             this.Text = "SveNastupneTackeForma";
+            this.Load += new System.EventHandler(this.SveNastupneTackeForma_Load);
             this.ResumeLayout(false);
 
         }
@@ -122,8 +128,8 @@ namespace CirkusApp1.Forme
         #endregion
 
         private System.Windows.Forms.ListView lvSveNastupneTacke;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button btnIzmeniArtista;
+        private System.Windows.Forms.Button btnObrisiNastupnuTacku;
+        private System.Windows.Forms.Button btnIzmeniNastupnuTacku;
         private System.Windows.Forms.Button btnDodajNastupnuTacku;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;

@@ -10,6 +10,7 @@ using CirkusApp1.Entiteti;
 using NHibernate;
 using NHibernate.Criterion;
 using NHibernate.Linq;
+using CirkusApp1.Forme;
 
 namespace CirkusApp1
 {
@@ -71,13 +72,15 @@ namespace CirkusApp1
             {
                 ISession s = DataLayer.GetSession();
 
-                SpecijalnaPredstava sp = new SpecijalnaPredstava();
+                NastupnaTacka nt = new NastupnaTacka();
 
-                sp.BrojKarata = 30;
-                sp.Vreme = DateTime.Now;
+                nt.Ime = "Elfak studije";
+                nt.Tip = "Klovnovski nastup";
+                nt.MinGodina = 18;
+                nt.OpasniEfekti = 1;
 
 
-                s.Save(sp);
+                s.Save(nt);
 
                 s.Flush();
                 s.Close();
@@ -128,6 +131,12 @@ namespace CirkusApp1
             {
                 MessageBox.Show(ec.Message);
             }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            PocetnaStranica form = new PocetnaStranica();
+            form.ShowDialog();
         }
     }
 }

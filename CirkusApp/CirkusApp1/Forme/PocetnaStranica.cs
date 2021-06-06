@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CirkusApp1.Forme;
 
 namespace CirkusApp1
 {
@@ -15,6 +16,12 @@ namespace CirkusApp1
         public PocetnaStranica()
         {
             InitializeComponent();
+        }
+
+        private void btnNastupneTackeForma_Click(object sender, EventArgs e)
+        {
+            SveNastupneTackeForma form = new SveNastupneTackeForma();
+            form.Show();
         }
     }
 }
