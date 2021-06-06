@@ -72,6 +72,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataLayer.cs" />
+<<<<<<< HEAD
     <Compile Include="Entiteti\Akrobata.cs" />
     <Compile Include="Entiteti\Artist.cs" />
     <Compile Include="Entiteti\BacacNozeva.cs" />
@@ -84,6 +85,9 @@
     <Compile Include="Mapiranja\AkrobataMapiranja.cs" />
     <Compile Include="Mapiranja\ArtistMapiranja.cs" />
     <Compile Include="Mapiranja\BacacNozevaMapiranja.cs" />
+=======
+    <Compile Include="Entiteti\PomocnoOsoblje.cs" />
+>>>>>>> 7b52220dde7f801431bd8d5e4454c04a64b0b6f0
     <Compile Include="Mapiranja\DirektorMapiranja.cs" />
     <Compile Include="Entiteti\Direktor.cs" />
     <Compile Include="Entiteti\CirkuskaPredstava.cs" />
@@ -105,6 +109,7 @@
     <Compile Include="Mapiranja\KlovnMapiranja.cs" />
     <Compile Include="Mapiranja\MestoBoravkaMapiranja.cs" />
     <Compile Include="Mapiranja\NastupnaTackaMapiranja.cs" />
+    <Compile Include="Mapiranja\PomocnoOsobljeMapiranja.cs" />
     <Compile Include="Mapiranja\PredstavaPoNarudzbiniMapiranja.cs" />
     <Compile Include="Mapiranja\SpecijalnaPredstavaMapiranja.cs" />
     <Compile Include="Mapiranja\VestinaMapiranja.cs" />

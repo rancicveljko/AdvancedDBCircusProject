@@ -15,7 +15,7 @@ namespace CirkusApp1.Entiteti
         public virtual DateTime Datum_Rodj { get; set; }
         public virtual string Mesto_Rodj { get; set; }
         public virtual int Maticnibr { get; set; }
-        public virtual Direktor IdDirektora { get; set; }
+        public virtual Direktor PripadaDirektoru { get; set; }
 
         public Zaposleni()
         {
