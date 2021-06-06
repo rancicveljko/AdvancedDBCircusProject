@@ -72,6 +72,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataLayer.cs" />
+    <Compile Include="DTOManagers\DTOManager.cs" />
+    <Compile Include="DTOs\Basics\NastupnaTackaBasic.cs" />
+    <Compile Include="DTOs\Pregledi\NastupnaTackaPregled.cs" />
     <Compile Include="Entiteti\Akrobata.cs" />
     <Compile Include="Entiteti\Artist.cs" />
     <Compile Include="Entiteti\BacacNozeva.cs" />

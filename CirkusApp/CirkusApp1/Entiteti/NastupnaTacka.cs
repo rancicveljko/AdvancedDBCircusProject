@@ -8,7 +8,7 @@ namespace CirkusApp1.Entiteti
 {
     public class NastupnaTacka
     {
-        public virtual int IdTacke { get; protected set; }
+        public virtual int IdTacke { get; set; }
         public virtual string Ime { get; set; }
         public virtual string Tip { get; set; }
         public virtual int MinGodina { get; set; }
