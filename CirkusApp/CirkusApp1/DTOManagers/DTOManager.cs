@@ -89,6 +89,43 @@ namespace CirkusApp1.DTOManagers
 
             return nt;
         }
+        public static NastupnaTackaBasic vratiNastupnuTacku(int id)
+        {
+            NastupnaTackaBasic nt = new NastupnaTackaBasic();
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                NastupnaTacka n = s.Load<NastupnaTacka>(id);
+                nt = new NastupnaTackaBasic(n.IdTacke, n.Ime, n.Tip, n.MinGodina, n.OpasniEfekti);
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                //handle exceptions
+            }
+
+            return nt;
+        }
+        public static void obrisiNastupnuTacku(int id)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                NastupnaTacka n = s.Load<NastupnaTacka>(id);
+
+                s.Delete(n);
+                s.Flush();
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                //handle exceptions
+            }
+        }
         #endregion
 
     }
