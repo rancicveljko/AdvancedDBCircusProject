@@ -16,12 +16,12 @@ namespace CirkusApp1.Mapiranja
 
             Id(x => x.IdPerformera, "ID_PERFORMERA").GeneratedBy.SequenceIdentity("ISEQ$$_265885");
 
-            Map(x => x.IdZaposlenog, "ID_ZAPOSLENOG");
+            
             Map(x => x.UmetnickoIme, "UMETNICKO_IME");
             Map(x => x.Pol, "POL");
             Map(x => x.ClanOd, "CLAN_OD");
-           
 
+            References(x => x.JeZaposleni).Column("ID_ZAPOSLENOG").Unique().LazyLoad();
         }
     }
 }

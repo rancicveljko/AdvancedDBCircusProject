@@ -16,6 +16,7 @@ namespace CirkusApp1.Entiteti
         public virtual string Mesto_Rodj { get; set; }
         public virtual long Maticnibr { get; set; }
         public virtual Direktor PripadaDirektoru { get; set; }
+        public virtual Artist JeArtist { get; set; }
 
         public Zaposleni()
         {

@@ -26,6 +26,8 @@ namespace CirkusApp1.Mapiranja
             Map(x => x.Maticnibr, "MAT_BR");
 
             References(x => x.PripadaDirektoru).Column("FK_ID_DIREKTORA").LazyLoad();
+
+            HasOne(x => x.JeArtist).Cascade.All().PropertyRef("JeZaposleni");
         }
 
 
