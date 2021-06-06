@@ -88,10 +88,7 @@ namespace CirkusApp1
             }
         }
 
-        private void frmTest_Load(object sender, EventArgs e)
-        {
-
-        }
+  
 
         private void btnTEST2_Click(object sender, EventArgs e)
         {
@@ -112,6 +109,25 @@ namespace CirkusApp1
                 MessageBox.Show(ec.Message);
             }
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                //ucitavamo podatke o dreseru sa zadatim brojem
+                Zivotinja z = s.Load<Zivotinja>(6017);
+                MessageBox.Show(z.UmetnickoIme);
+                MessageBox.Show(z.DresiraZivotinju.UmetnickoIme);
+
+                s.Close();
+
+            }
+            catch(Exception ec)
+            {
+                MessageBox.Show(ec.Message);
+            }
         }
     }
 }
