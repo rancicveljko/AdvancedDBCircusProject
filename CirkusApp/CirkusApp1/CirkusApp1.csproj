@@ -72,6 +72,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataLayer.cs" />
+    <Compile Include="Entiteti\PomocnoOsoblje.cs" />
     <Compile Include="Mapiranja\DirektorMapiranja.cs" />
     <Compile Include="Entiteti\Direktor.cs" />
     <Compile Include="Entiteti\CirkuskaPredstava.cs" />
@@ -90,6 +91,7 @@
     <Compile Include="Mapiranja\HumanitarnaPredstavaMapiranja.cs" />
     <Compile Include="Mapiranja\MestoBoravkaMapiranja.cs" />
     <Compile Include="Mapiranja\NastupnaTackaMapiranja.cs" />
+    <Compile Include="Mapiranja\PomocnoOsobljeMapiranja.cs" />
     <Compile Include="Mapiranja\PredstavaPoNarudzbiniMapiranja.cs" />
     <Compile Include="Mapiranja\SpecijalnaPredstavaMapiranja.cs" />
     <Compile Include="Program.cs" />

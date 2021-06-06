@@ -24,7 +24,7 @@ namespace CirkusApp1.Mapiranja
             Map(x => x.Maticnibr, "MAT_BR");
 
             
-            References(x => x.IdDirektora).Column("FK_ID_DIREKTORA").LazyLoad();
+            References(x => x.PripadaDirektoru).Column("FK_ID_DIREKTORA").LazyLoad();
 
         }
 

@@ -1,7 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\CirkusApp",
+    "\\CirkusApp\\CirkusApp1",
+    "\\CirkusApp\\CirkusApp1\\Entiteti"
   ],
-  "SelectedNode": "\\CirkusApp.sln",
+  "SelectedNode": "\\CirkusApp\\CirkusApp.sln",
   "PreviewInSolutionExplorer": false
 }
