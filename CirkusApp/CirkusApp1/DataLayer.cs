@@ -44,7 +44,7 @@ namespace CirkusApp1
                     c.Is("Data Source=gislab-oracle.elfak.ni.ac.rs:1521/SBP_PDB;User Id=S17382;Password=S17382"));
 
                 return Fluently.Configure()
-                    .Database(cfg)
+                    .Database(cfg.ShowSql())
                     .Mappings(m => m.FluentMappings.AddFromAssemblyOf<MestoBoravkaMapiranja>())
                     .BuildSessionFactory();
             }

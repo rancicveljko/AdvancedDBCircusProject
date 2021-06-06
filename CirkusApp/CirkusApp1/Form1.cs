@@ -64,5 +64,54 @@ namespace CirkusApp1
                 MessageBox.Show(ec.Message);
             }
         }
+
+        private void btnTEST_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                SpecijalnaPredstava sp = new SpecijalnaPredstava();
+
+                sp.BrojKarata = 30;
+                sp.Vreme = DateTime.Now;
+
+
+                s.Save(sp);
+
+                s.Flush();
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show(ec.Message);
+            }
+        }
+
+        private void frmTest_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnTEST2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                //Ucitavaju se podaci o prodavnici za zadatim brojem
+                //Prodavnica.Entiteti.Prodavnica p = s.Load<Prodavnica.Entiteti.Prodavnica>(61);
+                Direktor d = s.Load<Direktor>(1002);
+
+                MessageBox.Show(d.Ime);
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show(ec.Message);
+            }
+
+        }
     }
 }

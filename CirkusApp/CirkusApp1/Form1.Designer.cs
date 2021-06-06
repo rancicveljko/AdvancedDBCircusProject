@@ -31,6 +31,8 @@ namespace CirkusApp1
         {
             this.button1 = new System.Windows.Forms.Button();
             this.btnDodajMesto = new System.Windows.Forms.Button();
+            this.btnTEST = new System.Windows.Forms.Button();
+            this.btnTEST2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -53,15 +55,38 @@ namespace CirkusApp1
             this.btnDodajMesto.UseVisualStyleBackColor = true;
             this.btnDodajMesto.Click += new System.EventHandler(this.btnDodajMesto_Click);
             // 
+            // btnTEST
+            // 
+            this.btnTEST.Location = new System.Drawing.Point(12, 80);
+            this.btnTEST.Name = "btnTEST";
+            this.btnTEST.Size = new System.Drawing.Size(155, 28);
+            this.btnTEST.TabIndex = 2;
+            this.btnTEST.Text = "create TEST";
+            this.btnTEST.UseVisualStyleBackColor = true;
+            this.btnTEST.Click += new System.EventHandler(this.btnTEST_Click);
+            // 
+            // btnTEST2
+            // 
+            this.btnTEST2.Location = new System.Drawing.Point(12, 114);
+            this.btnTEST2.Name = "btnTEST2";
+            this.btnTEST2.Size = new System.Drawing.Size(155, 28);
+            this.btnTEST2.TabIndex = 3;
+            this.btnTEST2.Text = "load TEST";
+            this.btnTEST2.UseVisualStyleBackColor = true;
+            this.btnTEST2.Click += new System.EventHandler(this.btnTEST2_Click);
+            // 
             // frmTest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1041, 490);
+            this.Controls.Add(this.btnTEST2);
+            this.Controls.Add(this.btnTEST);
             this.Controls.Add(this.btnDodajMesto);
             this.Controls.Add(this.button1);
             this.Name = "frmTest";
             this.Text = "Test forma";
+            this.Load += new System.EventHandler(this.frmTest_Load);
             this.ResumeLayout(false);
 
         }
@@ -70,6 +95,8 @@ namespace CirkusApp1
 
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnDodajMesto;
+        private System.Windows.Forms.Button btnTEST;
+        private System.Windows.Forms.Button btnTEST2;
     }
 }
 

@@ -11,8 +11,8 @@ namespace CirkusApp1.Mapiranja
 	public class DirektorMapiranja : ClassMap<Direktor>
 	{
 
-	public DirektorMapiranja()
-	{
+		public DirektorMapiranja()
+		{
 			Table("DIREKTOR");
 
 			Id(x => x.IdDirektora, "ID_DIREKTORA").GeneratedBy.SequenceIdentity("ISEQ$$_265868");
@@ -24,4 +24,5 @@ namespace CirkusApp1.Mapiranja
 
 			HasMany(x => x.Zaposleni).KeyColumn("FK_ID_DIREKTORA").LazyLoad().Cascade.All().Inverse();
 		}
+	}
 }

@@ -14,7 +14,7 @@ namespace CirkusApp1.Mapiranja
         {
             Table("ZAPOSLENI");
 
-            Id(x => x.IdPredstave, "id_predstave").GeneratedBy.SequenceIdentity("ISEQ$$_265871");
+            Id(x => x.IdZaposlenog, "id_zaposlenog").GeneratedBy.SequenceIdentity("ISEQ$$_265881");
 
             Map(x => x.Ime, "IME");
             Map(x => x.Ime_Rod, "IME_ROD");
@@ -22,8 +22,8 @@ namespace CirkusApp1.Mapiranja
             Map(x => x.Datum_Rodj, "DATUM_RODJ");
             Map(x => x.Mesto_Rodj, "MESTO_RODJ");
             Map(x => x.Maticnibr, "MAT_BR");
-            
 
+            
             References(x => x.IdDirektora).Column("FK_ID_DIREKTORA").LazyLoad();
 
         }
