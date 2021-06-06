@@ -20,6 +20,10 @@ namespace CirkusApp1.Mapiranja
 
             References(x => x.PomazeArtistu).Column("FK_ID_PERFORMERA");
 
+            //References(x => x.RadiSa).Column("FK_ID_PERFORMERA").LazyLoad();
+            //References(x => x.Radi_Sa).Column("FK_ID_PERFORMERA").LazyLoad();
+            //References(x => x.Radi__Sa).Column("FK_ID_PERFORMERA").LazyLoad();
+
         }
 
 

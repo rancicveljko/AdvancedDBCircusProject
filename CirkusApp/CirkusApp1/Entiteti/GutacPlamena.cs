@@ -8,6 +8,12 @@ namespace CirkusApp1.Entiteti
 {
     public class GutacPlamena:Artist
     {
+        public virtual IList<PomocnoOsoblje> Asistenti { get; set; }
+
+        public GutacPlamena()
+        {
+            Asistenti = new List<PomocnoOsoblje>();
+        }
 
     }
 }

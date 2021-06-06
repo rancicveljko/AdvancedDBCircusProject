@@ -8,5 +8,11 @@ namespace CirkusApp1.Entiteti
 {
     public class BacacNozeva:Artist
     {
+        public virtual IList<PomocnoOsoblje> Asistenti { get; set; }
+
+        public BacacNozeva()
+        {
+            Asistenti = new List<PomocnoOsoblje>();
+        }
     }
 }

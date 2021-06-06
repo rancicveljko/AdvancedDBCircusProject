@@ -12,19 +12,7 @@ namespace CirkusApp1.Mapiranja
     {
         public ZaposleniMapiranja()
         {
-            //Table("ZAPOSLENI");
-
-            //Id(x => x.IdZaposlenog, "id_zaposlenog").GeneratedBy.SequenceIdentity("ISEQ$$_265881");
-
-            //Map(x => x.Ime, "IME");
-            //Map(x => x.Ime_Rod, "IME_ROD");
-            //Map(x => x.Prezime, "PREZIME");
-            //Map(x => x.Datum_Rodj, "DATUM_RODJ");
-            //Map(x => x.Mesto_Rodj, "MESTO_RODJ");
-            //Map(x => x.Maticnibr, "MAT_BR");
-
-
-            //References(x => x.PripadaDirektoru).Column("FK_ID_DIREKTORA").LazyLoad();
+            
 
             Table("ZAPOSLENI");
 

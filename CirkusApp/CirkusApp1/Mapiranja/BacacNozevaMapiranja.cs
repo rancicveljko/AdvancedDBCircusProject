@@ -15,6 +15,8 @@ namespace CirkusApp1.Mapiranja
             Table("BACAC_NOZEVA");
 
             KeyColumn("ID_PERFORMERA");
+
+            //HasMany(x => x.Asistenti).KeyColumn("ID_ZAPOSLENOG").LazyLoad().Cascade.All().Inverse();
         }
     }
 }

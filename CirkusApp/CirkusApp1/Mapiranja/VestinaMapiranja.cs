@@ -23,7 +23,7 @@ namespace CirkusApp1.Mapiranja
                 .Table("JE_VEST_U")
                 .ParentKeyColumn("ID_VESTINE")
                 .ChildKeyColumn("ID_AKROBATE")
-                .Inverse()
+                
                 .Cascade
                 .All();
         }
