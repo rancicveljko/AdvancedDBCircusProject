@@ -8,7 +8,7 @@ namespace CirkusApp1.Entiteti
 {
     public class Direktor
     {
-        public virtual int IdDirektora { get; protected set; }
+        public virtual int IdDirektora { get;  set; }
         public virtual string Ime { get; set; }
         public virtual string Prezime { get; set; }
         public virtual string Email { get; set; }

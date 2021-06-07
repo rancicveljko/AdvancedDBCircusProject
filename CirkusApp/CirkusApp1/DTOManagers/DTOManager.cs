@@ -177,6 +177,252 @@ namespace CirkusApp1.DTOManagers
             }
         }
         #endregion
+        #region Zaposleni
 
+        public static List<ZaposleniPregled> vratiSveZaposlene()
+        {
+            List<ZaposleniPregled> zaposleni = new List<ZaposleniPregled>();
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                IEnumerable<Zaposleni> svizaposleni = from o in s.Query<Zaposleni>()
+                                                      select o;
+
+                foreach (Zaposleni z in svizaposleni)
+                {
+                    zaposleni.Add(new ZaposleniPregled(z.IdZaposlenog, z.Ime, z.Ime_Rod, z.Prezime, z.Datum_Rodj, z.Mesto_Rodj, (int)z.Maticnibr));
+                }
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                //handle exceptions
+            }
+
+            return zaposleni;
+        }
+
+        public static ZaposleniBasic azurirajZaposlene(ZaposleniBasic zb)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                Zaposleni z = s.Load<Zaposleni>(zb.IdZaposlenog);
+
+                z.IdZaposlenog = zb.IdZaposlenog;
+                z.Ime = zb.Ime;
+                z.Ime_Rod = zb.Ime_Rod;
+                z.Prezime = zb.Prezime;
+                z.Datum_Rodj = zb.Datum_Rodj;
+                z.Mesto_Rodj = zb.Mesto_Rodj;
+                z.Maticnibr = zb.Maticnibr;
+
+                s.Update(z);
+
+                s.Flush();
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                //handle exceptions
+            }
+
+            return zb;
+        }
+
+        public static ZaposleniBasic vratiZaposlenog(int id)
+        {
+            ZaposleniBasic zb = new ZaposleniBasic();
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                Zaposleni z = s.Load<Zaposleni>(id);
+                zb = new ZaposleniBasic(z.IdZaposlenog, z.Ime, z.Ime_Rod, z.Prezime, z.Datum_Rodj, z.Mesto_Rodj, (int)z.Maticnibr);
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                //handle exceptions
+            }
+
+            return zb;
+        }
+
+        public static void dodajZaposlenog(Zaposleni zap)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                Zaposleni z = new Zaposleni();
+
+                z.IdZaposlenog = zap.IdZaposlenog;
+                z.Ime = zap.Ime;
+                z.Ime_Rod = zap.Ime_Rod;
+                z.Prezime = zap.Prezime;
+                z.Datum_Rodj = zap.Datum_Rodj;
+                z.Mesto_Rodj = zap.Mesto_Rodj;
+                z.Maticnibr = zap.Maticnibr;
+
+                s.SaveOrUpdate(z);
+
+                s.Flush();
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                //handle exceptions
+            }
+        }
+
+        public static void obrisiZaposlenog(int id)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                Zaposleni z = s.Load<Zaposleni>(id);
+
+                s.Delete(z);
+                s.Flush();
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                //handle exceptions
+            }
+        }
+
+        #endregion
+
+        #region Direktor
+        public static List<DirektorPregled> vratiSveDirektore()
+        {
+            List<DirektorPregled> direktori = new List<DirektorPregled>();
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                IEnumerable<Direktor> svidirektori = from o in s.Query<Direktor>()
+                                                     select o;
+
+                foreach (Direktor d in svidirektori)
+                {
+                    direktori.Add(new DirektorPregled(d.IdDirektora, d.Ime, d.Prezime, d.Email, d.Telefon));
+                }
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                //handle exceptions
+            }
+
+            return direktori;
+        }
+
+        public static DirektorBasic azurirajDirektora(DirektorBasic db)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                Direktor d = s.Load<Direktor>(db.IdDirektora);
+
+                d.IdDirektora = db.IdDirektora;
+                d.Ime = db.Ime;
+                d.Prezime = db.Prezime;
+                d.Email = db.Email;
+                d.Telefon = db.Telefon;
+
+                s.Update(d);
+
+                s.Flush();
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                //handle exceptions
+            }
+
+            return db;
+        }
+
+        public static DirektorBasic vratiDirektora(int id)
+        {
+            DirektorBasic db = new DirektorBasic();
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                Direktor d = s.Load<Direktor>(id);
+                db = new DirektorBasic(d.IdDirektora, d.Ime, d.Prezime, d.Email, d.Telefon);
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                //handle exceptions
+            }
+
+            return db;
+        }
+
+        public static void dodajDirektora(Direktor dir)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                Direktor d = new Direktor();
+
+                d.IdDirektora = dir.IdDirektora;
+                d.Ime = dir.Ime;
+                d.Prezime = dir.Prezime;
+                d.Email = dir.Email;
+                d.Telefon = dir.Telefon;
+
+
+                s.SaveOrUpdate(d);
+
+                s.Flush();
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                //handle exceptions
+            }
+        }
+
+        public static void obrisiDirektora(int id)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                Direktor d = s.Load<Direktor>(id);
+
+                s.Delete(d);
+                s.Flush();
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                //handle exceptions
+            }
+        }
+        #endregion
     }
 }
+   
