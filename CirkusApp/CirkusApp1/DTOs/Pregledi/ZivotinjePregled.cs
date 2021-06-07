@@ -6,24 +6,28 @@ using System.Threading.Tasks;
 
 namespace CirkusApp1.DTOs.Pregledi
 {
-    class ZivotinjaPregled
+    class ZivotinjePregled
     {
-        public int IdZivotinja { get; set; }
-        public String UmetnickoIme { get; set; }
-        public String Vrsta { get; set; }
-        public String Pol { get; set; }
-        public int Starost { get; set; }
+        public int IdPerformera;
+        public String UmetnickoIme;
+        public String Pol;
+        public DateTime ClanOd;
+        public String Vrsta;
+        public float Tezina;
+        public int Starost;
 
-        public ZivotinjaPregled()
+
+        public ZivotinjePregled()
         {
 
         }
-        public ZivotinjaPregled(int id, String ime, String vrs, String pol, int starost)
+        public ZivotinjePregled( String ime,  String pol, DateTime clanod, String vrs, float tez, int starost)
         {
-            this.IdZivotinja = id;
             this.UmetnickoIme = ime;
-            this.Vrsta = vrs;
             this.Pol = pol;
+            this.ClanOd = clanod;
+            this.Vrsta = vrs;
+            this.Tezina = tez;
             this.Starost = starost;
         }
     }

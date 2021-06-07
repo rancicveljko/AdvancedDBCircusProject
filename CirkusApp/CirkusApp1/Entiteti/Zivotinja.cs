@@ -8,7 +8,7 @@ namespace CirkusApp1.Entiteti
 {
     public class Zivotinja
     {
-        public virtual int IdPerformera { get; protected set; }
+        public virtual int IdPerformera { get; set; }
         public virtual String UmetnickoIme { get; set; }
         public virtual String Pol { get; set; }
         public virtual DateTime ClanOd { get; set; }

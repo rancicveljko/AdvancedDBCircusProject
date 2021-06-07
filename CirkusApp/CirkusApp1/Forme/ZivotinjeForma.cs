@@ -30,12 +30,12 @@ namespace CirkusApp1.Forme
         {
             this.brojzivotinja = 0;
 
-            List<ZivotinjaPregled> listazivotinja = DTOManager.vratiSveZivotinje();
+            List<ZivotinjePregled> listazivotinja = DTOManager.vratiSveZivotinje();
             this.lvSveZivotinje.Items.Clear();
 
-            foreach (ZivotinjaPregled zp in listazivotinja)
+            foreach (ZivotinjePregled zp in listazivotinja)
             {
-                ListViewItem item = new ListViewItem(new string[] { zp.IdZivotinja.ToString(), zp.UmetnickoIme, zp.Vrsta, zp.Pol, zp.Starost.ToString() });
+                ListViewItem item = new ListViewItem(new string[] { zp.IdPerformera.ToString(), zp.UmetnickoIme, zp.Vrsta, zp.Pol, zp.Starost.ToString() });
                 this.lvSveZivotinje.Items.Add(item);
                 //this.brojZivotinja++;
             }
