@@ -14,7 +14,7 @@ namespace CirkusApp1.DTOs.Basics
         {
             //Asistenti = new List<PomocnoOsobljeBasic>();
         }
-        public BacacNozevaBasic(int id, String ime, String prez, String UmIme, String pol, DateTime clan) : base(id, ime, prez, UmIme, pol, clan)
+        public BacacNozevaBasic( String ime, String prez, String UmIme, String pol, DateTime clan) : base( ime, prez, UmIme, pol, clan)
         {
 
         }

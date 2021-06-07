@@ -102,6 +102,30 @@
     <Compile Include="Entiteti\Vestina.cs" />
     <Compile Include="Entiteti\Zivotinja.cs" />
     <Compile Include="Entiteti\Zongler.cs" />
+    <Compile Include="Forme\DodajArtistaForma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forme\DodajArtistaForma.Designer.cs">
+      <DependentUpon>DodajArtistaForma.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forme\DodajKlovnaForma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forme\DodajKlovnaForma.Designer.cs">
+      <DependentUpon>DodajKlovnaForma.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forme\DodajZongleraForma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forme\DodajZongleraForma.Designer.cs">
+      <DependentUpon>DodajZongleraForma.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forme\DodavanjeZaposlenog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forme\DodavanjeZaposlenog.Designer.cs">
+      <DependentUpon>DodavanjeZaposlenog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forme\SveNastupneTackeForma.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -157,6 +181,12 @@
     <Compile Include="Mapiranja\ZaposleniMapiranja.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forme\DodajArtistaForma.resx">
+      <DependentUpon>DodajArtistaForma.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forme\DodavanjeZaposlenog.resx">
+      <DependentUpon>DodavanjeZaposlenog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forme\PocetnaStranica.resx">
       <DependentUpon>PocetnaStranica.cs</DependentUpon>

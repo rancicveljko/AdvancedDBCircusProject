@@ -254,7 +254,7 @@ namespace CirkusApp1.DTOManagers
             return zb;
         }
 
-        public static void dodajZaposlenog(Zaposleni zap)
+        public static void dodajZaposlenog(ZaposleniBasic zap)
         {
             try
             {
@@ -262,13 +262,15 @@ namespace CirkusApp1.DTOManagers
 
                 Zaposleni z = new Zaposleni();
 
-                z.IdZaposlenog = zap.IdZaposlenog;
+                
                 z.Ime = zap.Ime;
                 z.Ime_Rod = zap.Ime_Rod;
                 z.Prezime = zap.Prezime;
                 z.Datum_Rodj = zap.Datum_Rodj;
                 z.Mesto_Rodj = zap.Mesto_Rodj;
                 z.Maticnibr = zap.Maticnibr;
+                Direktor d = s.Load<Direktor>(zap.PripadaDirektoru.IdDirektora);
+                z.PripadaDirektoru = d;
 
                 s.SaveOrUpdate(z);
 

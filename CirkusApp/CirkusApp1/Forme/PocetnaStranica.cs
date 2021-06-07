@@ -23,5 +23,11 @@ namespace CirkusApp1
             SveNastupneTackeForma form = new SveNastupneTackeForma();
             form.Show();
         }
+
+        private void btnArtistiForma_Click(object sender, EventArgs e)
+        {
+            SviArtistiForma form = new SviArtistiForma();
+            form.Show();
+        }
     }
 }

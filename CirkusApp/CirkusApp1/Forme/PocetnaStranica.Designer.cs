@@ -42,6 +42,7 @@ namespace CirkusApp1
             this.btnArtistiForma.TabIndex = 0;
             this.btnArtistiForma.Text = "ARTISTI";
             this.btnArtistiForma.UseVisualStyleBackColor = true;
+            this.btnArtistiForma.Click += new System.EventHandler(this.btnArtistiForma_Click);
             // 
             // btnNastupneTackeForma
             // 

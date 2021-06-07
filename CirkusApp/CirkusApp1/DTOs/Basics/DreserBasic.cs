@@ -16,7 +16,7 @@ namespace CirkusApp1.DTOs.Basics
             Zivotinje = new List<ZivotinjaBasic>();
             //Asistenti=new List<PomocnoOsobljeBasic>();
         }
-        public DreserBasic(int id, String ime, String prez, String UmIme, String pol, DateTime clan) : base(id, ime, prez, UmIme, pol, clan)
+        public DreserBasic( String ime, String prez, String UmIme, String pol, DateTime clan) : base( ime, prez, UmIme, pol, clan)
         {
 
         }
