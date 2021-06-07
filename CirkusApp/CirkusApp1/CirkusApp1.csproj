@@ -205,11 +205,20 @@
     <EmbeddedResource Include="Forme\DodajArtistaForma.resx">
       <DependentUpon>DodajArtistaForma.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forme\DodajKlovnaForma.resx">
+      <DependentUpon>DodajKlovnaForma.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forme\DodajZivotinjuForma.resx">
       <DependentUpon>DodajZivotinjuForma.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forme\DodajZongleraForma.resx">
+      <DependentUpon>DodajZongleraForma.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forme\DodavanjeZaposlenog.resx">
       <DependentUpon>DodavanjeZaposlenog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forme\IzmeniZivotinjuForma.resx">
+      <DependentUpon>IzmeniZivotinjuForma.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forme\PocetnaStranica.resx">
       <DependentUpon>PocetnaStranica.cs</DependentUpon>
@@ -245,6 +254,8 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\sbpCirkusBackground.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

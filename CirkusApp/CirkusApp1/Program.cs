@@ -15,7 +15,7 @@ namespace CirkusApp1
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmTest());
+            Application.Run(new PocetnaStranica());
         }
     }
 }

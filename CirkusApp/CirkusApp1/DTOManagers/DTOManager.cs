@@ -125,7 +125,6 @@ namespace CirkusApp1.DTOManagers
             }
         }
         #endregion
-
         #region Artist
         public static List<ArtistPregled> vratiSveArtiste()
         {
@@ -246,7 +245,6 @@ namespace CirkusApp1.DTOManagers
             }
         }
         #endregion
-
         #region Zaposleni
 
         public static List<ZaposleniPregled> vratiSveZaposlene()
@@ -547,7 +545,6 @@ namespace CirkusApp1.DTOManagers
             return osoblje;
         }
         #endregion 
-        //U ^ fali ReadOne, Add, Update, Delete
 
         #region Zivotinja
         public static List<ZivotinjePregled> vratiSveZivotinje()

@@ -59,5 +59,15 @@ namespace CirkusApp1.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap sbpCirkusBackground {
+            get {
+                object obj = ResourceManager.GetObject("sbpCirkusBackground", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

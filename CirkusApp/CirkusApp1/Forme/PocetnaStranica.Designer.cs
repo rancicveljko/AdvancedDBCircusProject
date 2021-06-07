@@ -32,6 +32,7 @@ namespace CirkusApp1
             this.btnArtistiForma = new System.Windows.Forms.Button();
             this.btnNastupneTackeForma = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnSveZivotinjeForma = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnArtistiForma
@@ -64,11 +65,23 @@ namespace CirkusApp1
             this.label1.TabIndex = 2;
             this.label1.Text = "CIRKUS";
             // 
+            // btnSveZivotinjeForma
+            // 
+            this.btnSveZivotinjeForma.Location = new System.Drawing.Point(328, 309);
+            this.btnSveZivotinjeForma.Name = "btnSveZivotinjeForma";
+            this.btnSveZivotinjeForma.Size = new System.Drawing.Size(148, 43);
+            this.btnSveZivotinjeForma.TabIndex = 3;
+            this.btnSveZivotinjeForma.Text = "ZIVOTINJE";
+            this.btnSveZivotinjeForma.UseVisualStyleBackColor = true;
+            this.btnSveZivotinjeForma.Click += new System.EventHandler(this.btnSveZivotinjeForma_Click);
+            // 
             // PocetnaStranica
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::CirkusApp1.Properties.Resources.sbpCirkusBackground;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnSveZivotinjeForma);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnNastupneTackeForma);
             this.Controls.Add(this.btnArtistiForma);
@@ -83,5 +96,6 @@ namespace CirkusApp1
         private System.Windows.Forms.Button btnNastupneTackeForma;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnArtistiForma;
+        private System.Windows.Forms.Button btnSveZivotinjeForma;
     }
 }

@@ -113,6 +113,7 @@ namespace CirkusApp1.Forme
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::CirkusApp1.Properties.Resources.sbpCirkusBackground;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.lvSveNastupneTacke);
             this.Controls.Add(this.btnObrisiNastupnuTacku);

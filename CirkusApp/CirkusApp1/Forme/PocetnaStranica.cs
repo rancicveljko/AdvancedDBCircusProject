@@ -29,5 +29,11 @@ namespace CirkusApp1
             SviArtistiForma form = new SviArtistiForma();
             form.Show();
         }
+
+        private void btnSveZivotinjeForma_Click(object sender, EventArgs e)
+        {
+            ZivotinjeForma forma = new ZivotinjeForma();
+            forma.Show();
+        }
     }
 }

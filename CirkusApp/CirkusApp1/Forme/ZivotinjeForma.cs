@@ -88,5 +88,22 @@ namespace CirkusApp1.Forme
             forma.ShowDialog();
             popuniPodacima();
         }
+
+        private void ZivotinjeForma_Load_1(object sender, EventArgs e)
+        {
+            popuniPodacima();
+        }
+
+        private void btnDodajZivotinju_Click_1(object sender, EventArgs e)
+        {
+            DodajZivotinjuForma forma = new DodajZivotinjuForma();
+            forma.Show();
+        }
+
+        private void btnIzmeniZivotinju_Click_1(object sender, EventArgs e)
+        {
+            IzmeniZivotinjuForma forma = new IzmeniZivotinjuForma();
+            forma.Show();
+        }
     }
 }

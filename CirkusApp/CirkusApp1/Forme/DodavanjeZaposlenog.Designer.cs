@@ -30,6 +30,12 @@ namespace CirkusApp1.Forme
         private void InitializeComponent()
         {
             this.podaciZaposleni = new System.Windows.Forms.GroupBox();
+            this.datumRodjenja = new System.Windows.Forms.DateTimePicker();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -43,19 +49,14 @@ namespace CirkusApp1.Forme
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
             this.DodajZaposlenog = new System.Windows.Forms.Button();
-            this.datumRodjenja = new System.Windows.Forms.DateTimePicker();
             this.podaciZaposleni.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // podaciZaposleni
             // 
+            this.podaciZaposleni.BackColor = System.Drawing.Color.Transparent;
             this.podaciZaposleni.Controls.Add(this.datumRodjenja);
             this.podaciZaposleni.Controls.Add(this.textBox6);
             this.podaciZaposleni.Controls.Add(this.textBox5);
@@ -74,6 +75,49 @@ namespace CirkusApp1.Forme
             this.podaciZaposleni.TabIndex = 0;
             this.podaciZaposleni.TabStop = false;
             this.podaciZaposleni.Text = "Podaci o zaposlenom";
+            // 
+            // datumRodjenja
+            // 
+            this.datumRodjenja.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.datumRodjenja.Location = new System.Drawing.Point(173, 108);
+            this.datumRodjenja.Name = "datumRodjenja";
+            this.datumRodjenja.Size = new System.Drawing.Size(100, 22);
+            this.datumRodjenja.TabIndex = 12;
+            // 
+            // textBox6
+            // 
+            this.textBox6.Location = new System.Drawing.Point(173, 164);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(100, 22);
+            this.textBox6.TabIndex = 11;
+            // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(173, 136);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(100, 22);
+            this.textBox5.TabIndex = 10;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(173, 80);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(100, 22);
+            this.textBox3.TabIndex = 8;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(173, 52);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(100, 22);
+            this.textBox2.TabIndex = 7;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(173, 26);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 22);
+            this.textBox1.TabIndex = 6;
             // 
             // label6
             // 
@@ -131,6 +175,7 @@ namespace CirkusApp1.Forme
             // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.Color.Transparent;
             this.groupBox1.Controls.Add(this.lvSviDirektori);
             this.groupBox1.Location = new System.Drawing.Point(16, 251);
             this.groupBox1.Name = "groupBox1";
@@ -180,41 +225,6 @@ namespace CirkusApp1.Forme
             this.columnHeader5.Text = "Telefon";
             this.columnHeader5.Width = 97;
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(173, 26);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 22);
-            this.textBox1.TabIndex = 6;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(173, 52);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 22);
-            this.textBox2.TabIndex = 7;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(173, 80);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 22);
-            this.textBox3.TabIndex = 8;
-            // 
-            // textBox5
-            // 
-            this.textBox5.Location = new System.Drawing.Point(173, 136);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 22);
-            this.textBox5.TabIndex = 10;
-            // 
-            // textBox6
-            // 
-            this.textBox6.Location = new System.Drawing.Point(173, 164);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(100, 22);
-            this.textBox6.TabIndex = 11;
-            // 
             // DodajZaposlenog
             // 
             this.DodajZaposlenog.Location = new System.Drawing.Point(514, 202);
@@ -225,18 +235,11 @@ namespace CirkusApp1.Forme
             this.DodajZaposlenog.UseVisualStyleBackColor = true;
             this.DodajZaposlenog.Click += new System.EventHandler(this.DodajZaposlenog_Click);
             // 
-            // datumRodjenja
-            // 
-            this.datumRodjenja.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.datumRodjenja.Location = new System.Drawing.Point(173, 108);
-            this.datumRodjenja.Name = "datumRodjenja";
-            this.datumRodjenja.Size = new System.Drawing.Size(100, 22);
-            this.datumRodjenja.TabIndex = 12;
-            // 
             // DodavanjeZaposlenog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::CirkusApp1.Properties.Resources.sbpCirkusBackground;
             this.ClientSize = new System.Drawing.Size(682, 494);
             this.Controls.Add(this.DodajZaposlenog);
             this.Controls.Add(this.groupBox1);
