@@ -46,6 +46,7 @@ namespace CirkusApp1.Forme
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lvSveZivotinje = new System.Windows.Forms.ListView();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -159,7 +160,7 @@ namespace CirkusApp1.Forme
             this.datum.Location = new System.Drawing.Point(152, 130);
             this.datum.MaxDate = new System.DateTime(2021, 6, 1, 0, 0, 0, 0);
             this.datum.MinDate = new System.DateTime(2010, 1, 1, 0, 0, 0, 0);
-            this.datum.Name = "datum";
+            this.datum.Name = "datumRodjenja";
             this.datum.Size = new System.Drawing.Size(176, 22);
             this.datum.TabIndex = 13;
             this.datum.Value = new System.DateTime(2021, 6, 1, 0, 0, 0, 0);
@@ -204,6 +205,28 @@ namespace CirkusApp1.Forme
             this.label2.TabIndex = 3;
             this.label2.Text = "Pol:";
             // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Location = new System.Drawing.Point(283, 85);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(76, 21);
+            this.radioButton2.TabIndex = 2;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.Text = "Zensko";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Location = new System.Drawing.Point(152, 85);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(70, 21);
+            this.radioButton1.TabIndex = 1;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "Musko";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -222,6 +245,17 @@ namespace CirkusApp1.Forme
             this.lvSveZivotinje.Size = new System.Drawing.Size(480, 307);
             this.lvSveZivotinje.TabIndex = 2;
             this.lvSveZivotinje.UseCompatibleStateImageBehavior = false;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.radioButton1);
+            this.groupBox2.Controls.Add(this.radioButton2);
+            this.groupBox2.Location = new System.Drawing.Point(152, 71);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(236, 47);
+            this.groupBox2.TabIndex = 23;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Pol";
             // 
             // DodajZivotinjuForma
             // 

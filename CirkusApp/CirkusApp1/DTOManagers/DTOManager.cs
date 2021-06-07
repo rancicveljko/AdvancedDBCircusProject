@@ -215,7 +215,7 @@ namespace CirkusApp1.DTOManagers
                 ISession s = DataLayer.GetSession();
 
                 Artist a = s.Load<Artist>(id);
-                art = new ArtistBasic(a.JeZaposleni.Ime, a.JeZaposleni.Prezime, a.UmetnickoIme, a.Pol, a.ClanOd);
+                art = new ArtistBasic(a.IdPerformera,a.JeZaposleni.Ime, a.JeZaposleni.Prezime, a.UmetnickoIme, a.Pol, a.ClanOd);
 
                 s.Close();
             }
@@ -242,6 +242,35 @@ namespace CirkusApp1.DTOManagers
             catch (Exception ec)
             {
                 //handle exceptions
+            }
+        }
+        #endregion
+        #region Akrobata
+        public static void dodajAkrobatu(AkrobataBasic artist)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                Akrobata n = new Akrobata();
+
+                n.IdPerformera = artist.ArtistId;
+                Zaposleni a = s.Load<Zaposleni>(artist.Zaposleni.IdZaposlenog);
+
+                n.JeZaposleni = a;
+                n.UmetnickoIme = artist.UmetnickoIme;
+                n.Pol = artist.Pol;
+                n.ClanOd = artist.ClanOd;
+
+                s.SaveOrUpdate(n);
+
+                s.Flush();
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+
             }
         }
         #endregion
@@ -343,7 +372,7 @@ namespace CirkusApp1.DTOManagers
                 s.SaveOrUpdate(z);
 
                 s.Flush();
-
+                zap.IdZaposlenog = z.IdZaposlenog;
                 s.Close();
             }
             catch (Exception ec)
@@ -637,7 +666,7 @@ namespace CirkusApp1.DTOManagers
                 ISession s = DataLayer.GetSession();
 
                 Zivotinja z = s.Load<Zivotinja>(id);
-                zb = new ZivotinjaBasic( z.UmetnickoIme, z.Pol, z.ClanOd, z.Vrsta,z.Tezina,z.Starost);
+                zb = new ZivotinjaBasic( z.IdPerformera,z.UmetnickoIme, z.Pol, z.ClanOd, z.Vrsta,z.Tezina,z.Starost);
 
                 s.Close();
             }

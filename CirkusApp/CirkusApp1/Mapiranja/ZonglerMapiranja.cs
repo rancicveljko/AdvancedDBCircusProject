@@ -17,6 +17,7 @@ namespace CirkusApp1.Mapiranja
             KeyColumn("ID_PERFORMERA");
             Map(x => x.NazivPredmeta, "NAZIV_PREDMETA");
             Map(x => x.MaxPredmeta, "MAX_PREDMETA");
+            References(x => x.JeZaposleni).Column("ID_ZAPOSLENOG").LazyLoad();//
         }
     }
 }

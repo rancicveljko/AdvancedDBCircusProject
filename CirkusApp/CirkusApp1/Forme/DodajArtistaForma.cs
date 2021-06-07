@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CirkusApp1.DTOManagers;
+using CirkusApp1.DTOs.Basics;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,11 +12,18 @@ using System.Windows.Forms;
 
 namespace CirkusApp1.Forme
 {
-    public partial class TipArtistaForma : Form
+    public partial class DodajArtistaForma : Form
     {
-        public TipArtistaForma()
+        public ZaposleniBasic zaposlen;
+        public DodajArtistaForma()
         {
             InitializeComponent();
+        }
+        public DodajArtistaForma(ZaposleniBasic z)
+        {
+            InitializeComponent();
+            zaposlen = z;
+
         }
 
         private void IzaberiTip_Click(object sender, EventArgs e)
@@ -32,10 +41,21 @@ namespace CirkusApp1.Forme
             else if(Akrobata.Checked)
             {
                 //kreiramo akrobatu i ubacujemo id njegov u tabelu akrobata
+                AkrobataBasic akrobata = new AkrobataBasic();
+
+                akrobata.UmetnickoIme = textBox1.Text;
+                akrobata.Pol = textBox2.Text;
+                akrobata.ClanOd = clanOd.Value;
+
+                akrobata.Zaposleni = zaposlen;
+
+                DTOManager.dodajAkrobatu(akrobata);
+
+                MessageBox.Show("Uspesno ste dodali novog Akrobatu!");
             }
             else if(Dreser.Checked)
             {
-                ////kreiramo dresera i ubacujemo id njegov u tabelu dreser
+                //kreiramo dresera i ubacujemo id njegov u tabelu dreser
             }
             else if(BacacNozeva.Checked)
             {

@@ -49,10 +49,7 @@ namespace CirkusApp1.Forme
 
             ZivotinjaBasic zivotinja = new ZivotinjaBasic();
             zivotinja.UmetnickoIme = textBox2.Text;
-            if (radioButton1.Checked)
-                zivotinja.Pol = radioButton1.Text;
-            if (radioButton2.Checked)
-                zivotinja.Pol = radioButton2.Text;
+            zivotinja.Pol = 
             zivotinja.Vrsta = textBox1.Text;
             zivotinja.ClanOd = datum.Value;
             zivotinja.Starost = int.Parse(textBox5.Text);

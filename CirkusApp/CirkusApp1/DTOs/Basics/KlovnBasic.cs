@@ -15,7 +15,7 @@ namespace CirkusApp1.DTOs.Basics
         {
 
         }
-        public KlovnBasic( String ime, String prez, String UmIme, String pol, string tip, String cime, DateTime clan) : base( ime, prez, UmIme, pol, clan)
+        public KlovnBasic( int id,String ime, String prez, String UmIme, String pol, string tip, String cime, DateTime clan) : base( id,ime, prez, UmIme, pol, clan)
         {
             this.Tip = tip;
             this.CimeZabavlja = cime;

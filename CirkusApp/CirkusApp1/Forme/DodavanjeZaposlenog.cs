@@ -46,8 +46,6 @@ namespace CirkusApp1.Forme
 
         private void DodajZaposlenog_Click(object sender, EventArgs e)
         {
-            try
-            {
             if (lvSviDirektori.SelectedItems.Count == 0)
             {
                 MessageBox.Show("Izaberite Direktora koji zaposljava novog zaposlenog!");
@@ -58,6 +56,7 @@ namespace CirkusApp1.Forme
             DirektorBasic p = DTOManager.vratiDirektora(idDirektora);
 
             ZaposleniBasic radnik = new ZaposleniBasic();
+
             radnik.Ime = textBox1.Text;
             radnik.Ime_Rod = textBox2.Text;
             radnik.Prezime = textBox3.Text;
@@ -67,22 +66,13 @@ namespace CirkusApp1.Forme
 
             radnik.PripadaDirektoru = p;
 
-
             DTOManager.dodajZaposlenog(radnik);
 
-                radnik.PripadaDirektoru.Zaposleni.Add(radnik);
-            
+
 
             MessageBox.Show("Uspesno ste dodali novog zaposlenog!");
-            }
-            catch(GenericADOException ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            catch(Exception ex)
-            {
-                //bice nekad
-            }
+            DodajArtistaForma forma = new DodajArtistaForma(radnik);
+            forma.Show();
         }
     }
 }
