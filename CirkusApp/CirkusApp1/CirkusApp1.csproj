@@ -114,6 +114,12 @@
     <Compile Include="Forme\DodajKlovnaForma.Designer.cs">
       <DependentUpon>DodajKlovnaForma.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forme\DodajZivotinjuForma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forme\DodajZivotinjuForma.Designer.cs">
+      <DependentUpon>DodajZivotinjuForma.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forme\DodajZongleraForma.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -137,6 +143,12 @@
     </Compile>
     <Compile Include="Forme\SviArtistiForma.Designer.cs">
       <DependentUpon>SviArtistiForma.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forme\ZivotinjeForma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forme\ZivotinjeForma.Designer.cs">
+      <DependentUpon>ZivotinjeForma.cs</DependentUpon>
     </Compile>
     <Compile Include="Mapiranja\AkrobataMapiranja.cs" />
     <Compile Include="Mapiranja\ArtistMapiranja.cs" />
@@ -185,6 +197,9 @@
     <EmbeddedResource Include="Forme\DodajArtistaForma.resx">
       <DependentUpon>DodajArtistaForma.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forme\DodajZivotinjuForma.resx">
+      <DependentUpon>DodajZivotinjuForma.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forme\DodavanjeZaposlenog.resx">
       <DependentUpon>DodavanjeZaposlenog.cs</DependentUpon>
     </EmbeddedResource>
@@ -196,6 +211,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forme\SviArtistiForma.resx">
       <DependentUpon>SviArtistiForma.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forme\ZivotinjeForma.resx">
+      <DependentUpon>ZivotinjeForma.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
