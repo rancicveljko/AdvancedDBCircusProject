@@ -73,8 +73,22 @@
   <ItemGroup>
     <Compile Include="DataLayer.cs" />
     <Compile Include="DTOManagers\DTOManager.cs" />
+    <Compile Include="DTOs\Basics\ArtistBasic.cs" />
+    <Compile Include="DTOs\Basics\BacacNozevaBasic.cs" />
+    <Compile Include="DTOs\Basics\DreserBasic.cs" />
+    <Compile Include="DTOs\Basics\GutacPlamenaBasic.cs" />
+    <Compile Include="DTOs\Basics\KlovnBasic.cs" />
     <Compile Include="DTOs\Basics\NastupnaTackaBasic.cs" />
+    <Compile Include="DTOs\Basics\ZivotinjaBasic.cs" />
+    <Compile Include="DTOs\Basics\ZonglerBasic.cs" />
+    <Compile Include="DTOs\Pregledi\ArtistPregled.cs" />
+    <Compile Include="DTOs\Pregledi\BacacNozevaPregled.cs" />
+    <Compile Include="DTOs\Pregledi\DreserPregled.cs" />
+    <Compile Include="DTOs\Pregledi\GutacPlamenaPregled.cs" />
+    <Compile Include="DTOs\Pregledi\KlovnPregled.cs" />
     <Compile Include="DTOs\Pregledi\NastupnaTackaPregled.cs" />
+    <Compile Include="DTOs\Pregledi\ZivotinjePregled.cs" />
+    <Compile Include="DTOs\Pregledi\ZonglerPregled.cs" />
     <Compile Include="Entiteti\Akrobata.cs" />
     <Compile Include="Entiteti\Artist.cs" />
     <Compile Include="Entiteti\BacacNozeva.cs" />

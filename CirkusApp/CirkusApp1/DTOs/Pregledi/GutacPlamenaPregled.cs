@@ -6,7 +6,15 @@ using System.Threading.Tasks;
 
 namespace CirkusApp1.DTOs.Pregledi
 {
-    class GutacPlamenaPregled
+    public class GutacPlamenaPregled : ArtistPregled
     {
+        public GutacPlamenaPregled()
+        {
+
+        }
+        public GutacPlamenaPregled(int id, String UmIme, String pol) : base(id, UmIme, pol)
+        {
+
+        }
     }
 }

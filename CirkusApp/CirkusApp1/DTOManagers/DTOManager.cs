@@ -127,6 +127,56 @@ namespace CirkusApp1.DTOManagers
             }
         }
         #endregion
+        #region Artist
+        public static List<ArtistPregled> vratiSveArtiste()
+        {
+            List<ArtistPregled> artisti = new List<ArtistPregled>();
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                IEnumerable<Artist> sviArtisti = from o in s.Query<Artist>()
+                                                 select o;
+
+                foreach (Artist art in sviArtisti)
+                {
+                    artisti.Add(new ArtistPregled(art.IdPerformera, art.UmetnickoIme, art.Pol));
+                }
+
+            }
+            catch (Exception ec)
+            {
+
+            }
+            return artisti;
+        }
+        public static void dodajArtista(ArtistBasic artist)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                Artist n = new Artist();
+
+                n.IdPerformera = artist.ArtistId;
+                //Zaposleni a = s.Load<Zaposleni>(artist.Zaposleni.Id);
+                //n.JeZaposleni=a
+                n.UmetnickoIme = artist.UmetnickoIme;
+                n.Pol = artist.Pol;
+                n.ClanOd = artist.ClanOd;
+
+                s.SaveOrUpdate(n);
+
+                s.Flush();
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+
+            }
+        }
+        #endregion
 
     }
 }
