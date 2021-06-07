@@ -14,16 +14,18 @@ namespace CirkusApp1.DTOs.Basics
         public string Prezime;
         public DateTime Datum_Rodj;
         public string Mesto_Rodj;
-        public int Maticnibr;
+        public long Maticnibr;
+        public virtual DirektorBasic PripadaDirektoru { get; set; }
+        public virtual ArtistBasic JeArtist { get; set; }
 
 
         public ZaposleniBasic()
         {
 
         }
-        public ZaposleniBasic(int Iz, string ime, string imer, string prez, DateTime datrodj, string mrodj, int mbr)
+        public ZaposleniBasic(int id, string ime, string imer, string prez, DateTime datrodj, string mrodj, long mbr)
         {
-            this.IdZaposlenog = Iz;
+            this.IdZaposlenog = id;
             this.Ime = ime;
             this.Ime_Rod = imer;
             this.Prezime = prez;

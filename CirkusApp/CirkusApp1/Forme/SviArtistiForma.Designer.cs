@@ -95,6 +95,10 @@ namespace CirkusApp1.Forme
             // 
             this.columnHeader3.Text = "Pol";
             // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Pol";
+            // 
             // SviArtistiForma
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);

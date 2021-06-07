@@ -102,3 +102,35 @@ C:\Users\Lazar\Desktop\SBP Novo\sbpcirkusprojekat\CirkusApp\CirkusApp1\obj\Debug
 C:\Users\Lazar\Desktop\SBP Novo\sbpcirkusprojekat\CirkusApp\CirkusApp1\obj\Debug\CirkusApp1.csproj.CopyComplete
 C:\Users\Lazar\Desktop\SBP Novo\sbpcirkusprojekat\CirkusApp\CirkusApp1\obj\Debug\CirkusApp1.exe
 C:\Users\Lazar\Desktop\SBP Novo\sbpcirkusprojekat\CirkusApp\CirkusApp1\obj\Debug\CirkusApp1.pdb
+C:\Users\Lazar\Desktop\Baze projekat\sbpcirkusprojekat\CirkusApp\CirkusApp1\bin\Debug\CirkusApp1.exe.config
+C:\Users\Lazar\Desktop\Baze projekat\sbpcirkusprojekat\CirkusApp\CirkusApp1\bin\Debug\CirkusApp1.exe
+C:\Users\Lazar\Desktop\Baze projekat\sbpcirkusprojekat\CirkusApp\CirkusApp1\bin\Debug\CirkusApp1.pdb
+C:\Users\Lazar\Desktop\Baze projekat\sbpcirkusprojekat\CirkusApp\CirkusApp1\bin\Debug\Antlr3.Runtime.dll
+C:\Users\Lazar\Desktop\Baze projekat\sbpcirkusprojekat\CirkusApp\CirkusApp1\bin\Debug\FluentNHibernate.dll
+C:\Users\Lazar\Desktop\Baze projekat\sbpcirkusprojekat\CirkusApp\CirkusApp1\bin\Debug\Iesi.Collections.dll
+C:\Users\Lazar\Desktop\Baze projekat\sbpcirkusprojekat\CirkusApp\CirkusApp1\bin\Debug\NHibernate.dll
+C:\Users\Lazar\Desktop\Baze projekat\sbpcirkusprojekat\CirkusApp\CirkusApp1\bin\Debug\Oracle.ManagedDataAccess.dll
+C:\Users\Lazar\Desktop\Baze projekat\sbpcirkusprojekat\CirkusApp\CirkusApp1\bin\Debug\Remotion.Linq.dll
+C:\Users\Lazar\Desktop\Baze projekat\sbpcirkusprojekat\CirkusApp\CirkusApp1\bin\Debug\Remotion.Linq.EagerFetching.dll
+C:\Users\Lazar\Desktop\Baze projekat\sbpcirkusprojekat\CirkusApp\CirkusApp1\bin\Debug\Antlr3.Runtime.xml
+C:\Users\Lazar\Desktop\Baze projekat\sbpcirkusprojekat\CirkusApp\CirkusApp1\bin\Debug\FluentNHibernate.pdb
+C:\Users\Lazar\Desktop\Baze projekat\sbpcirkusprojekat\CirkusApp\CirkusApp1\bin\Debug\FluentNHibernate.xml
+C:\Users\Lazar\Desktop\Baze projekat\sbpcirkusprojekat\CirkusApp\CirkusApp1\bin\Debug\Iesi.Collections.xml
+C:\Users\Lazar\Desktop\Baze projekat\sbpcirkusprojekat\CirkusApp\CirkusApp1\bin\Debug\NHibernate.xml
+C:\Users\Lazar\Desktop\Baze projekat\sbpcirkusprojekat\CirkusApp\CirkusApp1\bin\Debug\Remotion.Linq.xml
+C:\Users\Lazar\Desktop\Baze projekat\sbpcirkusprojekat\CirkusApp\CirkusApp1\bin\Debug\Remotion.Linq.EagerFetching.xml
+C:\Users\Lazar\Desktop\Baze projekat\sbpcirkusprojekat\CirkusApp\CirkusApp1\obj\Debug\CirkusApp1.frmTest.resources
+C:\Users\Lazar\Desktop\Baze projekat\sbpcirkusprojekat\CirkusApp\CirkusApp1\obj\Debug\CirkusApp1.Forme.TipArtistaForma.resources
+C:\Users\Lazar\Desktop\Baze projekat\sbpcirkusprojekat\CirkusApp\CirkusApp1\obj\Debug\CirkusApp1.Forme.DodavanjeZaposlenog.resources
+C:\Users\Lazar\Desktop\Baze projekat\sbpcirkusprojekat\CirkusApp\CirkusApp1\obj\Debug\CirkusApp1.PocetnaStranica.resources
+C:\Users\Lazar\Desktop\Baze projekat\sbpcirkusprojekat\CirkusApp\CirkusApp1\obj\Debug\CirkusApp1.Forme.SveNastupneTackeForma.resources
+C:\Users\Lazar\Desktop\Baze projekat\sbpcirkusprojekat\CirkusApp\CirkusApp1\obj\Debug\CirkusApp1.Forme.SviArtistiForma.resources
+C:\Users\Lazar\Desktop\Baze projekat\sbpcirkusprojekat\CirkusApp\CirkusApp1\obj\Debug\CirkusApp1.Properties.Resources.resources
+C:\Users\Lazar\Desktop\Baze projekat\sbpcirkusprojekat\CirkusApp\CirkusApp1\obj\Debug\CirkusApp1.csproj.GenerateResource.cache
+C:\Users\Lazar\Desktop\Baze projekat\sbpcirkusprojekat\CirkusApp\CirkusApp1\obj\Debug\CirkusApp1.csproj.CoreCompileInputs.cache
+C:\Users\Lazar\Desktop\Baze projekat\sbpcirkusprojekat\CirkusApp\CirkusApp1\obj\Debug\CirkusApp1.csproj.CopyComplete
+C:\Users\Lazar\Desktop\Baze projekat\sbpcirkusprojekat\CirkusApp\CirkusApp1\obj\Debug\CirkusApp1.exe
+C:\Users\Lazar\Desktop\Baze projekat\sbpcirkusprojekat\CirkusApp\CirkusApp1\obj\Debug\CirkusApp1.pdb
+C:\Users\Lazar\Desktop\Baze projekat\sbpcirkusprojekat\CirkusApp\CirkusApp1\obj\Debug\CirkusApp1.csprojAssemblyReference.cache
+E:\Rabote za fax\III\SBP\sbpcirkusprojekat\CirkusApp\CirkusApp1\obj\Debug\CirkusApp1.Forme.TipArtistaForma.resources
+E:\Rabote za fax\III\SBP\sbpcirkusprojekat\CirkusApp\CirkusApp1\obj\Debug\CirkusApp1.Forme.DodavanjeZaposlenog.resources

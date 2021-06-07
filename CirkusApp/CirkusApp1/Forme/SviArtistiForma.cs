@@ -11,25 +11,33 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CirkusApp1.DTOs.Pregledi;
+using CirkusApp1.DTOManagers;
 
 namespace CirkusApp1.Forme
 {
     public partial class SviArtistiForma : Form
     {
-        private int brojProizvoda=0;
+
+        
+
+        int brojartista = 0;
+
         public SviArtistiForma()
         {
             InitializeComponent();
         }
 
+
         public void popuniPodacima()
         {
-            this.brojProizvoda = 0;
+            this.brojartista = 0;
 
-            List<ArtistPregled> listaTacaka = DTOManager.vratiSveArtiste();
+            List<ArtistPregled> listaArtista = DTOManager.vratiSveArtiste();
             this.lvSviArtisti.Items.Clear();
 
-            foreach (ArtistPregled art in listaTacaka)
+            foreach (ArtistPregled art in listaArtista)
+
             {
                 ListViewItem item = new ListViewItem(new string[] { art.ArtistId.ToString(), art.UmetnickoIme, art.Pol});
                 this.lvSviArtisti.Items.Add(item);
@@ -40,43 +48,7 @@ namespace CirkusApp1.Forme
             this.lvSviArtisti.Refresh();
         }
 
-        private void btnDodajArtista_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                ISession s = DataLayer.GetSession();
 
-                Zaposleni z = new Zaposleni();
-                z.Ime = "Stojan";
-                z.Ime_Rod = "Mirko";
-                z.Prezime = "Rodoljubovic";
-                z.Maticnibr = 789132789;
-
-                s.Save(z);
-
-                Artist a = new Artist();
-                a.UmetnickoIme = "asdjnosadon";
-                a.Pol = "Ne znam";
-                a.ClanOd = DateTime.Now;
-                a.JeZaposleni = z;
-
-                z.JeArtist = a;
-
-                s.Save(a);
-
-                s.Flush();
-
-                popuniPodacima();
-                lvSviArtisti.Refresh();
-
-                s.Close();
-            }
-            catch(Exception ex)
-            {
-                //exception ce da handluje uskoro!
-            }
-
-        }
 
         private void btnObrisiArtista_Click(object sender, EventArgs e)
         {
@@ -94,15 +66,25 @@ namespace CirkusApp1.Forme
 
             if (result == DialogResult.OK)
             {
+
                 //DTOManager.obrisiArtista(idProizvoda);
                 MessageBox.Show("Brisanje je uspesno obavljeno!");
                 this.popuniPodacima();
             }
         }
 
+
         private void SviArtistiForma_Load(object sender, EventArgs e)
         {
             popuniPodacima();
+        }
+
+
+        private void btnDodajArtista_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Prvo morate dodati novog Zaposlenog!");
+            DodavanjeZaposlenog forma = new DodavanjeZaposlenog();
+            forma.Show();
         }
     }
 }

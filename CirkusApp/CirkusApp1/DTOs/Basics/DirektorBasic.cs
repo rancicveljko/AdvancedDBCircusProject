@@ -31,6 +31,7 @@ namespace CirkusApp1.DTOs.Basics
             this.Email = email;
             this.Telefon = tel;
 
+            Zaposleni = new List<ZaposleniBasic>();
         }
         public override string ToString()
         {

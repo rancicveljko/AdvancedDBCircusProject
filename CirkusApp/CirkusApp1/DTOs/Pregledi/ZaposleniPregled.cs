@@ -14,14 +14,14 @@ namespace CirkusApp1.DTOs.Pregledi
         public string Prezime;
         public DateTime Datum_Rodj;
         public string Mesto_Rodj;
-        public int Maticnibr;
+        public long Maticnibr;
 
 
         public ZaposleniPregled()
         {
 
         }
-        public ZaposleniPregled(int Iz, string ime, string imer, string prez, DateTime datrodj, string mrodj, int mbr)
+        public ZaposleniPregled(int Iz, string ime, string imer, string prez, DateTime datrodj, string mrodj, long mbr)
         {
             this.IdZaposlenog = Iz;
             this.Ime = ime;
