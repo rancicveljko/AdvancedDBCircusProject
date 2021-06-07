@@ -23,9 +23,9 @@ namespace CirkusApp1.DTOs.Basics
 
         }
 
-        public DirektorBasic(int id, string ime, string prezime, string email, int tel)
+        public DirektorBasic( string ime, string prezime, string email, int tel)
         {
-            this.IdDirektora = id;
+            
             this.Ime = ime;
             this.Prezime = prezime;
             this.Email = email;

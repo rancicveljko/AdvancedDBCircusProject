@@ -48,31 +48,32 @@ namespace CirkusApp1.Forme
         {
             try
             {
-                if (lvSviDirektori.SelectedItems.Count == 0)
-                {
-                    MessageBox.Show("Izaberite Direktora koji zaposljava novog zaposlenog!");
-                    return;
-                }
+            if (lvSviDirektori.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Izaberite Direktora koji zaposljava novog zaposlenog!");
+                return;
+            }
 
-                int idDirektora = Int32.Parse(lvSviDirektori.SelectedItems[0].SubItems[0].Text);
-                DirektorBasic p = DTOManager.vratiDirektora(idDirektora);
+            int idDirektora = Int32.Parse(lvSviDirektori.SelectedItems[0].SubItems[0].Text);
+            DirektorBasic p = DTOManager.vratiDirektora(idDirektora);
 
-                ZaposleniBasic radnik = new ZaposleniBasic();
-                radnik.Ime = textBox1.Text;
-                radnik.Ime_Rod = textBox2.Text;
-                radnik.Prezime = textBox3.Text;
-                radnik.Datum_Rodj = datumRodjenja.Value;
-                radnik.Mesto_Rodj = textBox5.Text;
-                radnik.Maticnibr = Int64.Parse(textBox6.Text);
+            ZaposleniBasic radnik = new ZaposleniBasic();
+            radnik.Ime = textBox1.Text;
+            radnik.Ime_Rod = textBox2.Text;
+            radnik.Prezime = textBox3.Text;
+            radnik.Datum_Rodj = datumRodjenja.Value;
+            radnik.Mesto_Rodj = textBox5.Text;
+            radnik.Maticnibr = Int64.Parse(textBox6.Text);
 
-                radnik.PripadaDirektoru = p;
-                
+            radnik.PripadaDirektoru = p;
 
-                DTOManager.dodajZaposlenog(radnik);
+
+            DTOManager.dodajZaposlenog(radnik);
 
                 radnik.PripadaDirektoru.Zaposleni.Add(radnik);
+            
 
-                MessageBox.Show("Uspesno ste dodali novog zaposlenog!");
+            MessageBox.Show("Uspesno ste dodali novog zaposlenog!");
             }
             catch(GenericADOException ex)
             {

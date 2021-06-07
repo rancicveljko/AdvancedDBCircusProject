@@ -19,9 +19,9 @@ namespace CirkusApp1.DTOs.Basics
         {
 
         }
-        public ArtistBasic(int id, String ime, String prez, String UmIme, String pol, DateTime clan)
+        public ArtistBasic( String ime, String prez, String UmIme, String pol, DateTime clan)
         {
-            this.ArtistId = id;
+            
             this.ImeArtista = ime;
             this.PrezimeArtista = prez;
             this.UmetnickoIme = UmIme;

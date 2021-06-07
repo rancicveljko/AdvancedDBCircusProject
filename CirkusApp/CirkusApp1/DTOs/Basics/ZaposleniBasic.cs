@@ -23,7 +23,7 @@ namespace CirkusApp1.DTOs.Basics
         {
 
         }
-        public ZaposleniBasic(int id, string ime, string imer, string prez, DateTime datrodj, string mrodj, long mbr)
+        public ZaposleniBasic(int Iz, string ime, string imer, string prez, DateTime datrodj, string mrodj, int mbr)
         {
             this.IdZaposlenog = id;
             this.Ime = ime;

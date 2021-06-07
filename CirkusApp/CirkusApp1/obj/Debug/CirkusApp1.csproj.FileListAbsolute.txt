@@ -132,5 +132,3 @@ C:\Users\Lazar\Desktop\Baze projekat\sbpcirkusprojekat\CirkusApp\CirkusApp1\obj\
 C:\Users\Lazar\Desktop\Baze projekat\sbpcirkusprojekat\CirkusApp\CirkusApp1\obj\Debug\CirkusApp1.exe
 C:\Users\Lazar\Desktop\Baze projekat\sbpcirkusprojekat\CirkusApp\CirkusApp1\obj\Debug\CirkusApp1.pdb
 C:\Users\Lazar\Desktop\Baze projekat\sbpcirkusprojekat\CirkusApp\CirkusApp1\obj\Debug\CirkusApp1.csprojAssemblyReference.cache
-E:\Rabote za fax\III\SBP\sbpcirkusprojekat\CirkusApp\CirkusApp1\obj\Debug\CirkusApp1.Forme.TipArtistaForma.resources
-E:\Rabote za fax\III\SBP\sbpcirkusprojekat\CirkusApp\CirkusApp1\obj\Debug\CirkusApp1.Forme.DodavanjeZaposlenog.resources
