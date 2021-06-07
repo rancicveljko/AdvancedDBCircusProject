@@ -30,7 +30,7 @@ namespace CirkusApp1.Forme
 
             foreach (ZivotinjePregled zp in listazivotinja)
             {
-                ListViewItem item = new ListViewItem(new string[] { zp.IdPerformera.ToString(), zp.UmetnickoIme, zp.Pol, zp.ClanOd.ToString(), zp.Vrsta, zp.Tezina.ToString(),zp.Starost.ToString()});
+                ListViewItem item = new ListViewItem(new string[] { zp.IdPerformera.ToString(), zp.UmetnickoIme, zp.Pol, zp.ClanOd.ToString(), zp.Vrsta, zp.Tezina.ToString(), zp.Starost.ToString() });
                 this.lvSveZivotinje.Items.Add(item);
                 //this.brojProizvoda++;
             }
@@ -49,11 +49,15 @@ namespace CirkusApp1.Forme
 
             ZivotinjaBasic zivotinja = new ZivotinjaBasic();
             zivotinja.UmetnickoIme = textBox2.Text;
-            zivotinja.Pol = 
+            if (radioButton1.Checked)
+                zivotinja.Pol = radioButton1.Text;
+            if (radioButton2.Checked)
+                zivotinja.Pol = radioButton2.Text;
+            zivotinja.Pol =
             zivotinja.Vrsta = textBox1.Text;
-            zivotinja.datum = datum.Value;
-            zivotinja.Starost.ToString() = textBox5.Text;
-            
+            zivotinja.ClanOd = datum.Value;
+            zivotinja.Starost = Int32.Parse(textBox5.Text);
+
 
             DTOManager.dodajZivotinju(zivotinja);
 
@@ -63,3 +67,4 @@ namespace CirkusApp1.Forme
 
         }
     }
+}

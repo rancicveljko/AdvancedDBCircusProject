@@ -17,9 +17,10 @@ namespace CirkusApp1.Mapiranja
 
             KeyColumn("ID_PERFORMERA");
             Map(x => x.Tip, "TIP");
-            Map(x => x.CimeZabavlja, "CIME_ZABAVLJA"); 
+            Map(x => x.CimeZabavlja, "CIME_ZABAVLJA");
+            References(x => x.JeZaposleni).Column("ID_ZAPOSLENOG").LazyLoad();//
 
-            
+
         }
     }
 }

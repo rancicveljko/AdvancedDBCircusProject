@@ -73,6 +73,7 @@
   <ItemGroup>
     <Compile Include="DataLayer.cs" />
     <Compile Include="DTOManagers\DTOManager.cs" />
+    <Compile Include="DTOs\Basics\AkrobataBasic.cs" />
     <Compile Include="DTOs\Basics\ArtistBasic.cs" />
     <Compile Include="DTOs\Basics\BacacNozevaBasic.cs" />
     <Compile Include="DTOs\Basics\DirektorBasic.cs" />

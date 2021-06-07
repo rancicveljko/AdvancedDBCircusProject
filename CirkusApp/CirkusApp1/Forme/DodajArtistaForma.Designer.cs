@@ -1,7 +1,7 @@
 ﻿
 namespace CirkusApp1.Forme
 {
-    partial class TipArtistaForma
+    partial class DodajArtistaForma
     {
         /// <summary>
         /// Required designer variable.
@@ -37,6 +37,13 @@ namespace CirkusApp1.Forme
             this.Klovn = new System.Windows.Forms.RadioButton();
             this.Akrobata = new System.Windows.Forms.RadioButton();
             this.IzaberiTip = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.clanOd = new System.Windows.Forms.DateTimePicker();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -123,7 +130,7 @@ namespace CirkusApp1.Forme
             // 
             // IzaberiTip
             // 
-            this.IzaberiTip.Location = new System.Drawing.Point(12, 251);
+            this.IzaberiTip.Location = new System.Drawing.Point(12, 371);
             this.IzaberiTip.Name = "IzaberiTip";
             this.IzaberiTip.Size = new System.Drawing.Size(230, 57);
             this.IzaberiTip.TabIndex = 2;
@@ -131,20 +138,86 @@ namespace CirkusApp1.Forme
             this.IzaberiTip.UseVisualStyleBackColor = true;
             this.IzaberiTip.Click += new System.EventHandler(this.IzaberiTip_Click);
             // 
-            // TipArtistaForma
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(20, 379);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(46, 17);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "label1";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(9, 234);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(104, 17);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Umetnicko ime:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(9, 263);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(32, 17);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Pol:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(9, 294);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(60, 17);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "Clan od:";
+            // 
+            // clanOd
+            // 
+            this.clanOd.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.clanOd.Location = new System.Drawing.Point(124, 289);
+            this.clanOd.Name = "clanOd";
+            this.clanOd.Size = new System.Drawing.Size(100, 22);
+            this.clanOd.TabIndex = 7;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(124, 231);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 22);
+            this.textBox1.TabIndex = 8;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(124, 259);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(100, 22);
+            this.textBox2.TabIndex = 9;
+            // 
+            // DodajArtistaForma
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(254, 450);
+            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.clanOd);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.IzaberiTip);
             this.Controls.Add(this.groupBox1);
             this.MaximumSize = new System.Drawing.Size(272, 497);
             this.MinimumSize = new System.Drawing.Size(272, 497);
-            this.Name = "TipArtistaForma";
+            this.Name = "DodajArtistaForma";
             this.Text = "Izaberi tip artista";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -158,5 +231,12 @@ namespace CirkusApp1.Forme
         private System.Windows.Forms.RadioButton Klovn;
         private System.Windows.Forms.RadioButton Akrobata;
         private System.Windows.Forms.Button IzaberiTip;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.DateTimePicker clanOd;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox2;
     }
 }

@@ -15,6 +15,7 @@ namespace CirkusApp1.Mapiranja
             Table("AKROBATA");
 
             KeyColumn("ID_PERFORMERA");
+            References(x => x.JeZaposleni).Column("ID_ZAPOSLENOG").LazyLoad();//
 
             HasManyToMany(x => x.Vestine)
                 .Table("JE_VEST_U")

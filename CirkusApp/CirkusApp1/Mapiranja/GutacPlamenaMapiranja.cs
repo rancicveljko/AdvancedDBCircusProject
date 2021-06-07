@@ -15,6 +15,7 @@ namespace CirkusApp1.Mapiranja
             Table("GUTAC_PLAMENA");
 
             KeyColumn("ID_PERFORMERA");
+            References(x => x.JeZaposleni).Column("ID_ZAPOSLENOG").LazyLoad();//
 
             //HasMany(x => x.Asistenti).KeyColumn("ID_ZAPOSLENOG").LazyLoad().Cascade.All().Inverse();
         }

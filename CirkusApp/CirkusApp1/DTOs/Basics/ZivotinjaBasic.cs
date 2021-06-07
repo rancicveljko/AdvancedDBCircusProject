@@ -21,9 +21,9 @@ namespace CirkusApp1.DTOs.Basics
         {
 
         }
-        public ZivotinjaBasic( String umim, String pol, DateTime clan, String vrst, float tez, int starost)
+        public ZivotinjaBasic( int id,String umim, String pol, DateTime clan, String vrst, float tez, int starost)
         {
-            
+            this.IdPerformera = id;
             this.UmetnickoIme = umim;
             this.Pol = pol;
             this.ClanOd = clan;
