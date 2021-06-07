@@ -46,6 +46,12 @@ namespace CirkusApp1.Forme
 
         private void DodajZaposlenog_Click(object sender, EventArgs e)
         {
+            if ((textBox6.Text.Trim() == string.Empty)|| (textBox3.Text.Trim() == string.Empty) || (textBox2.Text.Trim() == string.Empty) || (textBox1.Text.Trim() == string.Empty))
+            {
+                MessageBox.Show("Popunite polja!!!!!!");
+                return; 
+            }
+
             if (lvSviDirektori.SelectedItems.Count == 0)
             {
                 MessageBox.Show("Izaberite Direktora koji zaposljava novog zaposlenog!");

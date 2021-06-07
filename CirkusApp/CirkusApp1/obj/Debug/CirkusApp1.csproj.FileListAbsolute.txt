@@ -1,28 +1,3 @@
-E:\Rabote za fax\III\SBP\sbpcirkusprojekat\CirkusApp\CirkusApp1\bin\Debug\CirkusApp1.exe.config
-E:\Rabote za fax\III\SBP\sbpcirkusprojekat\CirkusApp\CirkusApp1\bin\Debug\CirkusApp1.exe
-E:\Rabote za fax\III\SBP\sbpcirkusprojekat\CirkusApp\CirkusApp1\bin\Debug\CirkusApp1.pdb
-E:\Rabote za fax\III\SBP\sbpcirkusprojekat\CirkusApp\CirkusApp1\bin\Debug\Antlr3.Runtime.dll
-E:\Rabote za fax\III\SBP\sbpcirkusprojekat\CirkusApp\CirkusApp1\bin\Debug\FluentNHibernate.dll
-E:\Rabote za fax\III\SBP\sbpcirkusprojekat\CirkusApp\CirkusApp1\bin\Debug\Iesi.Collections.dll
-E:\Rabote za fax\III\SBP\sbpcirkusprojekat\CirkusApp\CirkusApp1\bin\Debug\NHibernate.dll
-E:\Rabote za fax\III\SBP\sbpcirkusprojekat\CirkusApp\CirkusApp1\bin\Debug\Oracle.ManagedDataAccess.dll
-E:\Rabote za fax\III\SBP\sbpcirkusprojekat\CirkusApp\CirkusApp1\bin\Debug\Remotion.Linq.dll
-E:\Rabote za fax\III\SBP\sbpcirkusprojekat\CirkusApp\CirkusApp1\bin\Debug\Remotion.Linq.EagerFetching.dll
-E:\Rabote za fax\III\SBP\sbpcirkusprojekat\CirkusApp\CirkusApp1\bin\Debug\Antlr3.Runtime.xml
-E:\Rabote za fax\III\SBP\sbpcirkusprojekat\CirkusApp\CirkusApp1\bin\Debug\FluentNHibernate.pdb
-E:\Rabote za fax\III\SBP\sbpcirkusprojekat\CirkusApp\CirkusApp1\bin\Debug\FluentNHibernate.xml
-E:\Rabote za fax\III\SBP\sbpcirkusprojekat\CirkusApp\CirkusApp1\bin\Debug\Iesi.Collections.xml
-E:\Rabote za fax\III\SBP\sbpcirkusprojekat\CirkusApp\CirkusApp1\bin\Debug\NHibernate.xml
-E:\Rabote za fax\III\SBP\sbpcirkusprojekat\CirkusApp\CirkusApp1\bin\Debug\Remotion.Linq.xml
-E:\Rabote za fax\III\SBP\sbpcirkusprojekat\CirkusApp\CirkusApp1\bin\Debug\Remotion.Linq.EagerFetching.xml
-E:\Rabote za fax\III\SBP\sbpcirkusprojekat\CirkusApp\CirkusApp1\obj\Debug\CirkusApp1.csprojAssemblyReference.cache
-E:\Rabote za fax\III\SBP\sbpcirkusprojekat\CirkusApp\CirkusApp1\obj\Debug\CirkusApp1.frmTest.resources
-E:\Rabote za fax\III\SBP\sbpcirkusprojekat\CirkusApp\CirkusApp1\obj\Debug\CirkusApp1.Properties.Resources.resources
-E:\Rabote za fax\III\SBP\sbpcirkusprojekat\CirkusApp\CirkusApp1\obj\Debug\CirkusApp1.csproj.GenerateResource.cache
-E:\Rabote za fax\III\SBP\sbpcirkusprojekat\CirkusApp\CirkusApp1\obj\Debug\CirkusApp1.csproj.CoreCompileInputs.cache
-E:\Rabote za fax\III\SBP\sbpcirkusprojekat\CirkusApp\CirkusApp1\obj\Debug\CirkusApp1.csproj.CopyComplete
-E:\Rabote za fax\III\SBP\sbpcirkusprojekat\CirkusApp\CirkusApp1\obj\Debug\CirkusApp1.exe
-E:\Rabote za fax\III\SBP\sbpcirkusprojekat\CirkusApp\CirkusApp1\obj\Debug\CirkusApp1.pdb
 C:\Users\ninam\OneDrive\Radna površina\bazeprojekat\New folder\CirkusApp\CirkusApp1\bin\Debug\CirkusApp1.exe.config
 C:\Users\ninam\OneDrive\Radna površina\bazeprojekat\New folder\CirkusApp\CirkusApp1\bin\Debug\CirkusApp1.exe
 C:\Users\ninam\OneDrive\Radna površina\bazeprojekat\New folder\CirkusApp\CirkusApp1\bin\Debug\CirkusApp1.pdb
@@ -72,9 +47,6 @@ C:\Users\Lazar\Desktop\SBP Git\sbpcirkusprojekat\CirkusApp\CirkusApp1\bin\Debug\
 C:\Users\Lazar\Desktop\SBP Git\sbpcirkusprojekat\CirkusApp\CirkusApp1\obj\Debug\CirkusApp1.csproj.CopyComplete
 C:\Users\Lazar\Desktop\SBP Git\sbpcirkusprojekat\CirkusApp\CirkusApp1\obj\Debug\CirkusApp1.exe
 C:\Users\Lazar\Desktop\SBP Git\sbpcirkusprojekat\CirkusApp\CirkusApp1\obj\Debug\CirkusApp1.pdb
-E:\Rabote za fax\III\SBP\sbpcirkusprojekat\CirkusApp\CirkusApp1\obj\Debug\CirkusApp1.PocetnaStranica.resources
-E:\Rabote za fax\III\SBP\sbpcirkusprojekat\CirkusApp\CirkusApp1\obj\Debug\CirkusApp1.Forme.SveNastupneTackeForma.resources
-E:\Rabote za fax\III\SBP\sbpcirkusprojekat\CirkusApp\CirkusApp1\obj\Debug\CirkusApp1.Forme.SviArtistiForma.resources
 C:\Users\Lazar\Desktop\SBP Novo\sbpcirkusprojekat\CirkusApp\CirkusApp1\bin\Debug\Oracle.ManagedDataAccess.dll
 C:\Users\Lazar\Desktop\SBP Novo\sbpcirkusprojekat\CirkusApp\CirkusApp1\bin\Debug\CirkusApp1.exe.config
 C:\Users\Lazar\Desktop\SBP Novo\sbpcirkusprojekat\CirkusApp\CirkusApp1\bin\Debug\CirkusApp1.exe
@@ -132,10 +104,6 @@ C:\Users\Lazar\Desktop\Baze projekat\sbpcirkusprojekat\CirkusApp\CirkusApp1\obj\
 C:\Users\Lazar\Desktop\Baze projekat\sbpcirkusprojekat\CirkusApp\CirkusApp1\obj\Debug\CirkusApp1.exe
 C:\Users\Lazar\Desktop\Baze projekat\sbpcirkusprojekat\CirkusApp\CirkusApp1\obj\Debug\CirkusApp1.pdb
 C:\Users\Lazar\Desktop\Baze projekat\sbpcirkusprojekat\CirkusApp\CirkusApp1\obj\Debug\CirkusApp1.csprojAssemblyReference.cache
-E:\Rabote za fax\III\SBP\sbpcirkusprojekat\CirkusApp\CirkusApp1\obj\Debug\CirkusApp1.Forme.TipArtistaForma.resources
-E:\Rabote za fax\III\SBP\sbpcirkusprojekat\CirkusApp\CirkusApp1\obj\Debug\CirkusApp1.Forme.DodajZivotinjuForma.resources
-E:\Rabote za fax\III\SBP\sbpcirkusprojekat\CirkusApp\CirkusApp1\obj\Debug\CirkusApp1.Forme.DodavanjeZaposlenog.resources
-E:\Rabote za fax\III\SBP\sbpcirkusprojekat\CirkusApp\CirkusApp1\obj\Debug\CirkusApp1.Forme.ZivotinjeForma.resources
 C:\Users\Lazar\Desktop\RADNA VERZIJA\sbpcirkusprojekat\CirkusApp\CirkusApp1\obj\Debug\CirkusApp1.frmTest.resources
 C:\Users\Lazar\Desktop\RADNA VERZIJA\sbpcirkusprojekat\CirkusApp\CirkusApp1\obj\Debug\CirkusApp1.Forme.DodajZivotinjuForma.resources
 C:\Users\Lazar\Desktop\RADNA VERZIJA\sbpcirkusprojekat\CirkusApp\CirkusApp1\obj\Debug\CirkusApp1.Forme.DodavanjeZaposlenog.resources

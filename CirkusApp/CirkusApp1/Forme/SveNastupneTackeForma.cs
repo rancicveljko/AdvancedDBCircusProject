@@ -66,5 +66,10 @@ namespace CirkusApp1.Forme
                 this.popuniPodacima();
             }
         }
+
+        private void btnDodajNastupnuTacku_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

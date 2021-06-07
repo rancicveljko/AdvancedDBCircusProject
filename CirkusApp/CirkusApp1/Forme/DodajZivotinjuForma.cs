@@ -62,5 +62,10 @@ namespace CirkusApp1.Forme
             MessageBox.Show("Uspesno ste dodali novu zivotinju!");
 
         }
+
+        private void DodajZivotinju_Click_1(object sender, EventArgs e)
+        {
+            DodajZivotinju_Click(sender, e);
+        }
     }
 }

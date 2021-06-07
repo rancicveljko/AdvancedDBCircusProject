@@ -91,7 +91,6 @@ namespace CirkusApp1.Forme
             // 
             // btnIzmeniNastupnuTacku
             // 
-            this.btnIzmeniNastupnuTacku.Enabled = false;
             this.btnIzmeniNastupnuTacku.Location = new System.Drawing.Point(643, 166);
             this.btnIzmeniNastupnuTacku.Name = "btnIzmeniNastupnuTacku";
             this.btnIzmeniNastupnuTacku.Size = new System.Drawing.Size(126, 42);
@@ -101,13 +100,13 @@ namespace CirkusApp1.Forme
             // 
             // btnDodajNastupnuTacku
             // 
-            this.btnDodajNastupnuTacku.Enabled = false;
             this.btnDodajNastupnuTacku.Location = new System.Drawing.Point(643, 105);
             this.btnDodajNastupnuTacku.Name = "btnDodajNastupnuTacku";
             this.btnDodajNastupnuTacku.Size = new System.Drawing.Size(126, 42);
             this.btnDodajNastupnuTacku.TabIndex = 5;
             this.btnDodajNastupnuTacku.Text = "Dodaj nastupnu tacku";
             this.btnDodajNastupnuTacku.UseVisualStyleBackColor = true;
+            this.btnDodajNastupnuTacku.Click += new System.EventHandler(this.btnDodajNastupnuTacku_Click);
             // 
             // SveNastupneTackeForma
             // 
