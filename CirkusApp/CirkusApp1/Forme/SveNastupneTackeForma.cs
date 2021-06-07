@@ -49,7 +49,7 @@ namespace CirkusApp1.Forme
         {
             if (lvSveNastupneTacke.SelectedItems.Count == 0)
             {
-                MessageBox.Show("Izaberite igracku koju zelite da obrisete!");
+                MessageBox.Show("Izaberite nastupnu tacku koju zelite da obrisete!");
                 return;
             }
 
@@ -62,7 +62,7 @@ namespace CirkusApp1.Forme
             if (result == DialogResult.OK)
             {
                 DTOManager.obrisiNastupnuTacku(idProizvoda);
-                MessageBox.Show("Brisanje igracke je uspesno obavljeno!");
+                MessageBox.Show("Brisanje je uspesno obavljeno!");
                 this.popuniPodacima();
             }
         }

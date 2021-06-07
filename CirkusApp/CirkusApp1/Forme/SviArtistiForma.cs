@@ -1,4 +1,8 @@
-﻿using System;
+﻿using CirkusApp1.DTOManagers;
+using CirkusApp1.DTOs.Pregledi;
+using CirkusApp1.Entiteti;
+using NHibernate;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,12 +18,15 @@ namespace CirkusApp1.Forme
 {
     public partial class SviArtistiForma : Form
     {
+
+        
+
         int brojartista = 0;
+
         public SviArtistiForma()
         {
             InitializeComponent();
         }
-
 
 
         public void popuniPodacima()
@@ -30,6 +37,7 @@ namespace CirkusApp1.Forme
             this.lvSviArtisti.Items.Clear();
 
             foreach (ArtistPregled art in listaArtista)
+
             {
                 ListViewItem item = new ListViewItem(new string[] { art.ArtistId.ToString(), art.UmetnickoIme, art.Pol});
                 this.lvSviArtisti.Items.Add(item);
@@ -40,12 +48,9 @@ namespace CirkusApp1.Forme
             this.lvSviArtisti.Refresh();
         }
 
-        private void SviArtistiForma_Load(object sender, EventArgs e)
-        {
-            popuniPodacima();
-        }
 
-        private void ObrisiArtista_Click(object sender, EventArgs e)
+
+        private void btnObrisiArtista_Click(object sender, EventArgs e)
         {
             if (lvSviArtisti.SelectedItems.Count == 0)
             {
@@ -61,12 +66,19 @@ namespace CirkusApp1.Forme
 
             if (result == DialogResult.OK)
             {
-                DTOManager.obrisiNastupnuTacku(idProizvoda);
-                MessageBox.Show("Brisanje artista je uspesno obavljeno!");
+
+                //DTOManager.obrisiArtista(idProizvoda);
+                MessageBox.Show("Brisanje je uspesno obavljeno!");
                 this.popuniPodacima();
             }
-
         }
+
+
+        private void SviArtistiForma_Load(object sender, EventArgs e)
+        {
+            popuniPodacima();
+        }
+
 
         private void btnDodajArtista_Click(object sender, EventArgs e)
         {

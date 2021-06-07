@@ -72,15 +72,15 @@ namespace CirkusApp1
             {
                 ISession s = DataLayer.GetSession();
 
-                NastupnaTacka nt = new NastupnaTacka();
+                PomocnoOsoblje po = new PomocnoOsoblje();
 
-                nt.Ime = "Elfak studije";
-                nt.Tip = "Klovnovski nastup";
-                nt.MinGodina = 18;
-                nt.OpasniEfekti = 1;
+                po.Ime = "Hjui";
+                po.Ime_Rod = "Haleluja";
+                po.Prezime = "Arcibald";
+                po.Maticnibr = 2139213;
+                po.AsistentFleg = true;
 
-
-                s.Save(nt);
+                s.Save(po);
 
                 s.Flush();
                 s.Close();
@@ -101,9 +101,9 @@ namespace CirkusApp1
 
                 //Ucitavaju se podaci o prodavnici za zadatim brojem
                 //Prodavnica.Entiteti.Prodavnica p = s.Load<Prodavnica.Entiteti.Prodavnica>(61);
-                Akrobata a = s.Get<Akrobata>(6001);
+                PomocnoOsoblje po = s.Load<PomocnoOsoblje>(4001);
 
-                MessageBox.Show(a.Vestine[0].Naziv);
+                MessageBox.Show(po.Ime);
 
                 s.Close();
             }

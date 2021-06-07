@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using CirkusApp1.DTOs.Pregledi;
 using CirkusApp1.DTOManagers;
 using CirkusApp1.DTOs.Basics;
+using NHibernate.Exceptions;
 
 namespace CirkusApp1.Forme
 {
@@ -45,6 +46,8 @@ namespace CirkusApp1.Forme
 
         private void DodajZaposlenog_Click(object sender, EventArgs e)
         {
+            try
+            {
             if (lvSviDirektori.SelectedItems.Count == 0)
             {
                 MessageBox.Show("Izaberite Direktora koji zaposljava novog zaposlenog!");
@@ -64,12 +67,22 @@ namespace CirkusApp1.Forme
 
             radnik.PripadaDirektoru = p;
 
+
             DTOManager.dodajZaposlenog(radnik);
 
+                radnik.PripadaDirektoru.Zaposleni.Add(radnik);
             
 
             MessageBox.Show("Uspesno ste dodali novog zaposlenog!");
-
+            }
+            catch(GenericADOException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            catch(Exception ex)
+            {
+                //bice nekad
+            }
         }
     }
 }
