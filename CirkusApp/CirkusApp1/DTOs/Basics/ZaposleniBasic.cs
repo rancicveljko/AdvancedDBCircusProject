@@ -30,8 +30,6 @@ namespace CirkusApp1.DTOs.Basics
             this.Datum_Rodj = datrodj;
             this.Mesto_Rodj = mrodj;
             this.Maticnibr = mbr;
-
-
         }
     }
 }

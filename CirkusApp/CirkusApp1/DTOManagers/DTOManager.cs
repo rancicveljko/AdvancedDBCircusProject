@@ -45,7 +45,6 @@ namespace CirkusApp1.DTOManagers
 
                 NastupnaTacka n = new NastupnaTacka();
 
-                n.IdTacke = nt.IdTacke;
                 n.Ime = nt.Ime;
                 n.Tip = nt.Tip;
                 n.MinGodina = nt.MinGodina;
@@ -70,7 +69,6 @@ namespace CirkusApp1.DTOManagers
 
                 NastupnaTacka n= s.Load<NastupnaTacka>(nt.IdTacke);
 
-                n.IdTacke = nt.IdTacke;
                 n.Ime = nt.Ime;
                 n.Tip = nt.Tip;
                 n.MinGodina = nt.MinGodina;
@@ -158,9 +156,9 @@ namespace CirkusApp1.DTOManagers
 
                 Artist n = new Artist();
 
-                n.IdPerformera = artist.ArtistId;
-                //Zaposleni a = s.Load<Zaposleni>(artist.Zaposleni.Id);
-                //n.JeZaposleni=a
+                Zaposleni a = s.Load<Zaposleni>(artist.Zaposleni.IdZaposlenog);
+
+                n.JeZaposleni = a;
                 n.UmetnickoIme = artist.UmetnickoIme;
                 n.Pol = artist.Pol;
                 n.ClanOd = artist.ClanOd;
@@ -174,6 +172,76 @@ namespace CirkusApp1.DTOManagers
             catch (Exception ec)
             {
 
+            }
+        }
+        public static ArtistBasic azurirajArtista(ArtistBasic art)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                //NastupnaTacka n = s.Load<NastupnaTacka>(nt.IdTacke);
+                Artist a=s.Load<Artist>(art.ArtistId);
+
+
+                a.UmetnickoIme = art.UmetnickoIme;
+                a.Pol = art.Pol;
+                a.ClanOd = art.ClanOd;
+                a.JeZaposleni.Ime = art.Zaposleni.Ime;
+                a.JeZaposleni.Ime_Rod = art.Zaposleni.Ime_Rod;
+                a.JeZaposleni.Prezime = art.Zaposleni.Prezime;
+                a.JeZaposleni.Datum_Rodj = art.Zaposleni.Datum_Rodj;
+                a.JeZaposleni.Mesto_Rodj = art.Zaposleni.Mesto_Rodj;
+                a.JeZaposleni.Maticnibr = art.Zaposleni.Maticnibr;
+
+                s.Update(a);
+
+                s.Flush();
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                //handle exceptions
+            }
+
+            return art;
+        }
+        public static ArtistBasic vratiArtista(int id)
+        {
+            ArtistBasic art = new ArtistBasic();
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                Artist a = s.Load<Artist>(id);
+                art = new ArtistBasic(a.IdPerformera, a.JeZaposleni.Ime, a.JeZaposleni.Prezime, a.UmetnickoIme, a.Pol, a.ClanOd);
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                //handle exceptions
+            }
+
+            return art;
+        }
+        public static void obrisiArtista(int id)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                Artist a = s.Load<Artist>(id);
+
+                s.Delete(a);
+                s.Flush();
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                //handle exceptions
             }
         }
         #endregion
