@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CirkusApp1.DTOs.Pregledi;
 using CirkusApp1.DTOManagers;
+using CirkusApp1.DTOs.Basics;
 
 namespace CirkusApp1.Forme
 {
@@ -68,7 +69,7 @@ namespace CirkusApp1.Forme
         private void btnDodajZivotinju_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Prvo morate dodati novog Zaposlenog!");
-            DodavanjeZivotinje forma = new DodavanjeZivotinje();
+            DodajZivotinjuForma forma = new DodajZivotinjuForma();
             forma.Show();
         }
 
