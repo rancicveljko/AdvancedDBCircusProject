@@ -562,7 +562,7 @@ namespace CirkusApp1.DTOManagers
 
                 foreach (Zivotinja z in sveZivotinje)
                 {
-                    zivotinje.Add(new ZivotinjePregled(z.UmetnickoIme, z.Pol, z.ClanOd, z.Vrsta,z.Tezina, z.Starost));
+                    zivotinje.Add(new ZivotinjePregled(z.IdPerformera, z.UmetnickoIme, z.Pol, z.ClanOd, z.Vrsta, z.Tezina, z.Starost));
                 }
 
             }

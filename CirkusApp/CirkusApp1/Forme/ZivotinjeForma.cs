@@ -84,7 +84,7 @@ namespace CirkusApp1.Forme
 
             int idZivotinje = Int32.Parse(lvSveZivotinje.SelectedItems[0].SubItems[0].Text);
             ZivotinjaBasic z = DTOManager.vratiZivotinju(idZivotinje);
-            IzmeniZivotinjuForma forma = new IzmeniZivotinjuForma(z);
+            IzmeniZivotinjuForma forma = new IzmeniZivotinjuForma();
             forma.ShowDialog();
             popuniPodacima();
         }

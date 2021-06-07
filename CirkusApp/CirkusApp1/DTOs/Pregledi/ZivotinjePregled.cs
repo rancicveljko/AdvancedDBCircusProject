@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CirkusApp1.DTOs.Pregledi
 {
-    class ZivotinjePregled
+    public class ZivotinjePregled
     {
         public int IdPerformera;
         public String UmetnickoIme;
@@ -21,8 +21,9 @@ namespace CirkusApp1.DTOs.Pregledi
         {
 
         }
-        public ZivotinjePregled( String ime,  String pol, DateTime clanod, String vrs, float tez, int starost)
+        public ZivotinjePregled(int id, String ime,  String pol, DateTime clanod, String vrs, float tez, int starost)
         {
+            this.IdPerformera = id;
             this.UmetnickoIme = ime;
             this.Pol = pol;
             this.ClanOd = clanod;

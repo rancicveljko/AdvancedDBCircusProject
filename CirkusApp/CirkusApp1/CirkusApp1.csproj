@@ -134,6 +134,12 @@
     <Compile Include="Forme\DodavanjeZaposlenog.Designer.cs">
       <DependentUpon>DodavanjeZaposlenog.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forme\IzmeniZivotinjuForma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forme\IzmeniZivotinjuForma.Designer.cs">
+      <DependentUpon>IzmeniZivotinjuForma.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forme\SveNastupneTackeForma.cs">
       <SubType>Form</SubType>
     </Compile>
