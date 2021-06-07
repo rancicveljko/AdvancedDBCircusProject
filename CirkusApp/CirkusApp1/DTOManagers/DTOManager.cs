@@ -127,6 +127,7 @@ namespace CirkusApp1.DTOManagers
             }
         }
         #endregion
+
         #region Artist
         public static List<ArtistPregled> vratiSveArtiste()
         {
@@ -177,6 +178,7 @@ namespace CirkusApp1.DTOManagers
             }
         }
         #endregion
+
         #region Zaposleni
 
         public static List<ZaposleniPregled> vratiSveZaposlene()
@@ -415,6 +417,128 @@ namespace CirkusApp1.DTOManagers
                 Direktor d = s.Load<Direktor>(id);
 
                 s.Delete(d);
+                s.Flush();
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                //handle exceptions
+            }
+        }
+        #endregion
+
+        #region Zivotinja
+        public static List<ZivotinjePregled> vratiSveZivotinje()
+        {
+            List<ZivotinjePregled> zivotinje = new List<ZivotinjePregled>();
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                IEnumerable<Zivotinja> sveZivotinje = from o in s.Query<Zivotinja>()
+                                                   select o;
+
+                foreach (Zivotinja z in sveZivotinje)
+                {
+                    zivotinje.Add(new ZivotinjePregled(z.UmetnickoIme, z.Pol, z.ClanOd, z.Vrsta,z.Tezina, z.Starost));
+                }
+
+            }
+            catch (Exception ec)
+            {
+
+            }
+            return zivotinje;
+        }
+
+
+        public static void dodajZivotinju(ZivotinjaBasic zb)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                Zivotinja z = new Zivotinja();
+
+                z.IdPerformera = zb.IdPerformera;
+                //Zaposleni a = s.Load<Zaposleni>(artist.Zaposleni.Id);
+                //n.JeZaposleni=a
+                z.UmetnickoIme = zb.UmetnickoIme;
+                z.Pol = zb.Pol;
+                z.ClanOd = zb.ClanOd;
+                z.Vrsta = zb.Vrsta;
+                z.Tezina = zb.Tezina;
+                z.Starost = zb.Starost;
+
+                s.SaveOrUpdate(z);
+
+                s.Flush();
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+
+            }
+        }
+
+        public static ZivotinjaBasic azurirajZivotinju(ZivotinjaBasic zb)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                Zivotinja z = s.Load<Zivotinja>(zb.IdPerformera);
+
+                z.IdPerformera = zb.IdPerformera;
+                z.UmetnickoIme = zb.UmetnickoIme;
+                z.ClanOd = zb.ClanOd;
+                z.Vrsta = zb.Vrsta;
+                z.Tezina = zb.Tezina;
+                z.Starost = zb.Starost;
+
+                s.Update(z);
+
+                s.Flush();
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                //handle exceptions
+            }
+
+            return zb;
+        }
+        public static ZivotinjaBasic vratiZivotinju(int id)
+        {
+            ZivotinjaBasic zb = new ZivotinjaBasic();
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                Zivotinja z = s.Load<Zivotinja>(id);
+                zb = new ZivotinjaBasic( z.UmetnickoIme, z.Pol, z.ClanOd, z.Vrsta,z.Tezina,z.Starost);
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                //handle exceptions
+            }
+
+            return zb;
+        }
+        public static void obrisiZivotinju(int id)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                Zivotinja z = s.Load<Zivotinja>(id);
+
+                s.Delete(z);
                 s.Flush();
 
                 s.Close();

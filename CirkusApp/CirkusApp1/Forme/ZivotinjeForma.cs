@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CirkusApp1.DTOs.Pregledi;
 using CirkusApp1.DTOManagers;
+using CirkusApp1.DTOs.Basics;
 
 namespace CirkusApp1.Forme
 {
@@ -29,12 +30,12 @@ namespace CirkusApp1.Forme
         {
             this.brojzivotinja = 0;
 
-            List<ZivotinjaPregled> listazivotinja = DTOManager.vratiSveZivotinje();
+            List<ZivotinjePregled> listazivotinja = DTOManager.vratiSveZivotinje();
             this.lvSveZivotinje.Items.Clear();
 
-            foreach (ZivotinjaPregled zp in listazivotinja)
+            foreach (ZivotinjePregled zp in listazivotinja)
             {
-                ListViewItem item = new ListViewItem(new string[] { zp.IdZivotinja.ToString(), zp.UmetnickoIme, zp.Vrsta, zp.Pol, zp.Starost.ToString() });
+                ListViewItem item = new ListViewItem(new string[] { zp.IdPerformera.ToString(), zp.UmetnickoIme, zp.Vrsta, zp.Pol, zp.Starost.ToString() });
                 this.lvSveZivotinje.Items.Add(item);
                 //this.brojZivotinja++;
             }
@@ -68,7 +69,7 @@ namespace CirkusApp1.Forme
         private void btnDodajZivotinju_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Prvo morate dodati novog Zaposlenog!");
-            DodavanjeZivotinje forma = new DodavanjeZivotinje();
+            DodajZivotinjuForma forma = new DodajZivotinjuForma();
             forma.Show();
         }
 
