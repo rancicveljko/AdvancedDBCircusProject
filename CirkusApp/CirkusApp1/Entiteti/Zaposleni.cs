@@ -22,6 +22,15 @@ namespace CirkusApp1.Entiteti
         {
 
         }
+        public Zaposleni(string ime, string imeRod, string prez, DateTime datumRodj, string mestoRodj, long matBr)
+        {
+            this.Ime = ime;
+            this.Ime_Rod = imeRod;
+            this.Prezime = prez;
+            this.Datum_Rodj = datumRodj;
+            this.Mesto_Rodj = mestoRodj;
+            this.Maticnibr = matBr;
+        }
     }
 }
 

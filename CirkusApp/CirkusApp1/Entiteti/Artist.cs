@@ -16,7 +16,7 @@ namespace CirkusApp1.Entiteti
 
         public Artist()
         {
-
+            JeZaposleni = new Zaposleni();
         }
     }
 }

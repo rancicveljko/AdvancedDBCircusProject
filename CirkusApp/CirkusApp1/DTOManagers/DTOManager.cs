@@ -61,7 +61,7 @@ namespace CirkusApp1.DTOManagers
                 //handle exceptions
             }
         }
-        public static NastupnaTackaBasic azurirajProdavnicu(NastupnaTackaBasic nt)
+        public static NastupnaTackaBasic azurirajNastupnuTacku(NastupnaTackaBasic nt)
         {
             try
             {
@@ -574,7 +574,6 @@ namespace CirkusApp1.DTOManagers
             return osoblje;
         }
         #endregion 
-
         #region Zivotinja
         public static List<ZivotinjePregled> vratiSveZivotinje()
         {

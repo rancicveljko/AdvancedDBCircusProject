@@ -48,14 +48,27 @@ namespace CirkusApp1
                 ISession s = DataLayer.GetSession();
 
 
-                MestoBoravka m = new MestoBoravka();
+                Akrobata a = new Akrobata();
+                a.JeZaposleni.Ime = "Mika";
+                a.JeZaposleni.Ime_Rod = "Vimbldon";
+                a.JeZaposleni.Prezime = "Serifovic";
+                a.JeZaposleni.Maticnibr = 44444434;
+                a.UmetnickoIme = "Smec";
+                a.Pol = "Musko";
+                a.ClanOd = DateTime.Now;
 
-                m.Grad = "Pirot";
-                m.Drzava = "Srbija";
-                m.Opis = "Lep grad, ponekad";
-                m.VremeUGradu = 3;
+                Vestina v = new Vestina();
+                v.GodinaIskustva = 5;
+                v.Naziv = "Sibanje s reket";
 
-                s.Save(m);//ID Sekvenca je na 1, a 1-5 vec postoji..
+                a.JeZaposleni.JeArtist = a;
+                
+                v.Akrobate.Add(a);
+                a.Vestine.Add(v);
+
+                s.Save(a.JeZaposleni);
+                s.Save(a);
+                s.Save(v);
 
                 s.Flush();
                 s.Close();
@@ -72,15 +85,17 @@ namespace CirkusApp1
             {
                 ISession s = DataLayer.GetSession();
 
-                PomocnoOsoblje po = new PomocnoOsoblje();
+                Dreser d = s.Load<Dreser>(28);
 
-                po.Ime = "Hjui";
-                po.Ime_Rod = "Haleluja";
-                po.Prezime = "Arcibald";
-                po.Maticnibr = 2139213;
-                po.AsistentFleg = true;
+                PomocnoOsoblje po = s.Load<PomocnoOsoblje>(4);
 
-                s.Save(po);
+
+                po.PomazeArtistu = d;
+                d.Asistenti.Add(po);
+
+
+                s.SaveOrUpdate(po);
+                s.Update(d);
 
                 s.Flush();
                 s.Close();
@@ -101,9 +116,9 @@ namespace CirkusApp1
 
                 //Ucitavaju se podaci o prodavnici za zadatim brojem
                 //Prodavnica.Entiteti.Prodavnica p = s.Load<Prodavnica.Entiteti.Prodavnica>(61);
-                PomocnoOsoblje po = s.Load<PomocnoOsoblje>(4001);
+                Akrobata a = s.Load<Akrobata>(23);
 
-                MessageBox.Show(po.Ime);
+                MessageBox.Show(a.Vestine[0].Naziv);
 
                 s.Close();
             }
