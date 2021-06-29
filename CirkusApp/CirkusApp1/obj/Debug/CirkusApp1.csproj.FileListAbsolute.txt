@@ -92,7 +92,6 @@ C:\Users\Lazar\Desktop\Baze projekat\sbpcirkusprojekat\CirkusApp\CirkusApp1\bin\
 C:\Users\Lazar\Desktop\Baze projekat\sbpcirkusprojekat\CirkusApp\CirkusApp1\bin\Debug\Remotion.Linq.xml
 C:\Users\Lazar\Desktop\Baze projekat\sbpcirkusprojekat\CirkusApp\CirkusApp1\bin\Debug\Remotion.Linq.EagerFetching.xml
 C:\Users\Lazar\Desktop\Baze projekat\sbpcirkusprojekat\CirkusApp\CirkusApp1\obj\Debug\CirkusApp1.frmTest.resources
-C:\Users\Lazar\Desktop\Baze projekat\sbpcirkusprojekat\CirkusApp\CirkusApp1\obj\Debug\CirkusApp1.Forme.TipArtistaForma.resources
 C:\Users\Lazar\Desktop\Baze projekat\sbpcirkusprojekat\CirkusApp\CirkusApp1\obj\Debug\CirkusApp1.Forme.DodavanjeZaposlenog.resources
 C:\Users\Lazar\Desktop\Baze projekat\sbpcirkusprojekat\CirkusApp\CirkusApp1\obj\Debug\CirkusApp1.PocetnaStranica.resources
 C:\Users\Lazar\Desktop\Baze projekat\sbpcirkusprojekat\CirkusApp\CirkusApp1\obj\Debug\CirkusApp1.Forme.SveNastupneTackeForma.resources
@@ -170,3 +169,9 @@ E:\Rabote za fax\III\SBP\sbpcirkusprojekat\CirkusApp\CirkusApp1\obj\Debug\Cirkus
 E:\Rabote za fax\III\SBP\sbpcirkusprojekat\CirkusApp\CirkusApp1\obj\Debug\CirkusApp1.exe
 E:\Rabote za fax\III\SBP\sbpcirkusprojekat\CirkusApp\CirkusApp1\obj\Debug\CirkusApp1.pdb
 E:\Rabote za fax\III\SBP\sbpcirkusprojekat\CirkusApp\CirkusApp1\obj\Debug\CirkusApp1.csproj.AssemblyReference.cache
+C:\Users\Lazar\Desktop\Baze projekat\sbpcirkusprojekat\CirkusApp\CirkusApp1\obj\Debug\CirkusApp1.Forme.DodajArtistaForma.resources
+C:\Users\Lazar\Desktop\Baze projekat\sbpcirkusprojekat\CirkusApp\CirkusApp1\obj\Debug\CirkusApp1.Forme.DodajKlovnaForma.resources
+C:\Users\Lazar\Desktop\Baze projekat\sbpcirkusprojekat\CirkusApp\CirkusApp1\obj\Debug\CirkusApp1.Forme.DodajZivotinjuForma.resources
+C:\Users\Lazar\Desktop\Baze projekat\sbpcirkusprojekat\CirkusApp\CirkusApp1\obj\Debug\CirkusApp1.Forme.DodajZongleraForma.resources
+C:\Users\Lazar\Desktop\Baze projekat\sbpcirkusprojekat\CirkusApp\CirkusApp1\obj\Debug\CirkusApp1.Forme.IzmeniZivotinjuForma.resources
+C:\Users\Lazar\Desktop\Baze projekat\sbpcirkusprojekat\CirkusApp\CirkusApp1\obj\Debug\CirkusApp1.Forme.ZivotinjeForma.resources

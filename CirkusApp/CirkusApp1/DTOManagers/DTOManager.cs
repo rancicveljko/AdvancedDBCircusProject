@@ -12,6 +12,120 @@ namespace CirkusApp1.DTOManagers
 {
     public class DTOManager
     {
+        #region MestoBoravka 
+        //proveriti posle ubacivanja CRUD operacija za cirkusku predstavu jel sve funkcionise
+        public static List<MestoBoravkaPregled> vratiSvaMestaBoravka()
+        {
+            List<MestoBoravkaPregled> mesta = new List<MestoBoravkaPregled>();
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                IEnumerable<MestoBoravka> svaMesta = from o in s.Query<MestoBoravka>()
+                                                      select o;
+
+                foreach (MestoBoravka mb in svaMesta)
+                {
+                    mesta.Add(new MestoBoravkaPregled(mb.IdMesta, mb.Grad, mb.Drzava, mb.Opis, mb.VremeUGradu));
+                }
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                //handle exceptions
+            }
+
+            return mesta;
+        }
+        public static void dodajMestoBoravka(MestoBoravkaBasic mb)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                MestoBoravka n = new MestoBoravka();
+
+                n.Grad = mb.Grad;
+                n.Drzava = mb.Drzava;
+                n.Opis = mb.Opis;
+                n.VremeUGradu = mb.Vreme_u_gradu;
+
+                s.SaveOrUpdate(n);
+
+                s.Flush();
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                //handle exceptions
+            }
+        }
+        public static MestoBoravkaBasic azurirajMestoBoravka(MestoBoravkaBasic mb)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                MestoBoravka n = s.Load<MestoBoravka>(mb.IdMesta);
+
+                n.Grad = mb.Grad;
+                n.Drzava = mb.Drzava;
+                n.Opis = mb.Opis;
+                n.VremeUGradu = mb.Vreme_u_gradu;
+
+                s.Update(n);
+
+                s.Flush();
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                //handle exceptions
+            }
+
+            return mb;
+        }
+        public static MestoBoravkaBasic vratiMestoBoravka(int id)
+        {
+            MestoBoravkaBasic mb = new MestoBoravkaBasic();
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                MestoBoravka mesto = s.Load<MestoBoravka>(id);
+                mb = new MestoBoravkaBasic(mesto.IdMesta, mesto.Grad, mesto.Drzava, mesto.Opis, mesto.VremeUGradu);
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                //handle exceptions
+            }
+
+            return mb;
+        }
+        public static void obrisiMestoBoravka(int id)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                MestoBoravka mesto = s.Load<MestoBoravka>(id);
+
+                s.Delete(mesto);
+                s.Flush();
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                //handle exceptions
+            }
+        }
+        #endregion
         #region NastupnaTacka
         public static List<NastupnaTackaPregled> vratiSveNastupneTacke()
         {
@@ -271,6 +385,24 @@ namespace CirkusApp1.DTOManagers
             catch (Exception ec)
             {
 
+            }
+        }
+        public static void obrisiAkrobatu(int id)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                Akrobata akrobata = s.Load<Akrobata>(id);
+
+                s.Delete(akrobata);
+                s.Flush();
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                //handle exceptions
             }
         }
         #endregion
