@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CirkusApp1.Entiteti;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,7 +26,12 @@ namespace CirkusApp1.DTOs.Basics
             this.BrojKarata = brojKarata;
             Tacke = new List<NastupnaTackaBasic>();
         }
-
+        public CirkuskaPredstavaBasic(CirkuskaPredstava p)
+        {
+            this.IdPredstave = p.IdPredstave;
+            this.Vreme = p.Vreme;
+            this.BrojKarata = p.BrojKarata;
+        }
 
     }
 }

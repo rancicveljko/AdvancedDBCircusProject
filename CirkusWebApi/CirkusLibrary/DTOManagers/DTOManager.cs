@@ -1085,6 +1085,34 @@ namespace CirkusApp1.DTOManagers
                 Console.WriteLine(ec.Message);
             }
         }
+        public static List<CirkuskaPredstavaBasic> vratiPredstaveMesta(int mestoId)
+        {
+            List<CirkuskaPredstavaBasic> predstave = new List<CirkuskaPredstavaBasic>();
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                IEnumerable<CirkuskaPredstava> pred = from o in s.Query<CirkuskaPredstava>()
+                                                      where o.Mesto.IdMesta == mestoId
+                                                      select o;
+                foreach (CirkuskaPredstava p in pred)
+                {
+                    CirkuskaPredstavaBasic preddd = new CirkuskaPredstavaBasic(p);
+
+                    preddd.Mesto = new MestoBoravkaBasic(p.Mesto);
+
+                    predstave.Add(preddd);
+
+                }
+
+
+            }
+            catch (Exception ec)
+            {
+
+            }
+            return predstave;
+        }
         #endregion
         #region Klovn
         public static void dodajKlovna(KlovnBasic klovn)
