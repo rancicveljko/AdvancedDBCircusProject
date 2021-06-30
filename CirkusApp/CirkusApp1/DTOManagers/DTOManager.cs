@@ -1442,7 +1442,7 @@ namespace CirkusApp1.DTOManagers
                 Console.WriteLine(ec.Message);
             }
         }
-        public static DreserBasic azurirajBacacaNozeva(DreserBasic mb)
+        public static BacacNozevaBasic azurirajBacacaNozeva(BacacNozevaBasic mb)
         {
             try
             {
@@ -1484,6 +1484,102 @@ namespace CirkusApp1.DTOManagers
 
                 BacacNozeva bacac = s.Load<BacacNozeva>(id);
                 mb = new BacacNozevaBasic(bacac.IdPerformera, bacac.JeZaposleni.Ime, bacac.JeZaposleni.Prezime, bacac.UmetnickoIme, bacac.Pol, bacac.ClanOd);
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                Console.WriteLine(ec.Message);
+            }
+
+            return mb;
+        }
+        #endregion
+        #region Vestina
+        public static void dodajVestinu(VestinaBasic vestina)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                Vestina n = new Vestina();
+
+                n.IdVestine = vestina.IdVestine;
+                //Zaposleni a = s.Load<Zaposleni>(bacac.Zaposleni.IdZaposlenog);
+
+                n.Naziv = vestina.Naziv;
+                n.GodinaIskustva = vestina.GodinaIskustva;
+                
+
+
+
+                s.SaveOrUpdate(n);
+
+                s.Flush();
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                Console.WriteLine(ec.Message);
+            }
+        }
+        public static void obrisiVestinu(int id)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                Vestina vest = s.Load<Vestina>(id);
+
+                s.Delete(vest);
+                s.Flush();
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                Console.WriteLine(ec.Message);
+            }
+        }
+        public static VestinaBasic azurirajvestinu(VestinaBasic mb)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                Vestina n = s.Load<Vestina>(mb.IdVestine);
+
+                //Zaposleni z = s.Load<Zaposleni>(mb.Zaposleni.IdZaposlenog);
+
+                //n.JeZaposleni = z;
+                n.Naziv = mb.Naziv;
+                n.GodinaIskustva = mb.GodinaIskustva;
+
+
+                //s.Update(z);
+                s.Update(n);
+
+                s.Flush();
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                Console.WriteLine(ec.Message);
+            }
+
+            return mb;
+        }
+        public static VestinaBasic vratiVestinu(int id)
+        {
+            VestinaBasic mb = new VestinaBasic();
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                Vestina vest = s.Load<Vestina>(id);
+                mb = new VestinaBasic(vest.IdVestine,vest.Naziv,vest.GodinaIskustva);
 
                 s.Close();
             }
