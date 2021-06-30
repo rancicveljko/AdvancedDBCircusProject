@@ -1,0 +1,4 @@
+E:\Rabote za fax\III\SBP\sbpcirkusprojekat\CirkusWebApi\CirkusLibrary\obj\Debug\netcoreapp3.1\CirkusLibrary.csproj.AssemblyReference.cache
+E:\Rabote za fax\III\SBP\sbpcirkusprojekat\CirkusWebApi\CirkusLibrary\obj\Debug\netcoreapp3.1\CirkusLibrary.AssemblyInfoInputs.cache
+E:\Rabote za fax\III\SBP\sbpcirkusprojekat\CirkusWebApi\CirkusLibrary\obj\Debug\netcoreapp3.1\CirkusLibrary.AssemblyInfo.cs
+E:\Rabote za fax\III\SBP\sbpcirkusprojekat\CirkusWebApi\CirkusLibrary\obj\Debug\netcoreapp3.1\CirkusLibrary.csproj.CoreCompileInputs.cache
