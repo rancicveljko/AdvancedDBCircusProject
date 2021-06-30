@@ -105,6 +105,7 @@
     <Compile Include="DTOs\Pregledi\PomocnoOsobljePregled.cs" />
     <Compile Include="DTOs\Pregledi\PredstavaPoNarudzbiniPregled.cs" />
     <Compile Include="DTOs\Pregledi\SpecijalnaPredstavaPregled.cs" />
+    <Compile Include="DTOs\Pregledi\VestinaPregled.cs" />
     <Compile Include="DTOs\Pregledi\ZaposleniPregled.cs" />
     <Compile Include="DTOs\Pregledi\ZivotinjePregled.cs" />
     <Compile Include="DTOs\Pregledi\ZonglerPregled.cs" />
