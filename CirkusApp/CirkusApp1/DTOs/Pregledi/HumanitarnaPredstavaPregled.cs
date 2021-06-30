@@ -15,7 +15,7 @@ namespace CirkusApp1.DTOs.Pregledi
         {
 
         }
-        public HumanitarnaPredstavaPregled(int idPredstave, DateTime vreme, int brojKarata, string mesto, double prihod, string zaKoga) : base(idPredstave, vreme, brojKarata, mesto)
+        public HumanitarnaPredstavaPregled(int idPredstave, DateTime vreme, int brojKarata, string mesto, double prihod, string zaKoga) : base(idPredstave, vreme, brojKarata)
         {
             this.Prihod = prihod;
             this.ZaKoga = zaKoga;

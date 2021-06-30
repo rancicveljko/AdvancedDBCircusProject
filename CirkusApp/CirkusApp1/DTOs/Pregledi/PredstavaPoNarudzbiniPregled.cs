@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CirkusApp1.DTOs.Pregledi
 {
-   public class PredstavaPoNarudzbiniPregled : SpecijalnaPredstavaPregled
+    public class PredstavaPoNarudzbiniPregled : SpecijalnaPredstavaPregled
     {
         public int BrTelNarucioca { get; set; }
         public string NazivNarucioca { get; set; }
