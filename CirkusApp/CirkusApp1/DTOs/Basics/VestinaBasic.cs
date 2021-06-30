@@ -22,7 +22,7 @@ namespace CirkusApp1.DTOs.Basics
             this.IdVestine = idvest;
             this.Naziv = naziv;
             this.GodinaIskustva = god;
-           
+            Akrobate = new List<AkrobataBasic>();
         }
     }
 }

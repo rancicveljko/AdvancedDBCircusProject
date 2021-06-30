@@ -8,15 +8,15 @@ namespace CirkusApp1.DTOs.Basics
 {
     public class ZaposleniBasic
     {
-        public int IdZaposlenog;
-        public string Ime;
-        public string Ime_Rod;
-        public string Prezime;
-        public DateTime Datum_Rodj;
-        public string Mesto_Rodj;
-        public long Maticnibr;
-        public virtual DirektorBasic PripadaDirektoru { get; set; }
-        public virtual ArtistBasic JeArtist { get; set; }
+        public int IdZaposlenog { get; set; }
+        public string Ime { get; set; }
+        public string Ime_Rod { get; set; }
+        public string Prezime { get; set; }
+        public DateTime Datum_Rodj { get; set; }
+        public string Mesto_Rodj { get; set; }
+        public long Maticnibr { get; set; }
+        public DirektorBasic PripadaDirektoru { get; set; }
+        public ArtistBasic JeArtist { get; set; }
 
 
         public ZaposleniBasic()

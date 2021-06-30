@@ -8,13 +8,13 @@ namespace CirkusApp1.DTOs.Pregledi
 {
     public class ZivotinjePregled
     {
-        public int IdPerformera;
-        public String UmetnickoIme;
-        public String Pol;
-        public DateTime ClanOd;
-        public String Vrsta;
-        public float Tezina;
-        public int Starost;
+        public int IdPerformera { get; set; }
+        public String UmetnickoIme { get; set; }
+        public String Pol { get; set; }
+        public DateTime ClanOd { get; set; }
+        public String Vrsta { get; set; }
+        public float Tezina { get; set; }
+        public int Starost { get; set; }
 
 
         public ZivotinjePregled()

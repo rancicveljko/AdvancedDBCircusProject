@@ -8,13 +8,13 @@ namespace CirkusApp1.DTOs.Basics
 {
     public class NastupnaTackaBasic
     {
-        public int IdTacke;
-        public string Ime;
-        public string Tip;
-        public int MinGodina;
-        public int OpasniEfekti;
+        public int IdTacke { get; set; }
+        public string Ime { get; set; }
+        public string Tip { get; set; }
+        public int MinGodina { get; set; }
+        public int OpasniEfekti { get; set; }
 
-        //public virtual CirkuskaPredstavaBasic Predstava { get; set; }
+        public CirkuskaPredstavaBasic Predstava { get; set; }
         public NastupnaTackaBasic()
         {
 
