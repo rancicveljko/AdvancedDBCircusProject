@@ -8,6 +8,7 @@ namespace CirkusApp1.DTOs.Basics
 {
     public class AkrobataBasic : ArtistBasic
     {
+        public  IList<VestinaBasic> Vestine { get; set; }
 
         public AkrobataBasic()
         {

@@ -125,6 +125,7 @@ namespace CirkusApp1.DTOManagers
                 Console.WriteLine(ec.Message);
             }
         }
+        
         #endregion
         #region NastupnaTacka
         public static List<NastupnaTackaPregled> vratiSveNastupneTacke()
@@ -360,6 +361,38 @@ namespace CirkusApp1.DTOManagers
         }
         #endregion
         #region Akrobata
+        public static AkrobataBasic AzurirajAkrobatu(AkrobataBasic mb)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                Akrobata n = s.Load<Akrobata>(mb.ArtistId);
+                
+                //Zaposleni z = s.Load<Zaposleni>(mb.Zaposleni.IdZaposlenog);
+
+                //n.JeZaposleni = z;
+                n.JeZaposleni.Ime = mb.ImeArtista;
+                n.JeZaposleni.Prezime = mb.PrezimeArtista;
+                
+                n.UmetnickoIme = mb.UmetnickoIme;
+                n.Pol = mb.Pol;
+                n.ClanOd = mb.ClanOd;
+
+                //s.Update(z);
+                s.Update(n);
+
+                s.Flush();
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                Console.WriteLine(ec.Message);
+            }
+
+            return mb;
+        }
         public static void dodajAkrobatu(AkrobataBasic artist)
         {
             try
@@ -405,6 +438,26 @@ namespace CirkusApp1.DTOManagers
                 Console.WriteLine(ec.Message);
             }
         }
+        public static AkrobataBasic vratiAkrobatu(int id)
+        {
+            AkrobataBasic mb = new AkrobataBasic();
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                Akrobata akrobata = s.Load<Akrobata>(id);
+                mb = new AkrobataBasic(akrobata.IdPerformera, akrobata.JeZaposleni.Ime, akrobata.JeZaposleni.Prezime, akrobata.UmetnickoIme, akrobata.Pol,akrobata.ClanOd);
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                Console.WriteLine(ec.Message);
+            }
+
+            return mb;
+        }
+
         #endregion
         #region Zaposleni
 
@@ -931,6 +984,518 @@ namespace CirkusApp1.DTOManagers
             }
         }
         #endregion
+        #region Klovn
+        public static void dodajKlovna(KlovnBasic klovn)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                Klovn n = new Klovn();
+
+                n.IdPerformera = klovn.ArtistId;
+                Zaposleni a = s.Load<Zaposleni>(klovn.Zaposleni.IdZaposlenog);
+
+                n.JeZaposleni = a;
+                n.UmetnickoIme = klovn.UmetnickoIme;
+                n.Pol = klovn.Pol;
+                n.ClanOd = klovn.ClanOd;
+                n.CimeZabavlja = klovn.CimeZabavlja;
+                n.Tip = klovn.Tip;
+
+                s.SaveOrUpdate(n);
+
+                s.Flush();
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                Console.WriteLine(ec.Message);
+            }
+        }
+        public static void obrisiKlovna(int id)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                Klovn klovn = s.Load<Klovn>(id);
+
+                s.Delete(klovn);
+                s.Flush();
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                Console.WriteLine(ec.Message);
+            }
+        }
+        public static KlovnBasic azurirajKlovna(KlovnBasic mb)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                Klovn n = s.Load<Klovn>(mb.ArtistId);
+
+                //Zaposleni z = s.Load<Zaposleni>(mb.Zaposleni.IdZaposlenog);
+
+                //n.JeZaposleni = z;
+                n.JeZaposleni.Ime = mb.ImeArtista;
+                n.JeZaposleni.Prezime = mb.PrezimeArtista;
+
+                n.UmetnickoIme = mb.UmetnickoIme;
+                n.Pol = mb.Pol;
+                n.ClanOd = mb.ClanOd;
+                n.Tip = mb.Tip;
+                n.CimeZabavlja = n.CimeZabavlja;
+
+                //s.Update(z);
+                s.Update(n);
+
+                s.Flush();
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                Console.WriteLine(ec.Message);
+            }
+
+            return mb;
+        }
+        public static KlovnBasic vratiKlovna(int id)
+        {
+            KlovnBasic mb = new KlovnBasic();
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                Klovn klovn = s.Load<Klovn>(id);
+                mb = new KlovnBasic(klovn.IdPerformera, klovn.JeZaposleni.Ime, klovn.JeZaposleni.Prezime, klovn.UmetnickoIme, klovn.Pol, klovn.Tip,klovn.CimeZabavlja,klovn.ClanOd);
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                Console.WriteLine(ec.Message);
+            }
+
+            return mb;
+        }
+
+        #endregion
+        #region Zongler
+        public static void DodajZonglera(ZonglerBasic zongler)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                Zongler n = new Zongler();
+
+                n.IdPerformera = zongler.ArtistId;
+                Zaposleni a = s.Load<Zaposleni>(zongler.Zaposleni.IdZaposlenog);
+
+                n.JeZaposleni = a;
+                n.UmetnickoIme = zongler.UmetnickoIme;
+                n.Pol = zongler.Pol;
+                n.ClanOd = zongler.ClanOd;
+                n.NazivPredmeta = zongler.NazivPredmeta;
+                n.MaxPredmeta = zongler.MaxPredmeta;
+
+                s.SaveOrUpdate(n);
+
+                s.Flush();
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                Console.WriteLine(ec.Message);
+            }
+        }
+        public static void obrisiZonglera(int id)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                Zongler zongler = s.Load<Zongler>(id);
+
+                s.Delete(zongler);
+                s.Flush();
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                Console.WriteLine(ec.Message);
+            }
+        }
+        public static ZonglerBasic azurirajZonglera(ZonglerBasic mb)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                Zongler n = s.Load<Zongler>(mb.ArtistId);
+
+                //Zaposleni z = s.Load<Zaposleni>(mb.Zaposleni.IdZaposlenog);
+
+                //n.JeZaposleni = z;
+                n.JeZaposleni.Ime = mb.ImeArtista;
+                n.JeZaposleni.Prezime = mb.PrezimeArtista;
+
+                n.UmetnickoIme = mb.UmetnickoIme;
+                n.Pol = mb.Pol;
+                n.ClanOd = mb.ClanOd;
+                n.NazivPredmeta = mb.NazivPredmeta;
+                n.MaxPredmeta = n.MaxPredmeta;
+
+                //s.Update(z);
+                s.Update(n);
+
+                s.Flush();
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                Console.WriteLine(ec.Message);
+            }
+
+            return mb;
+        }
+        public static ZonglerBasic vratiZonglera(int id)
+        {
+            ZonglerBasic mb = new ZonglerBasic();
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                Zongler zongler = s.Load<Zongler>(id);
+                mb = new ZonglerBasic(zongler.IdPerformera, zongler.JeZaposleni.Ime, zongler.JeZaposleni.Prezime, zongler.UmetnickoIme, zongler.Pol, zongler.NazivPredmeta, zongler.MaxPredmeta, zongler.ClanOd);
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                Console.WriteLine(ec.Message);
+            }
+
+            return mb;
+        }
+        #endregion
+        #region  GutacPlamena
+        public static void DodajGutacaPlamena(GutacPlamenaBasic gutac)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                GutacPlamena n = new GutacPlamena();
+
+                n.IdPerformera = gutac.ArtistId;
+                Zaposleni a = s.Load<Zaposleni>(gutac.Zaposleni.IdZaposlenog);
+
+                n.JeZaposleni = a;
+                
+                n.UmetnickoIme = gutac.UmetnickoIme;
+                n.Pol = gutac.Pol;
+                n.ClanOd = gutac.ClanOd;
+                
+               
+
+                s.SaveOrUpdate(n);
+
+                s.Flush();
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                Console.WriteLine(ec.Message);
+            }
+        }
+        public static void obrisiGutacaPlamena(int id)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                GutacPlamena gutac = s.Load<GutacPlamena>(id);
+
+                s.Delete(gutac);
+                s.Flush();
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                Console.WriteLine(ec.Message);
+            }
+        }
+        public static GutacPlamenaBasic azurirajGutaca(GutacPlamenaBasic mb)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                GutacPlamena n = s.Load<GutacPlamena>(mb.ArtistId);
+
+                //Zaposleni z = s.Load<Zaposleni>(mb.Zaposleni.IdZaposlenog);
+
+                //n.JeZaposleni = z;
+                n.JeZaposleni.Ime = mb.ImeArtista;
+                n.JeZaposleni.Prezime = mb.PrezimeArtista;
+
+                n.UmetnickoIme = mb.UmetnickoIme;
+                n.Pol = mb.Pol;
+                n.ClanOd = mb.ClanOd;
+                
+
+                //s.Update(z);
+                s.Update(n);
+
+                s.Flush();
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                Console.WriteLine(ec.Message);
+            }
+
+            return mb;
+        }
+        public static GutacPlamenaBasic vratiGutaca(int id)
+        {
+            GutacPlamenaBasic mb = new GutacPlamenaBasic();
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                GutacPlamena gutac = s.Load<GutacPlamena>(id);
+                mb = new GutacPlamenaBasic(gutac.IdPerformera, gutac.JeZaposleni.Ime, gutac.JeZaposleni.Prezime, gutac.UmetnickoIme,gutac.Pol,gutac.ClanOd);
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                Console.WriteLine(ec.Message);
+            }
+
+            return mb;
+        }
+        #endregion
+        #region Dreser
+        public static void dodajDresera(DreserBasic dreser)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                GutacPlamena n = new GutacPlamena();
+
+                n.IdPerformera = dreser.ArtistId;
+                Zaposleni a = s.Load<Zaposleni>(dreser.Zaposleni.IdZaposlenog);
+
+                n.JeZaposleni = a;
+
+                n.UmetnickoIme = dreser.UmetnickoIme;
+                n.Pol = dreser.Pol;
+                n.ClanOd = dreser.ClanOd;
+
+
+
+                s.SaveOrUpdate(n);
+
+                s.Flush();
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                Console.WriteLine(ec.Message);
+            }
+        }
+        public static void obrisiDresera(int id)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                Dreser dreser = s.Load<Dreser>(id);
+
+                s.Delete(dreser);
+                s.Flush();
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                Console.WriteLine(ec.Message);
+            }
+        }
+        public static DreserBasic azurirajDresera(DreserBasic mb)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                Dreser n = s.Load<Dreser>(mb.ArtistId);
+
+                //Zaposleni z = s.Load<Zaposleni>(mb.Zaposleni.IdZaposlenog);
+
+                //n.JeZaposleni = z;
+                n.JeZaposleni.Ime = mb.ImeArtista;
+                n.JeZaposleni.Prezime = mb.PrezimeArtista;
+
+                n.UmetnickoIme = mb.UmetnickoIme;
+                n.Pol = mb.Pol;
+                n.ClanOd = mb.ClanOd;
+
+
+                //s.Update(z);
+                s.Update(n);
+
+                s.Flush();
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                Console.WriteLine(ec.Message);
+            }
+
+            return mb;
+        }
+        public static DreserBasic vratiDresera(int id)
+        {
+            DreserBasic mb = new DreserBasic();
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                Dreser gutac = s.Load<Dreser>(id);
+                mb = new DreserBasic(gutac.IdPerformera, gutac.JeZaposleni.Ime, gutac.JeZaposleni.Prezime, gutac.UmetnickoIme, gutac.Pol, gutac.ClanOd);
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                Console.WriteLine(ec.Message);
+            }
+
+            return mb;
+        }
+        #endregion
+        #region BacacNozeva
+        public static void dodajBacacaNozeva(BacacNozevaBasic bacac)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                BacacNozeva n = new BacacNozeva();
+
+                n.IdPerformera = bacac.ArtistId;
+                Zaposleni a = s.Load<Zaposleni>(bacac.Zaposleni.IdZaposlenog);
+
+                n.JeZaposleni = a;
+
+                n.UmetnickoIme = bacac.UmetnickoIme;
+                n.Pol = bacac.Pol;
+                n.ClanOd = bacac.ClanOd;
+
+
+
+                s.SaveOrUpdate(n);
+
+                s.Flush();
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                Console.WriteLine(ec.Message);
+            }
+        }
+        public static void obrisiBacacaNozeva(int id)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                BacacNozeva bacac = s.Load<BacacNozeva>(id);
+
+                s.Delete(bacac);
+                s.Flush();
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                Console.WriteLine(ec.Message);
+            }
+        }
+        public static DreserBasic azurirajBacacaNozeva(DreserBasic mb)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                BacacNozeva n = s.Load<BacacNozeva>(mb.ArtistId);
+
+                //Zaposleni z = s.Load<Zaposleni>(mb.Zaposleni.IdZaposlenog);
+
+                //n.JeZaposleni = z;
+                n.JeZaposleni.Ime = mb.ImeArtista;
+                n.JeZaposleni.Prezime = mb.PrezimeArtista;
+
+                n.UmetnickoIme = mb.UmetnickoIme;
+                n.Pol = mb.Pol;
+                n.ClanOd = mb.ClanOd;
+
+
+                //s.Update(z);
+                s.Update(n);
+
+                s.Flush();
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                Console.WriteLine(ec.Message);
+            }
+
+            return mb;
+        }
+        public static BacacNozevaBasic vratiBacaca(int id)
+        {
+            BacacNozevaBasic mb = new BacacNozevaBasic();
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                BacacNozeva bacac = s.Load<BacacNozeva>(id);
+                mb = new BacacNozevaBasic(bacac.IdPerformera, bacac.JeZaposleni.Ime, bacac.JeZaposleni.Prezime, bacac.UmetnickoIme, bacac.Pol, bacac.ClanOd);
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                Console.WriteLine(ec.Message);
+            }
+
+            return mb;
+        }
+        #endregion
+
     }
 }
    

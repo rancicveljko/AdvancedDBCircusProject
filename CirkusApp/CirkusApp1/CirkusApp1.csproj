@@ -84,6 +84,7 @@
     <Compile Include="DTOs\Basics\MestoBoravkaBasic.cs" />
     <Compile Include="DTOs\Basics\NastupnaTackaBasic.cs" />
     <Compile Include="DTOs\Basics\PomocnoOsobljeBasic.cs" />
+    <Compile Include="DTOs\Basics\VestinaBasic.cs" />
     <Compile Include="DTOs\Basics\ZaposleniBasic.cs" />
     <Compile Include="DTOs\Basics\ZivotinjaBasic.cs" />
     <Compile Include="DTOs\Basics\ZonglerBasic.cs" />
