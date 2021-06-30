@@ -2,3 +2,8 @@ E:\Rabote za fax\III\SBP\sbpcirkusprojekat\CirkusWebApi\CirkusLibrary\obj\Debug\
 E:\Rabote za fax\III\SBP\sbpcirkusprojekat\CirkusWebApi\CirkusLibrary\obj\Debug\netcoreapp3.1\CirkusLibrary.AssemblyInfoInputs.cache
 E:\Rabote za fax\III\SBP\sbpcirkusprojekat\CirkusWebApi\CirkusLibrary\obj\Debug\netcoreapp3.1\CirkusLibrary.AssemblyInfo.cs
 E:\Rabote za fax\III\SBP\sbpcirkusprojekat\CirkusWebApi\CirkusLibrary\obj\Debug\netcoreapp3.1\CirkusLibrary.csproj.CoreCompileInputs.cache
+E:\Rabote za fax\III\SBP\sbpcirkusprojekat\CirkusWebApi\CirkusLibrary\bin\Debug\netcoreapp3.1\CirkusLibrary.deps.json
+E:\Rabote za fax\III\SBP\sbpcirkusprojekat\CirkusWebApi\CirkusLibrary\bin\Debug\netcoreapp3.1\CirkusLibrary.dll
+E:\Rabote za fax\III\SBP\sbpcirkusprojekat\CirkusWebApi\CirkusLibrary\bin\Debug\netcoreapp3.1\CirkusLibrary.pdb
+E:\Rabote za fax\III\SBP\sbpcirkusprojekat\CirkusWebApi\CirkusLibrary\obj\Debug\netcoreapp3.1\CirkusLibrary.dll
+E:\Rabote za fax\III\SBP\sbpcirkusprojekat\CirkusWebApi\CirkusLibrary\obj\Debug\netcoreapp3.1\CirkusLibrary.pdb

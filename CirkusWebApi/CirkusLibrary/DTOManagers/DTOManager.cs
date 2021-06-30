@@ -493,15 +493,20 @@ namespace CirkusApp1.DTOManagers
 
                 Zaposleni z = s.Load<Zaposleni>(zb.IdZaposlenog);
 
-                z.IdZaposlenog = zb.IdZaposlenog;
-                z.Ime = zb.Ime;
-                z.Ime_Rod = zb.Ime_Rod;
-                z.Prezime = zb.Prezime;
-                z.Datum_Rodj = zb.Datum_Rodj;
-                z.Mesto_Rodj = zb.Mesto_Rodj;
-                z.Maticnibr = zb.Maticnibr;
+                if (zb.Ime != null)
+                    z.Ime = zb.Ime;
+                if (zb.Ime_Rod != null)
+                    z.Ime_Rod = zb.Ime_Rod;
+                if (zb.Prezime != null)
+                    z.Prezime = zb.Prezime;
+                if (zb.Datum_Rodj != null)
+                    z.Datum_Rodj = zb.Datum_Rodj;
+                if (zb.Mesto_Rodj != null)
+                    z.Mesto_Rodj = zb.Mesto_Rodj;
+                if (zb.Maticnibr != 0)
+                    z.Maticnibr = zb.Maticnibr;
 
-                s.Update(z);
+                s.SaveOrUpdate(z);
 
                 s.Flush();
 
@@ -517,22 +522,25 @@ namespace CirkusApp1.DTOManagers
 
         public static ZaposleniBasic vratiZaposlenog(int id)
         {
-            ZaposleniBasic zb = new ZaposleniBasic();
+            ZaposleniBasic zb = null;
             try
             {
                 ISession s = DataLayer.GetSession();
 
                 Zaposleni z = s.Load<Zaposleni>(id);
-                zb = new ZaposleniBasic(z.IdZaposlenog, z.Ime, z.Ime_Rod, z.Prezime, z.Datum_Rodj, z.Mesto_Rodj, z.Maticnibr);
+                if (z != null)
+                    zb = new ZaposleniBasic(z.IdZaposlenog, z.Ime, z.Ime_Rod, z.Prezime, z.Datum_Rodj, z.Mesto_Rodj, z.Maticnibr);
 
                 s.Close();
+                return zb;
             }
             catch (Exception ec)
             {
                 Console.WriteLine(ec.Message);
+                return null;
             }
 
-            return zb;
+
         }
 
         public static void dodajZaposlenog(ZaposleniBasic zap)
@@ -550,13 +558,13 @@ namespace CirkusApp1.DTOManagers
                 z.Datum_Rodj = zap.Datum_Rodj;
                 z.Mesto_Rodj = zap.Mesto_Rodj;
                 z.Maticnibr = zap.Maticnibr;
-                Direktor d = s.Load<Direktor>(zap.PripadaDirektoru.IdDirektora);
-                z.PripadaDirektoru = d;
+                //Direktor d = s.Load<Direktor>(zap.PripadaDirektoru.IdDirektora);
+                //z.PripadaDirektoru = d;
 
                 s.SaveOrUpdate(z);
 
                 s.Flush();
-                zap.IdZaposlenog = z.IdZaposlenog;
+                //zap.IdZaposlenog = z.IdZaposlenog;
                 s.Close();
             }
             catch (Exception ec)
@@ -756,6 +764,101 @@ namespace CirkusApp1.DTOManagers
             }
 
             return osoblje;
+        }
+
+        public static void dodajPomocnoOsoblje(PomocnoOsobljeBasic pomocnoOsobljeBasic)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                var pomocnoOsoblje = new PomocnoOsoblje()
+                {
+                    Ime = pomocnoOsobljeBasic.Ime,
+                    Ime_Rod = pomocnoOsobljeBasic.Ime_Rod,
+                    Prezime = pomocnoOsobljeBasic.Prezime,
+                    Datum_Rodj = pomocnoOsobljeBasic.Datum_Rodj,
+                    Mesto_Rodj = pomocnoOsobljeBasic.Mesto_Rodj,
+                    Maticnibr = pomocnoOsobljeBasic.Maticnibr
+                };
+
+                if (pomocnoOsobljeBasic.PripadaDirektoruID != 0)
+                {
+                    pomocnoOsoblje.PripadaDirektoru = s.Load<Direktor>(pomocnoOsobljeBasic.PripadaDirektoruID);//STO NE VADI INSTANCU??
+                    pomocnoOsoblje.PripadaDirektoru.Zaposleni.Add(pomocnoOsoblje);
+                }
+                s.Save(pomocnoOsoblje);
+                s.Flush();
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                Console.WriteLine(ec.Message);
+            }
+        }
+        public static PomocnoOsobljeBasic vratiPomocnuOsobu(int id)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                var osoba = s.Load<PomocnoOsoblje>(id);
+                var osobaIzlaz = new PomocnoOsobljeBasic(osoba.IdZaposlenog, osoba.Ime, osoba.Ime_Rod, osoba.Prezime, osoba.Datum_Rodj, osoba.Mesto_Rodj, osoba.Maticnibr, osoba.AsistentFleg);
+                s.Flush();
+                s.Close();
+                return osobaIzlaz;
+            }
+            catch (Exception ec)
+            {
+                Console.WriteLine(ec.Message);
+                return null;
+            }
+        }
+        public static void obrisiPomocnuOsobu(int id)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                var osoba = s.Load<PomocnoOsoblje>(id);
+
+                s.Delete(osoba);
+                s.Flush();
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                Console.WriteLine(ec.Message);
+            }
+        }
+        public static void azurirajPomocnuOsobu(PomocnoOsobljeBasic pomocnoOsobljeBasic)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                var osoba = s.Load<PomocnoOsoblje>(pomocnoOsobljeBasic.IdZaposlenog);
+
+                if (pomocnoOsobljeBasic.Ime != null)
+                    osoba.Ime = pomocnoOsobljeBasic.Ime;
+                if (pomocnoOsobljeBasic.Ime_Rod != null)
+                    osoba.Ime_Rod = pomocnoOsobljeBasic.Ime_Rod;
+                if (pomocnoOsobljeBasic.Prezime != null)
+                    osoba.Prezime = pomocnoOsobljeBasic.Prezime;
+                if (pomocnoOsobljeBasic.Datum_Rodj != null) 
+                    osoba.Datum_Rodj = pomocnoOsobljeBasic.Datum_Rodj;
+                if (pomocnoOsobljeBasic.Mesto_Rodj != null) 
+                    osoba.Mesto_Rodj = pomocnoOsobljeBasic.Mesto_Rodj;
+                if (pomocnoOsobljeBasic.Maticnibr != 0) 
+                    osoba.Maticnibr = pomocnoOsobljeBasic.Maticnibr;
+
+                s.Update(osoba);
+                s.Flush();
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                Console.WriteLine(ec.Message);
+            }
         }
         #endregion 
         #region Zivotinja

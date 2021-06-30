@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace CirkusApp1.DTOs.Basics
@@ -15,7 +16,13 @@ namespace CirkusApp1.DTOs.Basics
         public DateTime Datum_Rodj { get; set; }
         public string Mesto_Rodj { get; set; }
         public long Maticnibr { get; set; }
+
+        //VEZA SA DIREKTOROM IZ ULAZNOG DTO-A
+        public int PripadaDirektoruID { get; set; }
+
+        [JsonIgnore]
         public DirektorBasic PripadaDirektoru { get; set; }
+        [JsonIgnore]
         public ArtistBasic JeArtist { get; set; }
 
 

@@ -2,18 +2,24 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace CirkusApp1.DTOs.Basics
 {
     public class PomocnoOsobljeBasic : ZaposleniBasic
     {
+        public int PomazeArtistuID { get; set; }
         public Boolean AsistentFleg { get; set; }
+        [JsonIgnore]
         public ArtistBasic PomazeArtistu { get; set; }
 
-        public DreserBasic RadiSa { get; set; }
-        public BacacNozevaBasic Radi_Sa { get; set; }
-        public GutacPlamenaBasic Radi__Sa { get; set; }
+        [JsonIgnore]
+        public DreserBasic RadiSaDreserom { get; set; }
+        [JsonIgnore]
+        public BacacNozevaBasic RadiSaBacacemNozeva { get; set; }
+        [JsonIgnore]
+        public GutacPlamenaBasic RadiSaGutacemPlamena { get; set; }
 
         public PomocnoOsobljeBasic()
         {
