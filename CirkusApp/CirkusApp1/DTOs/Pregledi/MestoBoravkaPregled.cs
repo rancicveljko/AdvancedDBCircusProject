@@ -8,11 +8,11 @@ namespace CirkusApp1.DTOs.Pregledi
 {
     public class MestoBoravkaPregled
     {
-        public int IdMesta;
-        public string Grad;
-        public string Drzava;
-        public string Opis;
-        public int Vreme_u_gradu;
+        public int IdMesta { get; set; }
+        public string Grad { get; set; }
+        public string Drzava { get; set; }
+        public string Opis { get; set; }
+        public int Vreme_u_gradu { get; set; }
 
 
         public MestoBoravkaPregled()

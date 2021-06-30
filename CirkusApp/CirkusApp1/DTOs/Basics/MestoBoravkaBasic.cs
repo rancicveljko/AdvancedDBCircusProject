@@ -8,12 +8,12 @@ namespace CirkusApp1.DTOs.Basics
 {
     public class MestoBoravkaBasic
     {
-        public int IdMesta;
-        public string Grad;
-        public string Drzava;
-        public string Opis;
-        public int Vreme_u_gradu;
-        //public virtual IList<CirkuskaPredstavaBasic> Predstave { get; set; }
+        public int IdMesta { get; set; }
+        public string Grad { get; set; }
+        public string Drzava { get; set; }
+        public string Opis { get; set; }
+        public int Vreme_u_gradu { get; set; }
+        public virtual IList<CirkuskaPredstavaBasic> Predstave { get; set; }
 
         public MestoBoravkaBasic()
         {
