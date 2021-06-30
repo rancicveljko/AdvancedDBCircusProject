@@ -894,7 +894,7 @@ namespace CirkusApp1.DTOManagers
 
                 foreach (var pred in predstave)
                 {
-                    predstaveIzlaz.Add(new CirkuskaPredstavaPregled(pred.IdPredstave, pred.Vreme, pred.BrojKarata, pred.Mesto.Grad + "/" + pred.Mesto.Drzava));
+                    predstaveIzlaz.Add(new CirkuskaPredstavaPregled(pred.IdPredstave, pred.Vreme, pred.BrojKarata));
                 }
             }
             catch (Exception ec)
@@ -953,7 +953,7 @@ namespace CirkusApp1.DTOManagers
 
                 CirkuskaPredstava pred = s.Load<CirkuskaPredstava>(id);
 
-                cirkuskaPredstavaPregled = new CirkuskaPredstavaPregled(pred.IdPredstave, pred.Vreme, pred.BrojKarata, pred.Mesto.Grad + "/" + pred.Mesto.Drzava);
+                cirkuskaPredstavaPregled = new CirkuskaPredstavaPregled(pred.IdPredstave, pred.Vreme, pred.BrojKarata);
 
                 s.Close();
 
@@ -1495,12 +1495,232 @@ namespace CirkusApp1.DTOManagers
             return mb;
         }
         #endregion
-        #region Vestina
+        #region HumanitarnaPredstava
+        public static List<HumanitarnaPredstavaPregled> vratiSveHumanitarnePredstave()
+        {
+            List<HumanitarnaPredstavaPregled> predstaveIzlaz = new List<HumanitarnaPredstavaPregled>();
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                IEnumerable<HumanitarnaPredstava> predstave = from p in s.Query<HumanitarnaPredstava>()
+                                                              select p;
+
+                foreach (var pred in predstave)
+                {
+                    predstaveIzlaz.Add(new HumanitarnaPredstavaPregled(pred.IdPredstave, pred.Vreme, pred.BrojKarata, pred.Mesto.Grad + "/" + pred.Mesto.Drzava, pred.Prihod, pred.ZaKoga));
+                }
+            }
+            catch (Exception ec)
+            {
+                Console.WriteLine(ec.Message);
+            }
+            return predstaveIzlaz;
+        }
+
+        public static void dodajHumanitarnuPredstavu(HumanitarnaPredstavaBasic humanitarnaPredstavaBasic)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                HumanitarnaPredstava predstava = new HumanitarnaPredstava();
+                predstava.Vreme = humanitarnaPredstavaBasic.Vreme;
+                predstava.BrojKarata = humanitarnaPredstavaBasic.BrojKarata;
+                predstava.Prihod = humanitarnaPredstavaBasic.Prihod;
+                predstava.ZaKoga = humanitarnaPredstavaBasic.ZaKoga;
+
+                s.Save(predstava);
+                s.Flush();
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                Console.WriteLine(ec.Message);
+            }
+        }
+
+        public static void azurirajHumanitarnuPredstavu(HumanitarnaPredstavaBasic cirkuskaPredstavaBasic)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                HumanitarnaPredstava predstava = s.Load<HumanitarnaPredstava>(cirkuskaPredstavaBasic.IdPredstave);
+                predstava.Vreme = cirkuskaPredstavaBasic.Vreme;
+                predstava.BrojKarata = cirkuskaPredstavaBasic.BrojKarata;
+                predstava.Prihod = cirkuskaPredstavaBasic.Prihod;
+                predstava.ZaKoga = cirkuskaPredstavaBasic.ZaKoga;
+
+
+                s.Update(predstava);
+                s.Flush();
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                Console.WriteLine(ec.Message);
+            }
+        }
+
+        public static HumanitarnaPredstavaPregled vratiHumanitarnuPredstavu(int id)
+        {
+            HumanitarnaPredstavaPregled cirkuskaPredstavaPregled = new HumanitarnaPredstavaPregled();
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                HumanitarnaPredstava pred = s.Load<HumanitarnaPredstava>(id);
+
+                cirkuskaPredstavaPregled = new HumanitarnaPredstavaPregled(pred.IdPredstave, pred.Vreme, pred.BrojKarata, pred.Mesto.Grad + "/" + pred.Mesto.Drzava, pred.Prihod, pred.ZaKoga);
+
+                s.Close();
+
+                return cirkuskaPredstavaPregled;
+            }
+            catch (Exception ec)
+            {
+                Console.WriteLine(ec.Message);
+                return null;
+            }
+        }
+
+        public static void obrisiHumanitarnuPredstavu(int id)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                HumanitarnaPredstava predstava = s.Load<HumanitarnaPredstava>(id);
+
+                s.Delete(predstava);
+                s.Flush();
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                Console.WriteLine(ec.Message);
+            }
+        }
+        #endregion
+        #region PredstavaPoNarudzbini
+        public static List<PredstavaPoNarudzbiniPregled> vratiSvePredstavePoNarudzbini()
+        {
+            List<PredstavaPoNarudzbiniPregled> predstaveIzlaz = new List<PredstavaPoNarudzbiniPregled>();
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                IEnumerable<PredstavaPoNarudzbini> predstave = from p in s.Query<PredstavaPoNarudzbini>()
+                                                               select p;
+
+                foreach (var pred in predstave)
+                {
+                    predstaveIzlaz.Add(new PredstavaPoNarudzbiniPregled(pred.IdPredstave, pred.Vreme, pred.BrojKarata, pred.BrTelNarucioca, pred.NazivNarucioca, pred.AdresaNarucioca));
+                }
+            }
+            catch (Exception ec)
+            {
+                Console.WriteLine(ec.Message);
+            }
+            return predstaveIzlaz;
+        }
+
+        public static void dodajPredstavuPoNarudzbini(PredstavaPoNarudzbiniBasic predstavaPoNarudzbiniBasic)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                PredstavaPoNarudzbini predstava = new PredstavaPoNarudzbini();
+                predstava.Vreme = predstavaPoNarudzbiniBasic.Vreme;
+                predstava.BrojKarata = predstavaPoNarudzbiniBasic.BrojKarata;
+                predstava.BrTelNarucioca = predstavaPoNarudzbiniBasic.BrTelNarucioca;
+                predstava.NazivNarucioca = predstavaPoNarudzbiniBasic.NazivNarucioca;
+                predstava.AdresaNarucioca = predstavaPoNarudzbiniBasic.AdresaNarucioca;
+
+                s.Save(predstava);
+                s.Flush();
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                Console.WriteLine(ec.Message);
+            }
+        }
+
+        public static void azurirajPredstavuPoNarudzbini(PredstavaPoNarudzbiniBasic predstavaPoNarudzbiniBasic)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                PredstavaPoNarudzbini predstava = s.Load<PredstavaPoNarudzbini>(predstavaPoNarudzbiniBasic.IdPredstave);
+                predstava.Vreme = predstavaPoNarudzbiniBasic.Vreme;
+                predstava.BrojKarata = predstavaPoNarudzbiniBasic.BrojKarata;
+                predstava.BrTelNarucioca = predstavaPoNarudzbiniBasic.BrTelNarucioca;
+                predstava.NazivNarucioca = predstavaPoNarudzbiniBasic.NazivNarucioca;
+                predstava.AdresaNarucioca = predstavaPoNarudzbiniBasic.AdresaNarucioca;
+
+
+                s.Update(predstava);
+                s.Flush();
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                Console.WriteLine(ec.Message);
+            }
+        }
+
+        public static PredstavaPoNarudzbiniPregled vratiPredstavuPoNarudzbini(int id)
+        {
+            PredstavaPoNarudzbiniPregled cirkuskaPredstavaPregled = new PredstavaPoNarudzbiniPregled();
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                PredstavaPoNarudzbini pred = s.Load<PredstavaPoNarudzbini>(id);
+
+                cirkuskaPredstavaPregled = new PredstavaPoNarudzbiniPregled(pred.IdPredstave, pred.Vreme, pred.BrojKarata, pred.BrTelNarucioca, pred.NazivNarucioca, pred.AdresaNarucioca);
+
+                s.Close();
+
+                return cirkuskaPredstavaPregled;
+            }
+            catch (Exception ec)
+            {
+                Console.WriteLine(ec.Message);
+                return null;
+            }
+        }
+
+        public static void obrisiPredstavuPoNarudzbini(int id)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                PredstavaPoNarudzbini predstava = s.Load<PredstavaPoNarudzbini>(id);
+
+                s.Delete(predstava);
+                s.Flush();
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                Console.WriteLine(ec.Message);
+            }
+        }
+        #endregion
+ #region Vestina
         public static void dodajVestinu(VestinaBasic vestina)
         {
             try
             {
                 ISession s = DataLayer.GetSession();
+
+
 
                 Vestina n = new Vestina();
 
@@ -1591,7 +1811,6 @@ namespace CirkusApp1.DTOManagers
             return mb;
         }
         #endregion
-
     }
 }
    

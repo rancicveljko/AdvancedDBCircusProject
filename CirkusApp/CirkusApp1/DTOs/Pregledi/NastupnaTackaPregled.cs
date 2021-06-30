@@ -8,11 +8,11 @@ namespace CirkusApp1.DTOs.Pregledi
 {
     public class NastupnaTackaPregled
     {
-        public int IdTacke;
-        public string Ime;
-        public string Tip;
-        public int MinGodina;
-        public int OpasniEfekti;
+        public int IdTacke { get; set; }
+        public string Ime { get; set; }
+        public string Tip { get; set; }
+        public int MinGodina { get; set; }
+        public int OpasniEfekti { get; set; }
 
         public NastupnaTackaPregled()
         {

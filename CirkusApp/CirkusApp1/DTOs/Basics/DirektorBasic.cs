@@ -8,11 +8,11 @@ namespace CirkusApp1.DTOs.Basics
 {
     public class DirektorBasic
     {
-        public int IdDirektora;
-        public string Ime;
-        public string Prezime;
-        public string Email;
-        public int Telefon;
+        public int IdDirektora { get; set; }
+        public string Ime { get; set; }
+        public string Prezime { get; set; }
+        public string Email { get; set; }
+        public int Telefon { get; set; }
 
 
         public IList<ZaposleniBasic> Zaposleni { get; set; }

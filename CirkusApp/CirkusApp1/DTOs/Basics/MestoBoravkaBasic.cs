@@ -17,7 +17,7 @@ namespace CirkusApp1.DTOs.Basics
 
         public MestoBoravkaBasic()
         {
-            //inicijalizacija liste Predstave
+            Predstave = new List<CirkuskaPredstavaBasic>();
         }
         public MestoBoravkaBasic(int idmesta, string grad, string drzava, string opis, int vreme)
         {
@@ -26,6 +26,7 @@ namespace CirkusApp1.DTOs.Basics
             this.Drzava = drzava;
             this.Opis = opis;
             this.Vreme_u_gradu = vreme;
+            Predstave = new List<CirkuskaPredstavaBasic>();
         }
     }
 }
