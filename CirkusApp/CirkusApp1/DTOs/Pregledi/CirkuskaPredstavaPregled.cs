@@ -12,18 +12,16 @@ namespace CirkusApp1.DTOs.Pregledi
         public virtual int IdPredstave { get; protected set; }
         public virtual DateTime Vreme { get; set; }
         public virtual int BrojKarata { get; set; }
-        public string Mesto { get; set; }
 
         public CirkuskaPredstavaPregled()
         {
-            
+
         }
-        public CirkuskaPredstavaPregled(int idPredstave, DateTime vreme, int brojKarata, string mesto)
+        public CirkuskaPredstavaPregled(int idPredstave, DateTime vreme, int brojKarata)
         {
             this.IdPredstave = idPredstave;
             this.Vreme = vreme;
             this.BrojKarata = brojKarata;
-            this.Mesto = mesto;
         }
     }
 }
