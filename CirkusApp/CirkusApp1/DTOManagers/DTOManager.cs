@@ -33,7 +33,7 @@ namespace CirkusApp1.DTOManagers
             }
             catch (Exception ec)
             {
-                //handle exceptions
+                Console.WriteLine(ec.Message);
             }
 
             return mesta;
@@ -59,7 +59,7 @@ namespace CirkusApp1.DTOManagers
             }
             catch (Exception ec)
             {
-                //handle exceptions
+                Console.WriteLine(ec.Message);
             }
         }
         public static MestoBoravkaBasic azurirajMestoBoravka(MestoBoravkaBasic mb)
@@ -83,7 +83,7 @@ namespace CirkusApp1.DTOManagers
             }
             catch (Exception ec)
             {
-                //handle exceptions
+                Console.WriteLine(ec.Message);
             }
 
             return mb;
@@ -102,7 +102,7 @@ namespace CirkusApp1.DTOManagers
             }
             catch (Exception ec)
             {
-                //handle exceptions
+                Console.WriteLine(ec.Message);
             }
 
             return mb;
@@ -122,7 +122,7 @@ namespace CirkusApp1.DTOManagers
             }
             catch (Exception ec)
             {
-                //handle exceptions
+                Console.WriteLine(ec.Message);
             }
         }
         #endregion
@@ -146,7 +146,7 @@ namespace CirkusApp1.DTOManagers
             }
             catch (Exception ec)
             {
-                //handle exceptions
+                Console.WriteLine(ec.Message);
             }
 
             return tacke;
@@ -172,7 +172,7 @@ namespace CirkusApp1.DTOManagers
             }
             catch (Exception ec)
             {
-                //handle exceptions
+                Console.WriteLine(ec.Message);
             }
         }
         public static NastupnaTackaBasic azurirajNastupnuTacku(NastupnaTackaBasic nt)
@@ -196,7 +196,7 @@ namespace CirkusApp1.DTOManagers
             }
             catch (Exception ec)
             {
-                //handle exceptions
+                Console.WriteLine(ec.Message);
             }
 
             return nt;
@@ -215,7 +215,7 @@ namespace CirkusApp1.DTOManagers
             }
             catch (Exception ec)
             {
-                //handle exceptions
+                Console.WriteLine(ec.Message);
             }
 
             return nt;
@@ -235,7 +235,7 @@ namespace CirkusApp1.DTOManagers
             }
             catch (Exception ec)
             {
-                //handle exceptions
+                Console.WriteLine(ec.Message);
             }
         }
         #endregion
@@ -258,7 +258,7 @@ namespace CirkusApp1.DTOManagers
             }
             catch (Exception ec)
             {
-
+                Console.WriteLine(ec.Message);
             }
             return artisti;
         }
@@ -285,7 +285,7 @@ namespace CirkusApp1.DTOManagers
             }
             catch (Exception ec)
             {
-
+                Console.WriteLine(ec.Message);
             }
         }
         public static ArtistBasic azurirajArtista(ArtistBasic art)
@@ -316,7 +316,7 @@ namespace CirkusApp1.DTOManagers
             }
             catch (Exception ec)
             {
-                //handle exceptions
+                Console.WriteLine(ec.Message);
             }
 
             return art;
@@ -335,7 +335,7 @@ namespace CirkusApp1.DTOManagers
             }
             catch (Exception ec)
             {
-                //handle exceptions
+                Console.WriteLine(ec.Message);
             }
 
             return art;
@@ -355,7 +355,7 @@ namespace CirkusApp1.DTOManagers
             }
             catch (Exception ec)
             {
-                //handle exceptions
+                Console.WriteLine(ec.Message);
             }
         }
         #endregion
@@ -384,7 +384,7 @@ namespace CirkusApp1.DTOManagers
             }
             catch (Exception ec)
             {
-
+                Console.WriteLine(ec.Message);
             }
         }
         public static void obrisiAkrobatu(int id)
@@ -402,7 +402,7 @@ namespace CirkusApp1.DTOManagers
             }
             catch (Exception ec)
             {
-                //handle exceptions
+                Console.WriteLine(ec.Message);
             }
         }
         #endregion
@@ -427,7 +427,7 @@ namespace CirkusApp1.DTOManagers
             }
             catch (Exception ec)
             {
-                //handle exceptions
+                Console.WriteLine(ec.Message);
             }
 
             return zaposleni;
@@ -457,7 +457,7 @@ namespace CirkusApp1.DTOManagers
             }
             catch (Exception ec)
             {
-                //handle exceptions
+                Console.WriteLine(ec.Message);
             }
 
             return zb;
@@ -477,7 +477,7 @@ namespace CirkusApp1.DTOManagers
             }
             catch (Exception ec)
             {
-                //handle exceptions
+                Console.WriteLine(ec.Message);
             }
 
             return zb;
@@ -509,7 +509,7 @@ namespace CirkusApp1.DTOManagers
             }
             catch (Exception ec)
             {
-                //handle exceptions
+                Console.WriteLine(ec.Message);
             }
         }
 
@@ -528,7 +528,7 @@ namespace CirkusApp1.DTOManagers
             }
             catch (Exception ec)
             {
-                //handle exceptions
+                Console.WriteLine(ec.Message);
             }
         }
 
@@ -553,7 +553,7 @@ namespace CirkusApp1.DTOManagers
             }
             catch (Exception ec)
             {
-                //handle exceptions
+                Console.WriteLine(ec.Message);
             }
 
             return direktori;
@@ -581,7 +581,7 @@ namespace CirkusApp1.DTOManagers
             }
             catch (Exception ec)
             {
-                //handle exceptions
+                Console.WriteLine(ec.Message);
             }
 
             return db;
@@ -601,7 +601,7 @@ namespace CirkusApp1.DTOManagers
             }
             catch (Exception ec)
             {
-                //handle exceptions
+                Console.WriteLine(ec.Message);
             }
 
             return db;
@@ -630,7 +630,7 @@ namespace CirkusApp1.DTOManagers
             }
             catch (Exception ec)
             {
-                //handle exceptions
+                Console.WriteLine(ec.Message);
             }
         }
 
@@ -649,7 +649,7 @@ namespace CirkusApp1.DTOManagers
             }
             catch (Exception ec)
             {
-                //handle exceptions
+                Console.WriteLine(ec.Message);
             }
         }
         #endregion
@@ -673,7 +673,7 @@ namespace CirkusApp1.DTOManagers
             }
             catch (Exception ec)
             {
-                //handle exceptions
+                Console.WriteLine(ec.Message);
             }
 
             return osoblje;
@@ -700,7 +700,7 @@ namespace CirkusApp1.DTOManagers
             }
             catch (Exception ec)
             {
-                //handle exceptions
+                Console.WriteLine(ec.Message);
             }
 
             return osoblje;
@@ -725,7 +725,7 @@ namespace CirkusApp1.DTOManagers
             }
             catch (Exception ec)
             {
-
+                Console.WriteLine(ec.Message);
             }
             return zivotinje;
         }
@@ -757,7 +757,7 @@ namespace CirkusApp1.DTOManagers
             }
             catch (Exception ec)
             {
-
+                Console.WriteLine(ec.Message);
             }
         }
 
@@ -784,7 +784,7 @@ namespace CirkusApp1.DTOManagers
             }
             catch (Exception ec)
             {
-                //handle exceptions
+                Console.WriteLine(ec.Message);
             }
 
             return zb;
@@ -803,7 +803,7 @@ namespace CirkusApp1.DTOManagers
             }
             catch (Exception ec)
             {
-                //handle exceptions
+                Console.WriteLine(ec.Message);
             }
 
             return zb;
@@ -823,7 +823,111 @@ namespace CirkusApp1.DTOManagers
             }
             catch (Exception ec)
             {
-                //handle exceptions
+                Console.WriteLine(ec.Message);
+            }
+        }
+        #endregion
+        #region CirkuskaPredstava
+
+        public static List<CirkuskaPredstavaPregled> vratiSveCirkuskePredstave()
+        {
+            List<CirkuskaPredstavaPregled> predstaveIzlaz = new List<CirkuskaPredstavaPregled>();
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                IEnumerable<CirkuskaPredstava> predstave = from p in s.Query<CirkuskaPredstava>()
+                                                           select p;
+
+                foreach (var pred in predstave)
+                {
+                    predstaveIzlaz.Add(new CirkuskaPredstavaPregled(pred.IdPredstave, pred.Vreme, pred.BrojKarata, pred.Mesto.Grad + "/" + pred.Mesto.Drzava));
+                }
+            }
+            catch (Exception ec)
+            {                
+                Console.WriteLine(ec.Message);
+            }
+            return predstaveIzlaz;
+        }
+
+        public static void dodajCirkuskuPredstavu(CirkuskaPredstavaBasic cirkuskaPredstavaBasic)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                CirkuskaPredstava predstava = new CirkuskaPredstava();
+                predstava.Vreme = cirkuskaPredstavaBasic.Vreme;
+                predstava.BrojKarata = cirkuskaPredstavaBasic.BrojKarata;
+
+                s.Save(predstava);
+                s.Flush();
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                Console.WriteLine(ec.Message);
+            }
+        }
+
+        public static void azurirajCirkuskuPredstavu(CirkuskaPredstavaBasic cirkuskaPredstavaBasic)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                CirkuskaPredstava predstava = s.Load<CirkuskaPredstava>(cirkuskaPredstavaBasic.IdPredstave);
+                predstava.Vreme = cirkuskaPredstavaBasic.Vreme;
+                predstava.BrojKarata = cirkuskaPredstavaBasic.BrojKarata;
+
+                s.Update(predstava);
+                s.Flush();
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                Console.WriteLine(ec.Message);
+            }
+        }
+
+        public static CirkuskaPredstavaPregled vratiCirkuskuPredstavu(int id)
+        {
+            CirkuskaPredstavaPregled cirkuskaPredstavaPregled=new CirkuskaPredstavaPregled();
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                CirkuskaPredstava pred = s.Load<CirkuskaPredstava>(id);
+
+                cirkuskaPredstavaPregled = new CirkuskaPredstavaPregled(pred.IdPredstave, pred.Vreme, pred.BrojKarata, pred.Mesto.Grad + "/" + pred.Mesto.Drzava);
+
+                s.Close();
+
+                return cirkuskaPredstavaPregled;
+            }
+            catch (Exception ec)
+            {
+                Console.WriteLine(ec.Message);
+                return null;
+            }   
+        }
+
+        public static void obrisiCirkuskuPredstavu(int id)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                CirkuskaPredstava predstava = s.Load<CirkuskaPredstava>(id);
+
+                s.Delete(predstava);
+                s.Flush();
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                Console.WriteLine(ec.Message);
             }
         }
         #endregion
