@@ -50,7 +50,7 @@ namespace CirkusApp1
             }
             catch (Exception ec)
             {
-                System.Windows.Forms.MessageBox.Show(ec.Message);
+                Console.WriteLine(ec.Message);
                 return null;
             }
 

@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31410.357
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CirkusWebApi", "CirkusWebApi\CirkusWebApi.csproj", "{8A5F5396-EA40-4EE2-8E8E-569B93E64504}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CirkusLibrary", "CirkusLibrary\CirkusLibrary.csproj", "{9C0C41DA-3EA5-425A-A390-EF77DA388BAA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CirkusLibrary", "CirkusLibrary\CirkusLibrary.csproj", "{9C0C41DA-3EA5-425A-A390-EF77DA388BAA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CirkusWebApi", "CirkusWebApi\CirkusWebApi.csproj", "{E60301CB-7E48-4CF0-AA34-A63AE2340DAE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,14 +13,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{8A5F5396-EA40-4EE2-8E8E-569B93E64504}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8A5F5396-EA40-4EE2-8E8E-569B93E64504}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8A5F5396-EA40-4EE2-8E8E-569B93E64504}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8A5F5396-EA40-4EE2-8E8E-569B93E64504}.Release|Any CPU.Build.0 = Release|Any CPU
 		{9C0C41DA-3EA5-425A-A390-EF77DA388BAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9C0C41DA-3EA5-425A-A390-EF77DA388BAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9C0C41DA-3EA5-425A-A390-EF77DA388BAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9C0C41DA-3EA5-425A-A390-EF77DA388BAA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E60301CB-7E48-4CF0-AA34-A63AE2340DAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E60301CB-7E48-4CF0-AA34-A63AE2340DAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E60301CB-7E48-4CF0-AA34-A63AE2340DAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E60301CB-7E48-4CF0-AA34-A63AE2340DAE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
