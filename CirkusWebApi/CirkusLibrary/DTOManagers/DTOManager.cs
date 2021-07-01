@@ -699,7 +699,7 @@ namespace CirkusApp1.DTOManagers
             return db;
         }
 
-        public static void dodajDirektora(Direktor dir)
+        public static void dodajDirektora(DirektorBasic dir)
         {
             try
             {
@@ -707,7 +707,7 @@ namespace CirkusApp1.DTOManagers
 
                 Direktor d = new Direktor();
 
-                d.IdDirektora = dir.IdDirektora;
+                //d.IdDirektora = dir.IdDirektora;
                 d.Ime = dir.Ime;
                 d.Prezime = dir.Prezime;
                 d.Email = dir.Email;

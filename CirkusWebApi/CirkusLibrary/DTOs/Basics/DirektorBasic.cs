@@ -1,4 +1,5 @@
 ﻿using System;
+using CirkusApp1.Entiteti;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -32,6 +33,15 @@ namespace CirkusApp1.DTOs.Basics
             this.Telefon = tel;
 
             Zaposleni = new List<ZaposleniBasic>();
+        }
+
+        public DirektorBasic(Direktor d)
+        {
+            this.IdDirektora = d.IdDirektora;
+            this.Ime = d.Ime;
+            this.Prezime = d.Prezime;
+            this.Email = d.Email;
+            this.Telefon = d.Telefon;
         }
         public override string ToString()
         {

@@ -16,3 +16,12 @@ C:\Users\Lazar\Desktop\Api novi\sbpcirkusprojekat\CirkusWebApi\CirkusLibrary\obj
 C:\Users\Lazar\Desktop\Api novi\sbpcirkusprojekat\CirkusWebApi\CirkusLibrary\obj\Debug\netcoreapp3.1\CirkusLibrary.csproj.CoreCompileInputs.cache
 C:\Users\Lazar\Desktop\Api novi\sbpcirkusprojekat\CirkusWebApi\CirkusLibrary\obj\Debug\netcoreapp3.1\CirkusLibrary.dll
 C:\Users\Lazar\Desktop\Api novi\sbpcirkusprojekat\CirkusWebApi\CirkusLibrary\obj\Debug\netcoreapp3.1\CirkusLibrary.pdb
+C:\Users\ninam\OneDrive\Radna površina\SBP projekat\sbpcirkusprojekat\CirkusWebApi\CirkusLibrary\bin\Debug\netcoreapp3.1\CirkusLibrary.deps.json
+C:\Users\ninam\OneDrive\Radna površina\SBP projekat\sbpcirkusprojekat\CirkusWebApi\CirkusLibrary\bin\Debug\netcoreapp3.1\CirkusLibrary.dll
+C:\Users\ninam\OneDrive\Radna površina\SBP projekat\sbpcirkusprojekat\CirkusWebApi\CirkusLibrary\bin\Debug\netcoreapp3.1\CirkusLibrary.pdb
+C:\Users\ninam\OneDrive\Radna površina\SBP projekat\sbpcirkusprojekat\CirkusWebApi\CirkusLibrary\obj\Debug\netcoreapp3.1\CirkusLibrary.csprojAssemblyReference.cache
+C:\Users\ninam\OneDrive\Radna površina\SBP projekat\sbpcirkusprojekat\CirkusWebApi\CirkusLibrary\obj\Debug\netcoreapp3.1\CirkusLibrary.AssemblyInfoInputs.cache
+C:\Users\ninam\OneDrive\Radna površina\SBP projekat\sbpcirkusprojekat\CirkusWebApi\CirkusLibrary\obj\Debug\netcoreapp3.1\CirkusLibrary.AssemblyInfo.cs
+C:\Users\ninam\OneDrive\Radna površina\SBP projekat\sbpcirkusprojekat\CirkusWebApi\CirkusLibrary\obj\Debug\netcoreapp3.1\CirkusLibrary.csproj.CoreCompileInputs.cache
+C:\Users\ninam\OneDrive\Radna površina\SBP projekat\sbpcirkusprojekat\CirkusWebApi\CirkusLibrary\obj\Debug\netcoreapp3.1\CirkusLibrary.dll
+C:\Users\ninam\OneDrive\Radna površina\SBP projekat\sbpcirkusprojekat\CirkusWebApi\CirkusLibrary\obj\Debug\netcoreapp3.1\CirkusLibrary.pdb
