@@ -60,14 +60,16 @@ namespace CirkusWebApi.Controllers
         }
 
         [HttpPost]
-        [Route("DodajPredstavu")]
+        [Route("DodajCirkuskuPredstavu/{mestoboravkaId}")]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public IActionResult DodajPredstavu([FromBody] CirkuskaPredstavaBasic predstava)
+        public IActionResult DodajPredstavu(int mestoboravkaId,[FromBody] CirkuskaPredstavaBasic predstava)
         {
             //Iz body-a (ne kroz url) zahteva  prosledimo prodavnicu koju treba da upisemo i sve njene podatke
             try
             {
+                var mestoboravka = DTOManager.vratiMestoBoravka(mestoboravkaId);
+                predstava.Mesto = mestoboravka;
                 DTOManager.dodajCirkuskuPredstavu(predstava);
                 return Ok();
             }
@@ -77,14 +79,16 @@ namespace CirkusWebApi.Controllers
             }
         }
         [HttpPost]
-        [Route("DodajHumanitarnuPredstavu")]
+        [Route("DodajHumanitarnuPredstavu/{mestoboravkaId}")]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public IActionResult DodajHumanitarnuPredstavu([FromBody] HumanitarnaPredstavaBasic predstava)
+        public IActionResult DodajHumanitarnuPredstavu(int mestoboravkaId, [FromBody] HumanitarnaPredstavaBasic predstava)
         {
             //Iz body-a (ne kroz url) zahteva  prosledimo prodavnicu koju treba da upisemo i sve njene podatke
             try
             {
+                var mestoboravka = DTOManager.vratiMestoBoravka(mestoboravkaId);
+                predstava.Mesto = mestoboravka;
                 DTOManager.dodajHumanitarnuPredstavu(predstava);
                 return Ok();
             }
@@ -114,7 +118,7 @@ namespace CirkusWebApi.Controllers
         [Route("ObrisiCirkuskuPredstavu/{predstavaId}")]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public IActionResult ObrisiMestoBoravka(int predstavaId)
+        public IActionResult obrisiCirkuskuPredstavu(int predstavaId)
         {
 
             try
@@ -127,7 +131,23 @@ namespace CirkusWebApi.Controllers
                 return BadRequest(ex.ToString());
             }
         }
+        [HttpDelete]
+        [Route("ObrisiHumanitarnuPredstavu/{predstavaId}")]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public IActionResult ObrisiHumanitarnuPredstavu(int predstavaId)
+        {
 
+            try
+            {
+                DTOManager.obrisiCirkuskuPredstavu(predstavaId);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.ToString());
+            }
+        }
 
     }
 }

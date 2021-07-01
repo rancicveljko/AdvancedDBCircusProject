@@ -25,7 +25,10 @@ namespace CirkusApp1.DTOManagers
 
                 foreach (MestoBoravka mb in svaMesta)
                 {
-                    mesta.Add(new MestoBoravkaBasic(mb.IdMesta, mb.Grad, mb.Drzava, mb.Opis, mb.VremeUGradu));
+                    var mestoBoravka = new MestoBoravkaBasic(mb);
+                    mestoBoravka.Predstave = mb.Predstave.Select(mb => new CirkuskaPredstavaBasic(mb)).ToList();
+                    //mesta.Add(new MestoBoravkaBasic(mb.IdMesta, mb.Grad, mb.Drzava, mb.Opis, mb.VremeUGradu));
+                    mesta.Add(mestoBoravka);
                 }
 
                 s.Close();
@@ -158,11 +161,12 @@ namespace CirkusApp1.DTOManagers
                 ISession s = DataLayer.GetSession();
 
                 NastupnaTacka n = new NastupnaTacka();
-
+                CirkuskaPredstava predstava = s.Load<CirkuskaPredstava>(nt.Predstava.IdPredstave);
                 n.Ime = nt.Ime;
                 n.Tip = nt.Tip;
                 n.MinGodina = nt.MinGodina;
                 n.OpasniEfekti = nt.OpasniEfekti;
+                n.Predstava = predstava;
 
                 s.SaveOrUpdate(n);
 
@@ -237,6 +241,34 @@ namespace CirkusApp1.DTOManagers
             {
                 Console.WriteLine(ec.Message);
             }
+        }
+        public static List<NastupnaTackaBasic> vratiNastupneTackePredstave(int predstavaID)
+        {
+            List<NastupnaTackaBasic> sveTacke = new List<NastupnaTackaBasic>();
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                IEnumerable<NastupnaTacka> tacke = from o in s.Query<NastupnaTacka>()
+                                                      where o.Predstava.IdPredstave == predstavaID
+                                                      select o;
+                foreach (NastupnaTacka p in tacke)
+                {
+                    NastupnaTackaBasic preddd = new NastupnaTackaBasic(p);
+
+                    preddd.Predstava = new CirkuskaPredstavaBasic(p.Predstava);
+
+                    sveTacke.Add(preddd);
+
+                }
+
+
+            }
+            catch (Exception ec)
+            {
+
+            }
+            return sveTacke;
         }
         #endregion
         #region Artist
@@ -472,7 +504,7 @@ namespace CirkusApp1.DTOManagers
 
                 foreach (Zaposleni z in svizaposleni)
                 {
-                    zaposleni.Add(new ZaposleniBasic(z.IdZaposlenog, z.Ime, z.Ime_Rod, z.Prezime, z.Datum_Rodj, z.Mesto_Rodj, (int)z.Maticnibr));
+                    zaposleni.Add(new ZaposleniBasic(z.IdZaposlenog, z.Ime, z.Ime_Rod, z.Prezime, z.Datum_Rodj, z.Mesto_Rodj, (long)z.Maticnibr));
                 }
 
                 s.Close();
@@ -994,9 +1026,13 @@ namespace CirkusApp1.DTOManagers
                 IEnumerable<CirkuskaPredstava> predstave = from p in s.Query<CirkuskaPredstava>()
                                                            select p;
 
-                foreach (var pred in predstave)
+                foreach (CirkuskaPredstava pred in predstave)
                 {
-                    predstaveIzlaz.Add(new CirkuskaPredstavaBasic(pred.IdPredstave, pred.Vreme, pred.BrojKarata));
+                    var predstava = new CirkuskaPredstavaBasic(pred);
+                    predstava.Tacke = pred.Tacke.Select(pred => new NastupnaTackaBasic(pred)).ToList();
+                    //mesta.Add(new MestoBoravkaBasic(mb.IdMesta, mb.Grad, mb.Drzava, mb.Opis, mb.VremeUGradu));
+                    predstaveIzlaz.Add(predstava);
+                    //predstaveIzlaz.Add(new CirkuskaPredstavaBasic(pred.IdPredstave, pred.Vreme, pred.BrojKarata));
                 }
             }
             catch (Exception ec)
@@ -1011,10 +1047,11 @@ namespace CirkusApp1.DTOManagers
             try
             {
                 ISession s = DataLayer.GetSession();
-
+                MestoBoravka mesto = s.Load<MestoBoravka>(cirkuskaPredstavaBasic.Mesto.IdMesta);
                 CirkuskaPredstava predstava = new CirkuskaPredstava();
                 predstava.Vreme = cirkuskaPredstavaBasic.Vreme;
                 predstava.BrojKarata = cirkuskaPredstavaBasic.BrojKarata;
+                predstava.Mesto = mesto;
 
                 s.Save(predstava);
                 s.Flush();
@@ -1653,12 +1690,13 @@ namespace CirkusApp1.DTOManagers
             try
             {
                 ISession s = DataLayer.GetSession();
-
+                MestoBoravka mesto = s.Load<MestoBoravka>(humanitarnaPredstavaBasic.Mesto.IdMesta);
                 HumanitarnaPredstava predstava = new HumanitarnaPredstava();
                 predstava.Vreme = humanitarnaPredstavaBasic.Vreme;
                 predstava.BrojKarata = humanitarnaPredstavaBasic.BrojKarata;
                 predstava.Prihod = humanitarnaPredstavaBasic.Prihod;
                 predstava.ZaKoga = humanitarnaPredstavaBasic.ZaKoga;
+                predstava.Mesto = mesto;
 
                 s.Save(predstava);
                 s.Flush();

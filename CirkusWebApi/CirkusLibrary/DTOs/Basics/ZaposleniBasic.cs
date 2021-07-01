@@ -40,5 +40,6 @@ namespace CirkusApp1.DTOs.Basics
             this.Mesto_Rodj = mrodj;
             this.Maticnibr = mbr;
         }
+       
     }
 }

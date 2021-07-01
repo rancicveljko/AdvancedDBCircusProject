@@ -38,3 +38,43 @@ E:\Rabote za fax\III\SBP\sbpcirkusprojekat\CirkusWebApi\CirkusWebApi\obj\Debug\n
 E:\Rabote za fax\III\SBP\sbpcirkusprojekat\CirkusWebApi\CirkusWebApi\obj\Debug\netcoreapp3.1\CirkusWebApi.dll
 E:\Rabote za fax\III\SBP\sbpcirkusprojekat\CirkusWebApi\CirkusWebApi\obj\Debug\netcoreapp3.1\CirkusWebApi.pdb
 E:\Rabote za fax\III\SBP\sbpcirkusprojekat\CirkusWebApi\CirkusWebApi\obj\Debug\netcoreapp3.1\CirkusWebApi.genruntimeconfig.cache
+C:\Users\Lazar\Desktop\Api novi\sbpcirkusprojekat\CirkusWebApi\CirkusWebApi\bin\Debug\netcoreapp3.1\appsettings.Development.json
+C:\Users\Lazar\Desktop\Api novi\sbpcirkusprojekat\CirkusWebApi\CirkusWebApi\bin\Debug\netcoreapp3.1\appsettings.json
+C:\Users\Lazar\Desktop\Api novi\sbpcirkusprojekat\CirkusWebApi\CirkusWebApi\bin\Debug\netcoreapp3.1\CirkusWebApi.exe
+C:\Users\Lazar\Desktop\Api novi\sbpcirkusprojekat\CirkusWebApi\CirkusWebApi\bin\Debug\netcoreapp3.1\CirkusWebApi.deps.json
+C:\Users\Lazar\Desktop\Api novi\sbpcirkusprojekat\CirkusWebApi\CirkusWebApi\bin\Debug\netcoreapp3.1\CirkusWebApi.runtimeconfig.json
+C:\Users\Lazar\Desktop\Api novi\sbpcirkusprojekat\CirkusWebApi\CirkusWebApi\bin\Debug\netcoreapp3.1\CirkusWebApi.runtimeconfig.dev.json
+C:\Users\Lazar\Desktop\Api novi\sbpcirkusprojekat\CirkusWebApi\CirkusWebApi\bin\Debug\netcoreapp3.1\CirkusWebApi.dll
+C:\Users\Lazar\Desktop\Api novi\sbpcirkusprojekat\CirkusWebApi\CirkusWebApi\bin\Debug\netcoreapp3.1\CirkusWebApi.pdb
+C:\Users\Lazar\Desktop\Api novi\sbpcirkusprojekat\CirkusWebApi\CirkusWebApi\bin\Debug\netcoreapp3.1\Antlr3.Runtime.dll
+C:\Users\Lazar\Desktop\Api novi\sbpcirkusprojekat\CirkusWebApi\CirkusWebApi\bin\Debug\netcoreapp3.1\FluentNHibernate.dll
+C:\Users\Lazar\Desktop\Api novi\sbpcirkusprojekat\CirkusWebApi\CirkusWebApi\bin\Debug\netcoreapp3.1\Iesi.Collections.dll
+C:\Users\Lazar\Desktop\Api novi\sbpcirkusprojekat\CirkusWebApi\CirkusWebApi\bin\Debug\netcoreapp3.1\NHibernate.dll
+C:\Users\Lazar\Desktop\Api novi\sbpcirkusprojekat\CirkusWebApi\CirkusWebApi\bin\Debug\netcoreapp3.1\Oracle.ManagedDataAccess.dll
+C:\Users\Lazar\Desktop\Api novi\sbpcirkusprojekat\CirkusWebApi\CirkusWebApi\bin\Debug\netcoreapp3.1\Remotion.Linq.dll
+C:\Users\Lazar\Desktop\Api novi\sbpcirkusprojekat\CirkusWebApi\CirkusWebApi\bin\Debug\netcoreapp3.1\Remotion.Linq.EagerFetching.dll
+C:\Users\Lazar\Desktop\Api novi\sbpcirkusprojekat\CirkusWebApi\CirkusWebApi\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
+C:\Users\Lazar\Desktop\Api novi\sbpcirkusprojekat\CirkusWebApi\CirkusWebApi\bin\Debug\netcoreapp3.1\System.Diagnostics.PerformanceCounter.dll
+C:\Users\Lazar\Desktop\Api novi\sbpcirkusprojekat\CirkusWebApi\CirkusWebApi\bin\Debug\netcoreapp3.1\System.DirectoryServices.dll
+C:\Users\Lazar\Desktop\Api novi\sbpcirkusprojekat\CirkusWebApi\CirkusWebApi\bin\Debug\netcoreapp3.1\System.DirectoryServices.Protocols.dll
+C:\Users\Lazar\Desktop\Api novi\sbpcirkusprojekat\CirkusWebApi\CirkusWebApi\bin\Debug\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
+C:\Users\Lazar\Desktop\Api novi\sbpcirkusprojekat\CirkusWebApi\CirkusWebApi\bin\Debug\netcoreapp3.1\System.Text.Json.dll
+C:\Users\Lazar\Desktop\Api novi\sbpcirkusprojekat\CirkusWebApi\CirkusWebApi\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Diagnostics.PerformanceCounter.dll
+C:\Users\Lazar\Desktop\Api novi\sbpcirkusprojekat\CirkusWebApi\CirkusWebApi\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.DirectoryServices.dll
+C:\Users\Lazar\Desktop\Api novi\sbpcirkusprojekat\CirkusWebApi\CirkusWebApi\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.DirectoryServices.Protocols.dll
+C:\Users\Lazar\Desktop\Api novi\sbpcirkusprojekat\CirkusWebApi\CirkusWebApi\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\Lazar\Desktop\Api novi\sbpcirkusprojekat\CirkusWebApi\CirkusWebApi\bin\Debug\netcoreapp3.1\CirkusLibrary.dll
+C:\Users\Lazar\Desktop\Api novi\sbpcirkusprojekat\CirkusWebApi\CirkusWebApi\bin\Debug\netcoreapp3.1\CirkusLibrary.pdb
+C:\Users\Lazar\Desktop\Api novi\sbpcirkusprojekat\CirkusWebApi\CirkusWebApi\obj\Debug\netcoreapp3.1\CirkusWebApi.csprojAssemblyReference.cache
+C:\Users\Lazar\Desktop\Api novi\sbpcirkusprojekat\CirkusWebApi\CirkusWebApi\obj\Debug\netcoreapp3.1\CirkusWebApi.AssemblyInfoInputs.cache
+C:\Users\Lazar\Desktop\Api novi\sbpcirkusprojekat\CirkusWebApi\CirkusWebApi\obj\Debug\netcoreapp3.1\CirkusWebApi.AssemblyInfo.cs
+C:\Users\Lazar\Desktop\Api novi\sbpcirkusprojekat\CirkusWebApi\CirkusWebApi\obj\Debug\netcoreapp3.1\CirkusWebApi.csproj.CoreCompileInputs.cache
+C:\Users\Lazar\Desktop\Api novi\sbpcirkusprojekat\CirkusWebApi\CirkusWebApi\obj\Debug\netcoreapp3.1\CirkusWebApi.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Lazar\Desktop\Api novi\sbpcirkusprojekat\CirkusWebApi\CirkusWebApi\obj\Debug\netcoreapp3.1\staticwebassets\CirkusWebApi.StaticWebAssets.Manifest.cache
+C:\Users\Lazar\Desktop\Api novi\sbpcirkusprojekat\CirkusWebApi\CirkusWebApi\obj\Debug\netcoreapp3.1\staticwebassets\CirkusWebApi.StaticWebAssets.xml
+C:\Users\Lazar\Desktop\Api novi\sbpcirkusprojekat\CirkusWebApi\CirkusWebApi\obj\Debug\netcoreapp3.1\scopedcss\bundle\CirkusWebApi.styles.css
+C:\Users\Lazar\Desktop\Api novi\sbpcirkusprojekat\CirkusWebApi\CirkusWebApi\obj\Debug\netcoreapp3.1\CirkusWebApi.RazorTargetAssemblyInfo.cache
+C:\Users\Lazar\Desktop\Api novi\sbpcirkusprojekat\CirkusWebApi\CirkusWebApi\obj\Debug\netcoreapp3.1\CirkusWebApi.csproj.CopyComplete
+C:\Users\Lazar\Desktop\Api novi\sbpcirkusprojekat\CirkusWebApi\CirkusWebApi\obj\Debug\netcoreapp3.1\CirkusWebApi.dll
+C:\Users\Lazar\Desktop\Api novi\sbpcirkusprojekat\CirkusWebApi\CirkusWebApi\obj\Debug\netcoreapp3.1\CirkusWebApi.pdb
+C:\Users\Lazar\Desktop\Api novi\sbpcirkusprojekat\CirkusWebApi\CirkusWebApi\obj\Debug\netcoreapp3.1\CirkusWebApi.genruntimeconfig.cache
