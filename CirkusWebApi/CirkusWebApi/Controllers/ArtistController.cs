@@ -154,5 +154,75 @@ namespace CirkusWebApi.Controllers
         }
 
         #endregion
+        #region Klovn
+        [HttpGet]
+        [Route("PreuzmiSveKlovnove")]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public IActionResult getKlovnove()
+        {
+            try
+            {
+
+                return new JsonResult(DTOManager.vratiSveKlovnove());
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.ToString());
+            }
+        }
+        [HttpPost]
+        [Route("DodajKlovna")]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public IActionResult DodajKlovna([FromBody] KlovnBasic klovn)
+        {
+
+            try
+            {
+
+
+                DTOManager.dodajKlovna(klovn);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.ToString());
+            }
+        }
+        [HttpDelete]
+        [Route("ObrisiKlovna/{klovnID}")]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public IActionResult obrisiKlovna(int klovnID)
+        {
+
+            try
+            {
+                DTOManager.obrisiKlovna(klovnID);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.ToString());
+            }
+        }
+        [HttpPut]
+        [Route("PromeniKlovna")]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public IActionResult PromeniKlovna([FromBody] KlovnBasic klovn)
+        {
+            //Iz body-a (ne kroz url) zahteva  prosledimo prodavnicu koju treba da upisemo i sve njene podatke
+            try
+            {
+                DTOManager.azurirajKlovna(klovn);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.ToString());
+            }
+        }
+        #endregion
     }
 }

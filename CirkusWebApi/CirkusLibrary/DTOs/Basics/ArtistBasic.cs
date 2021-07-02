@@ -12,7 +12,10 @@ namespace CirkusApp1.DTOs.Basics
     {
         public int ArtistId { get; set; }
         public String ImeArtista { get; set; }
-        
+        public string ImeRoditelja { get; set; }
+        public DateTime DatumRodj { get; set; }
+        public string MestoRodj { get; set; }
+        public long MaticniBroj { get; set; }
         public String PrezimeArtista { get; set; }
         public String UmetnickoIme { get; set; }
         public String Pol { get; set; }
@@ -23,7 +26,7 @@ namespace CirkusApp1.DTOs.Basics
         {
 
         }
-        public ArtistBasic( int id,String ime, String prez, String UmIme, String pol, DateTime clan)
+        public ArtistBasic(int id, String ime, string imeRod, String prez, long matBr, String UmIme, String pol, DateTime clan)
         {
             this.ArtistId = id;
             this.ImeArtista = ime;
@@ -31,6 +34,8 @@ namespace CirkusApp1.DTOs.Basics
             this.UmetnickoIme = UmIme;
             this.Pol = pol;
             this.ClanOd = clan;
+            this.ImeRoditelja = imeRod;
+            this.MaticniBroj = matBr;
         }
         public ArtistBasic(int id, string umIme, string pol)
         {

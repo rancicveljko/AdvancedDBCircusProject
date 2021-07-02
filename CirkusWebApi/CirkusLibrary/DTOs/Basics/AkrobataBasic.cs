@@ -18,7 +18,7 @@ namespace CirkusApp1.DTOs.Basics
 
 
         }
-        public AkrobataBasic(int id, String ime, String prez, String UmIme, String pol, DateTime clan) : base(id, ime, prez, UmIme, pol, clan)
+        public AkrobataBasic(int id, String ime, string imeRod, String prez, long matBr, String UmIme, String pol, DateTime clan) : base(id, ime, imeRod, prez, matBr, UmIme, pol, clan)
         {
 
         }
