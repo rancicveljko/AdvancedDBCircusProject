@@ -395,6 +395,41 @@ namespace CirkusApp1.DTOManagers
         }
         #endregion
         #region Akrobata
+        public static void dodajAkrobatuIzaposlenog(AkrobataBasic artist)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                Akrobata n = new Akrobata();
+
+                //n.IdPerformera = artist.ArtistId;
+                //Zaposleni a = s.Load<Zaposleni>(artist.Zaposleni.IdZaposlenog);
+                n.JeZaposleni = new Zaposleni();
+                n.JeZaposleni.Ime = artist.ImeArtista;
+                n.JeZaposleni.Prezime = artist.PrezimeArtista;
+                n.JeZaposleni.Ime_Rod = artist.ImeRoditelja;
+                n.JeZaposleni.Maticnibr = artist.MaticniBroj;
+                n.JeZaposleni.Mesto_Rodj = artist.MestoRodj;
+                n.JeZaposleni.Datum_Rodj = artist.DatumRodj;
+                //n.JeZaposleni = a;
+                n.UmetnickoIme = artist.UmetnickoIme;
+                n.Pol = artist.Pol;
+                n.ClanOd = artist.ClanOd;
+
+                s.Save(n.JeZaposleni);
+                n.JeZaposleni.JeArtist = n;
+                s.SaveOrUpdate(n);
+
+                s.Flush();
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                Console.WriteLine(ec.Message);
+            }
+        }
         public static List<AkrobataBasic> vratiAkrobate()
         {
             List<AkrobataBasic> artisti = new List<AkrobataBasic>();
