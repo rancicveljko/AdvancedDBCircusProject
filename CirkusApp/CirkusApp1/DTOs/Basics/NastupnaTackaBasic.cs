@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CirkusApp1.Entiteti;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,6 +27,14 @@ namespace CirkusApp1.DTOs.Basics
             this.Tip = Tip;
             this.MinGodina = minGodina;
             this.OpasniEfekti = OpasniEfekti;
+        }
+        public NastupnaTackaBasic(NastupnaTacka t)
+        {
+            this.IdTacke = t.IdTacke;
+            this.Ime = t.Ime;
+            this.Tip = t.Tip;
+            this.MinGodina = t.MinGodina;
+            this.OpasniEfekti = t.OpasniEfekti;
         }
     }
 }

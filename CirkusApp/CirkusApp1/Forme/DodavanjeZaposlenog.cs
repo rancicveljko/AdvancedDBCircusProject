@@ -26,10 +26,10 @@ namespace CirkusApp1.Forme
         {
             this.brojZaposlenih = 0;
 
-            List<DirektorPregled> listaDirektora = DTOManager.vratiSveDirektore();
+            List<DirektorBasic> listaDirektora = DTOManager.vratiSveDirektore();
             this.lvSviDirektori.Items.Clear();
 
-            foreach (DirektorPregled dir in listaDirektora)
+            foreach (DirektorBasic dir in listaDirektora)
             {
                 ListViewItem item = new ListViewItem(new string[] { dir.IdDirektora.ToString(), dir.Ime, dir.Prezime,dir.Email,dir.Telefon.ToString()});
                 this.lvSviDirektori.Items.Add(item);

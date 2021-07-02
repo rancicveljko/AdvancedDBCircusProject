@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CirkusApp1.Entiteti;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,7 +16,9 @@ namespace CirkusApp1.DTOs.Basics
         public String Vrsta { get; set; }
         public float Tezina { get; set; }
         public int Starost { get; set; }
-        public DreserBasic DresiraZivotinju { get; set; }
+        public DreserBasic DresiraZivotinju { get; set; }//mogli smo i id dresera da stavimo a mozemo i preko lazy load da ucitamo dresera
+
+        public String ImeDresera { get; set; }
 
         public ZivotinjaBasic()
         {
@@ -30,6 +33,17 @@ namespace CirkusApp1.DTOs.Basics
             this.Vrsta = vrst;
             this.Tezina = tez;
             this.Starost = starost;
+        }
+        public ZivotinjaBasic(Zivotinja z)
+        {
+            this.IdPerformera = z.IdPerformera;
+            this.UmetnickoIme = z.UmetnickoIme;
+            this.Pol = z.Pol;
+            this.ClanOd = z.ClanOd;
+            this.Vrsta = z.Vrsta;
+            this.Tezina = z.Tezina;
+            this.Starost = z.Starost;
+            this.ImeDresera = z.DresiraZivotinju.JeZaposleni.Ime;
         }
     }
 }

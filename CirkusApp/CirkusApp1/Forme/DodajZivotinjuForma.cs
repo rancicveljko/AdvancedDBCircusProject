@@ -25,12 +25,12 @@ namespace CirkusApp1.Forme
         {
             this.brojzivotinja = 0;
 
-            List<ZivotinjePregled> listazivotinja = DTOManager.vratiSveZivotinje();
+            List<DreserBasic> listaDresera = DTOManager.vratiDresere();
             this.lvSveZivotinje.Items.Clear();
 
-            foreach (ZivotinjePregled zp in listazivotinja)
+            foreach (DreserBasic zp in listaDresera)
             {
-                ListViewItem item = new ListViewItem(new string[] { zp.IdPerformera.ToString(), zp.UmetnickoIme, zp.Pol, zp.ClanOd.ToString(), zp.Vrsta, zp.Tezina.ToString(), zp.Starost.ToString() });
+                ListViewItem item = new ListViewItem(new string[] { zp.ArtistId.ToString(), zp.UmetnickoIme });
                 this.lvSveZivotinje.Items.Add(item);
                 //this.brojProizvoda++;
             }
@@ -48,12 +48,22 @@ namespace CirkusApp1.Forme
 
 
             ZivotinjaBasic zivotinja = new ZivotinjaBasic();
-            zivotinja.UmetnickoIme = textBox2.Text;
-            zivotinja.Pol = 
-            zivotinja.Vrsta = textBox1.Text;
+            zivotinja.UmetnickoIme = tbUmIme.Text;
+            zivotinja.Pol =
+            zivotinja.Vrsta = tbVrsta.Text;
             zivotinja.ClanOd = datum.Value;
-            zivotinja.Starost = int.Parse(textBox5.Text);
+            zivotinja.Starost = int.Parse(tbStarost.Text);
 
+            if (lvSveZivotinje.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Izaberite zivotinju koju zelite da obrisete!");
+                return;
+            }
+            var dreserID = Int32.Parse(lvSveZivotinje.SelectedItems[0].SubItems[0].Text);
+            var dreser = DTOManager.vratiDresera(dreserID);
+
+            zivotinja.DresiraZivotinju = dreser;
+            //dreser.Zivotinje.Add(zivotinja);
 
             DTOManager.dodajZivotinju(zivotinja);
 
@@ -63,9 +73,22 @@ namespace CirkusApp1.Forme
 
         }
 
+
+
         private void DodajZivotinju_Click_1(object sender, EventArgs e)
         {
+            if (tbUmIme.Text.Equals(String.Empty) || (rbMusko.Checked == false && rbZensko.Checked == false) || tbVrsta.Text.Equals(String.Empty) || tbTezina.Text.Equals(String.Empty) || tbStarost.Text.Equals(String.Empty))
+            {
+                MessageBox.Show("Moraju sva polja da se popune");
+                return;
+            }
+
             DodajZivotinju_Click(sender, e);
+        }
+
+        private void DodajZivotinjuForma_Load(object sender, EventArgs e)
+        {
+            popuniPodacima();
         }
     }
 }

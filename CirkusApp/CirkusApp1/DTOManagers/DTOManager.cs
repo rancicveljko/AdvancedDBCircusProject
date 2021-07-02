@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CirkusApp1.DTOs.Basics;
-using CirkusApp1.DTOs.Pregledi;
 using CirkusApp1.Entiteti;
 using NHibernate;
 
@@ -14,19 +13,22 @@ namespace CirkusApp1.DTOManagers
     {
         #region MestoBoravka 
         //proveriti posle ubacivanja CRUD operacija za cirkusku predstavu jel sve funkcionise
-        public static List<MestoBoravkaPregled> vratiSvaMestaBoravka()
+        public static List<MestoBoravkaBasic> vratiSvaMestaBoravka()
         {
-            List<MestoBoravkaPregled> mesta = new List<MestoBoravkaPregled>();
+            List<MestoBoravkaBasic> mesta = new List<MestoBoravkaBasic>();
             try
             {
                 ISession s = DataLayer.GetSession();
 
                 IEnumerable<MestoBoravka> svaMesta = from o in s.Query<MestoBoravka>()
-                                                      select o;
+                                                     select o;
 
                 foreach (MestoBoravka mb in svaMesta)
                 {
-                    mesta.Add(new MestoBoravkaPregled(mb.IdMesta, mb.Grad, mb.Drzava, mb.Opis, mb.VremeUGradu));
+                    var mestoBoravka = new MestoBoravkaBasic(mb);
+                    mestoBoravka.Predstave = mb.Predstave.Select(m => new CirkuskaPredstavaBasic(m)).ToList();
+                    //mesta.Add(new MestoBoravkaBasic(mb.IdMesta, mb.Grad, mb.Drzava, mb.Opis, mb.VremeUGradu));
+                    mesta.Add(mestoBoravka);
                 }
 
                 s.Close();
@@ -125,22 +127,22 @@ namespace CirkusApp1.DTOManagers
                 Console.WriteLine(ec.Message);
             }
         }
-        
+
         #endregion
         #region NastupnaTacka
-        public static List<NastupnaTackaPregled> vratiSveNastupneTacke()
+        public static List<NastupnaTackaBasic> vratiSveNastupneTacke()
         {
-            List<NastupnaTackaPregled> tacke = new List<NastupnaTackaPregled>();
+            List<NastupnaTackaBasic> tacke = new List<NastupnaTackaBasic>();
             try
             {
                 ISession s = DataLayer.GetSession();
 
                 IEnumerable<NastupnaTacka> sveTacke = from o in s.Query<NastupnaTacka>()
-                                                                            select o;
+                                                      select o;
 
                 foreach (NastupnaTacka nt in sveTacke)
                 {
-                    tacke.Add(new NastupnaTackaPregled(nt.IdTacke, nt.Ime, nt.Tip, nt.MinGodina, nt.OpasniEfekti));
+                    tacke.Add(new NastupnaTackaBasic(nt.IdTacke, nt.Ime, nt.Tip, nt.MinGodina, nt.OpasniEfekti));
                 }
 
                 s.Close();
@@ -159,11 +161,12 @@ namespace CirkusApp1.DTOManagers
                 ISession s = DataLayer.GetSession();
 
                 NastupnaTacka n = new NastupnaTacka();
-
+                CirkuskaPredstava predstava = s.Load<CirkuskaPredstava>(nt.Predstava.IdPredstave);
                 n.Ime = nt.Ime;
                 n.Tip = nt.Tip;
                 n.MinGodina = nt.MinGodina;
                 n.OpasniEfekti = nt.OpasniEfekti;
+                n.Predstava = predstava;
 
                 s.SaveOrUpdate(n);
 
@@ -182,7 +185,7 @@ namespace CirkusApp1.DTOManagers
             {
                 ISession s = DataLayer.GetSession();
 
-                NastupnaTacka n= s.Load<NastupnaTacka>(nt.IdTacke);
+                NastupnaTacka n = s.Load<NastupnaTacka>(nt.IdTacke);
 
                 n.Ime = nt.Ime;
                 n.Tip = nt.Tip;
@@ -239,11 +242,39 @@ namespace CirkusApp1.DTOManagers
                 Console.WriteLine(ec.Message);
             }
         }
+        public static List<NastupnaTackaBasic> vratiNastupneTackePredstave(int predstavaID)
+        {
+            List<NastupnaTackaBasic> sveTacke = new List<NastupnaTackaBasic>();
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                IEnumerable<NastupnaTacka> tacke = from o in s.Query<NastupnaTacka>()
+                                                   where o.Predstava.IdPredstave == predstavaID
+                                                   select o;
+                foreach (NastupnaTacka p in tacke)
+                {
+                    NastupnaTackaBasic preddd = new NastupnaTackaBasic(p);
+
+                    preddd.Predstava = new CirkuskaPredstavaBasic(p.Predstava);
+
+                    sveTacke.Add(preddd);
+
+                }
+
+
+            }
+            catch (Exception ec)
+            {
+                Console.WriteLine(ec.Message);
+            }
+            return sveTacke;
+        }
         #endregion
         #region Artist
-        public static List<ArtistPregled> vratiSveArtiste()
+        public static List<ArtistBasic> vratiSveArtiste()
         {
-            List<ArtistPregled> artisti = new List<ArtistPregled>();
+            List<ArtistBasic> artisti = new List<ArtistBasic>();
             try
             {
                 ISession s = DataLayer.GetSession();
@@ -253,7 +284,10 @@ namespace CirkusApp1.DTOManagers
 
                 foreach (Artist art in sviArtisti)
                 {
-                    artisti.Add(new ArtistPregled(art.IdPerformera, art.UmetnickoIme, art.Pol));
+                    var artist = new ArtistBasic(art);
+                    artist.ImeArtista = art.JeZaposleni.Ime;
+                    artist.PrezimeArtista = art.JeZaposleni.Prezime;
+                    artisti.Add(new ArtistBasic(art.IdPerformera, art.UmetnickoIme, art.Pol, artist.ImeArtista, artist.PrezimeArtista));
                 }
 
             }
@@ -296,7 +330,7 @@ namespace CirkusApp1.DTOManagers
                 ISession s = DataLayer.GetSession();
 
                 //NastupnaTacka n = s.Load<NastupnaTacka>(nt.IdTacke);
-                Artist a=s.Load<Artist>(art.ArtistId);
+                Artist a = s.Load<Artist>(art.ArtistId);
 
 
                 a.UmetnickoIme = art.UmetnickoIme;
@@ -330,7 +364,7 @@ namespace CirkusApp1.DTOManagers
                 ISession s = DataLayer.GetSession();
 
                 Artist a = s.Load<Artist>(id);
-                art = new ArtistBasic(a.IdPerformera,a.JeZaposleni.Ime, a.JeZaposleni.Prezime, a.UmetnickoIme, a.Pol, a.ClanOd);
+                art = new ArtistBasic(a.IdPerformera, a.JeZaposleni.Ime, a.JeZaposleni.Ime_Rod, a.JeZaposleni.Prezime, a.JeZaposleni.Maticnibr, a.UmetnickoIme, a.Pol, a.ClanOd);
 
                 s.Close();
             }
@@ -361,6 +395,31 @@ namespace CirkusApp1.DTOManagers
         }
         #endregion
         #region Akrobata
+        public static List<AkrobataBasic> vratiAkrobate()
+        {
+            List<AkrobataBasic> artisti = new List<AkrobataBasic>();
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                IEnumerable<Akrobata> sviArtisti = from o in s.Query<Akrobata>()
+                                                   select o;
+
+                foreach (Akrobata art in sviArtisti)
+                {
+                    var artist = new ArtistBasic(art);
+                    artist.ImeArtista = art.JeZaposleni.Ime;
+                    artist.PrezimeArtista = art.JeZaposleni.Prezime;
+                    artisti.Add(new AkrobataBasic(art.IdPerformera, artist.ImeArtista, artist.ImeRoditelja, artist.PrezimeArtista, artist.MaticniBroj, art.UmetnickoIme, art.Pol, art.ClanOd));
+                }
+
+            }
+            catch (Exception ec)
+            {
+                Console.WriteLine(ec.Message);
+            }
+            return artisti;
+        }
         public static AkrobataBasic AzurirajAkrobatu(AkrobataBasic mb)
         {
             try
@@ -368,13 +427,13 @@ namespace CirkusApp1.DTOManagers
                 ISession s = DataLayer.GetSession();
 
                 Akrobata n = s.Load<Akrobata>(mb.ArtistId);
-                
+
                 //Zaposleni z = s.Load<Zaposleni>(mb.Zaposleni.IdZaposlenog);
 
                 //n.JeZaposleni = z;
                 n.JeZaposleni.Ime = mb.ImeArtista;
                 n.JeZaposleni.Prezime = mb.PrezimeArtista;
-                
+
                 n.UmetnickoIme = mb.UmetnickoIme;
                 n.Pol = mb.Pol;
                 n.ClanOd = mb.ClanOd;
@@ -446,7 +505,7 @@ namespace CirkusApp1.DTOManagers
                 ISession s = DataLayer.GetSession();
 
                 Akrobata akrobata = s.Load<Akrobata>(id);
-                mb = new AkrobataBasic(akrobata.IdPerformera, akrobata.JeZaposleni.Ime, akrobata.JeZaposleni.Prezime, akrobata.UmetnickoIme, akrobata.Pol,akrobata.ClanOd);
+                mb = new AkrobataBasic(akrobata.IdPerformera, akrobata.JeZaposleni.Ime, akrobata.JeZaposleni.Ime_Rod, akrobata.JeZaposleni.Prezime, akrobata.JeZaposleni.Maticnibr, akrobata.UmetnickoIme, akrobata.Pol, akrobata.ClanOd);
 
                 s.Close();
             }
@@ -457,13 +516,40 @@ namespace CirkusApp1.DTOManagers
 
             return mb;
         }
+        public static void DodajAkrobatuIzaposlenog(AkrobataBasic artist)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                Akrobata n = new Akrobata();
+
+                n.IdPerformera = artist.ArtistId;
+                Zaposleni a = s.Load<Zaposleni>(artist.Zaposleni.IdZaposlenog);
+
+                n.JeZaposleni = a;
+                n.UmetnickoIme = artist.UmetnickoIme;
+                n.Pol = artist.Pol;
+                n.ClanOd = artist.ClanOd;
+
+                s.SaveOrUpdate(n);
+
+                s.Flush();
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                Console.WriteLine(ec.Message);
+            }
+        }
 
         #endregion
         #region Zaposleni
 
-        public static List<ZaposleniPregled> vratiSveZaposlene()
+        public static List<ZaposleniBasic> vratiSveZaposlene()
         {
-            List<ZaposleniPregled> zaposleni = new List<ZaposleniPregled>();
+            List<ZaposleniBasic> zaposleni = new List<ZaposleniBasic>();
             try
             {
                 ISession s = DataLayer.GetSession();
@@ -473,7 +559,7 @@ namespace CirkusApp1.DTOManagers
 
                 foreach (Zaposleni z in svizaposleni)
                 {
-                    zaposleni.Add(new ZaposleniPregled(z.IdZaposlenog, z.Ime, z.Ime_Rod, z.Prezime, z.Datum_Rodj, z.Mesto_Rodj, (int)z.Maticnibr));
+                    zaposleni.Add(new ZaposleniBasic(z.IdZaposlenog, z.Ime, z.Ime_Rod, z.Prezime, z.Datum_Rodj, z.Mesto_Rodj, (long)z.Maticnibr));
                 }
 
                 s.Close();
@@ -494,15 +580,20 @@ namespace CirkusApp1.DTOManagers
 
                 Zaposleni z = s.Load<Zaposleni>(zb.IdZaposlenog);
 
-                z.IdZaposlenog = zb.IdZaposlenog;
-                z.Ime = zb.Ime;
-                z.Ime_Rod = zb.Ime_Rod;
-                z.Prezime = zb.Prezime;
-                z.Datum_Rodj = zb.Datum_Rodj;
-                z.Mesto_Rodj = zb.Mesto_Rodj;
-                z.Maticnibr = zb.Maticnibr;
+                if (zb.Ime != null)
+                    z.Ime = zb.Ime;
+                if (zb.Ime_Rod != null)
+                    z.Ime_Rod = zb.Ime_Rod;
+                if (zb.Prezime != null)
+                    z.Prezime = zb.Prezime;
+                if (zb.Datum_Rodj != null)
+                    z.Datum_Rodj = zb.Datum_Rodj;
+                if (zb.Mesto_Rodj != null)
+                    z.Mesto_Rodj = zb.Mesto_Rodj;
+                if (zb.Maticnibr != 0)
+                    z.Maticnibr = zb.Maticnibr;
 
-                s.Update(z);
+                s.SaveOrUpdate(z);
 
                 s.Flush();
 
@@ -518,22 +609,25 @@ namespace CirkusApp1.DTOManagers
 
         public static ZaposleniBasic vratiZaposlenog(int id)
         {
-            ZaposleniBasic zb = new ZaposleniBasic();
+            ZaposleniBasic zb = null;
             try
             {
                 ISession s = DataLayer.GetSession();
 
                 Zaposleni z = s.Load<Zaposleni>(id);
-                zb = new ZaposleniBasic(z.IdZaposlenog, z.Ime, z.Ime_Rod, z.Prezime, z.Datum_Rodj, z.Mesto_Rodj, z.Maticnibr);
+                if (z != null)
+                    zb = new ZaposleniBasic(z.IdZaposlenog, z.Ime, z.Ime_Rod, z.Prezime, z.Datum_Rodj, z.Mesto_Rodj, z.Maticnibr);
 
                 s.Close();
+                return zb;
             }
             catch (Exception ec)
             {
                 Console.WriteLine(ec.Message);
+                return null;
             }
 
-            return zb;
+
         }
 
         public static void dodajZaposlenog(ZaposleniBasic zap)
@@ -544,20 +638,20 @@ namespace CirkusApp1.DTOManagers
 
                 Zaposleni z = new Zaposleni();
 
-                
+
                 z.Ime = zap.Ime;
                 z.Ime_Rod = zap.Ime_Rod;
                 z.Prezime = zap.Prezime;
                 z.Datum_Rodj = zap.Datum_Rodj;
                 z.Mesto_Rodj = zap.Mesto_Rodj;
                 z.Maticnibr = zap.Maticnibr;
-                Direktor d = s.Load<Direktor>(zap.PripadaDirektoru.IdDirektora);
-                z.PripadaDirektoru = d;
+                //Direktor d = s.Load<Direktor>(zap.PripadaDirektoru.IdDirektora);
+                //z.PripadaDirektoru = d;
 
                 s.SaveOrUpdate(z);
 
                 s.Flush();
-                zap.IdZaposlenog = z.IdZaposlenog;
+                //zap.IdZaposlenog = z.IdZaposlenog;
                 s.Close();
             }
             catch (Exception ec)
@@ -587,9 +681,9 @@ namespace CirkusApp1.DTOManagers
 
         #endregion
         #region Direktor
-        public static List<DirektorPregled> vratiSveDirektore()
+        public static List<DirektorBasic> vratiSveDirektore()
         {
-            List<DirektorPregled> direktori = new List<DirektorPregled>();
+            List<DirektorBasic> direktori = new List<DirektorBasic>();
             try
             {
                 ISession s = DataLayer.GetSession();
@@ -599,7 +693,9 @@ namespace CirkusApp1.DTOManagers
 
                 foreach (Direktor d in svidirektori)
                 {
-                    direktori.Add(new DirektorPregled(d.IdDirektora, d.Ime, d.Prezime, d.Email, d.Telefon));
+                    var direktor = new DirektorBasic(d);
+                    direktor.Zaposleni = d.Zaposleni.Select(zb => new ZaposleniBasic(zb)).ToList();
+                    direktori.Add(direktor);
                 }
 
                 s.Close();
@@ -660,7 +756,7 @@ namespace CirkusApp1.DTOManagers
             return db;
         }
 
-        public static void dodajDirektora(Direktor dir)
+        public static void dodajDirektora(DirektorBasic dir)
         {
             try
             {
@@ -668,7 +764,7 @@ namespace CirkusApp1.DTOManagers
 
                 Direktor d = new Direktor();
 
-                d.IdDirektora = dir.IdDirektora;
+                //d.IdDirektora = dir.IdDirektora;
                 d.Ime = dir.Ime;
                 d.Prezime = dir.Prezime;
                 d.Email = dir.Email;
@@ -707,19 +803,19 @@ namespace CirkusApp1.DTOManagers
         }
         #endregion
         #region PomocnoOsoblje
-        public static List<PomocnoOsobljePregled> vratiSvoPomocnoOsoblje()
+        public static List<PomocnoOsobljeBasic> vratiSvoPomocnoOsoblje()
         {
-            List<PomocnoOsobljePregled> osoblje = new List<PomocnoOsobljePregled>();
+            List<PomocnoOsobljeBasic> osoblje = new List<PomocnoOsobljeBasic>();
             try
             {
                 ISession s = DataLayer.GetSession();
 
                 IEnumerable<PomocnoOsoblje> svoOsoblje = from o in s.Query<PomocnoOsoblje>()
-                                                      select o;
+                                                         select o;
 
                 foreach (PomocnoOsoblje po in svoOsoblje)
                 {
-                    osoblje.Add(new PomocnoOsobljePregled(po.IdZaposlenog, po.Ime, po.Ime_Rod, po.Prezime,po.Datum_Rodj,po.Mesto_Rodj,po.Maticnibr,po.AsistentFleg));
+                    osoblje.Add(new PomocnoOsobljeBasic(po.IdZaposlenog, po.Ime, po.Ime_Rod, po.Prezime, po.Datum_Rodj, po.Mesto_Rodj, po.Maticnibr, po.AsistentFleg));
                 }
 
                 s.Close();
@@ -732,9 +828,9 @@ namespace CirkusApp1.DTOManagers
             return osoblje;
         }
 
-        public static List<PomocnoOsobljePregled> vratiSveAsistente()
+        public static List<PomocnoOsobljeBasic> vratiSveAsistente()
         {
-            List<PomocnoOsobljePregled> osoblje = new List<PomocnoOsobljePregled>();
+            List<PomocnoOsobljeBasic> osoblje = new List<PomocnoOsobljeBasic>();
             try
             {
                 ISession s = DataLayer.GetSession();
@@ -742,11 +838,11 @@ namespace CirkusApp1.DTOManagers
                 IEnumerable<PomocnoOsoblje> svoOsoblje = from o in s.Query<PomocnoOsoblje>()
                                                          where o.AsistentFleg == true
                                                          select o;
-                                                         
+
 
                 foreach (PomocnoOsoblje po in svoOsoblje)
                 {
-                    osoblje.Add(new PomocnoOsobljePregled(po.IdZaposlenog, po.Ime, po.Ime_Rod, po.Prezime, po.Datum_Rodj, po.Mesto_Rodj, po.Maticnibr, po.AsistentFleg));
+                    osoblje.Add(new PomocnoOsobljeBasic(po.IdZaposlenog, po.Ime, po.Ime_Rod, po.Prezime, po.Datum_Rodj, po.Mesto_Rodj, po.Maticnibr, po.AsistentFleg));
                 }
 
                 s.Close();
@@ -758,21 +854,119 @@ namespace CirkusApp1.DTOManagers
 
             return osoblje;
         }
-        #endregion 
-        #region Zivotinja
-        public static List<ZivotinjePregled> vratiSveZivotinje()
+
+        public static void dodajPomocnoOsoblje(PomocnoOsobljeBasic pomocnoOsobljeBasic)
         {
-            List<ZivotinjePregled> zivotinje = new List<ZivotinjePregled>();
             try
             {
                 ISession s = DataLayer.GetSession();
 
-                IEnumerable<Zivotinja> sveZivotinje = from o in s.Query<Zivotinja>()
-                                                   select o;
-
-                foreach (Zivotinja z in sveZivotinje)
+                var pomocnoOsoblje = new PomocnoOsoblje()
                 {
-                    zivotinje.Add(new ZivotinjePregled(z.IdPerformera, z.UmetnickoIme, z.Pol, z.ClanOd, z.Vrsta, z.Tezina, z.Starost));
+                    Ime = pomocnoOsobljeBasic.Ime,
+                    Ime_Rod = pomocnoOsobljeBasic.Ime_Rod,
+                    Prezime = pomocnoOsobljeBasic.Prezime,
+                    Datum_Rodj = pomocnoOsobljeBasic.Datum_Rodj,
+                    Mesto_Rodj = pomocnoOsobljeBasic.Mesto_Rodj,
+                    Maticnibr = pomocnoOsobljeBasic.Maticnibr
+                };
+
+                if (pomocnoOsobljeBasic.PripadaDirektoruID != 0)
+                {
+                    pomocnoOsoblje.PripadaDirektoru = s.Load<Direktor>(pomocnoOsobljeBasic.PripadaDirektoruID);//STO NE VADI INSTANCU??
+                    pomocnoOsoblje.PripadaDirektoru.Zaposleni.Add(pomocnoOsoblje);
+                }
+                s.Save(pomocnoOsoblje);
+                s.Flush();
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                Console.WriteLine(ec.Message);
+            }
+        }
+        public static PomocnoOsobljeBasic vratiPomocnuOsobu(int id)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                var osoba = s.Load<PomocnoOsoblje>(id);
+                var osobaIzlaz = new PomocnoOsobljeBasic(osoba.IdZaposlenog, osoba.Ime, osoba.Ime_Rod, osoba.Prezime, osoba.Datum_Rodj, osoba.Mesto_Rodj, osoba.Maticnibr, osoba.AsistentFleg);
+                s.Flush();
+                s.Close();
+                return osobaIzlaz;
+            }
+            catch (Exception ec)
+            {
+                Console.WriteLine(ec.Message);
+                return null;
+            }
+        }
+        public static void obrisiPomocnuOsobu(int id)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                var osoba = s.Load<PomocnoOsoblje>(id);
+
+                s.Delete(osoba);
+                s.Flush();
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                Console.WriteLine(ec.Message);
+            }
+        }
+        public static void azurirajPomocnuOsobu(PomocnoOsobljeBasic pomocnoOsobljeBasic)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                var osoba = s.Load<PomocnoOsoblje>(pomocnoOsobljeBasic.IdZaposlenog);
+
+                if (pomocnoOsobljeBasic.Ime != null)
+                    osoba.Ime = pomocnoOsobljeBasic.Ime;
+                if (pomocnoOsobljeBasic.Ime_Rod != null)
+                    osoba.Ime_Rod = pomocnoOsobljeBasic.Ime_Rod;
+                if (pomocnoOsobljeBasic.Prezime != null)
+                    osoba.Prezime = pomocnoOsobljeBasic.Prezime;
+                if (pomocnoOsobljeBasic.Datum_Rodj != null)
+                    osoba.Datum_Rodj = pomocnoOsobljeBasic.Datum_Rodj;
+                if (pomocnoOsobljeBasic.Mesto_Rodj != null)
+                    osoba.Mesto_Rodj = pomocnoOsobljeBasic.Mesto_Rodj;
+                if (pomocnoOsobljeBasic.Maticnibr != 0)
+                    osoba.Maticnibr = pomocnoOsobljeBasic.Maticnibr;
+
+                s.Update(osoba);
+                s.Flush();
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                Console.WriteLine(ec.Message);
+            }
+        }
+        #endregion 
+        #region Zivotinja
+        public static List<ZivotinjaBasic> vratiSveZivotinja()
+        {
+            List<ZivotinjaBasic> zivotinje = new List<ZivotinjaBasic>();
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                IEnumerable<Zivotinja> sveZivotinja = from o in s.Query<Zivotinja>()
+                                                      select o;
+
+                foreach (Zivotinja z in sveZivotinja)
+                {
+                    var zivotinja = new ZivotinjaBasic(z);
+                    zivotinja.ImeDresera = z.DresiraZivotinju.JeZaposleni.Ime;
+                    zivotinje.Add(zivotinja);
+                    //zivotinje.Add(new ZivotinjaBasic(z.IdPerformera, z.UmetnickoIme, z.Pol, z.ClanOd, z.Vrsta, z.Tezina, z.Starost));
                 }
 
             }
@@ -782,7 +976,30 @@ namespace CirkusApp1.DTOManagers
             }
             return zivotinje;
         }
+        public static void dodajDreseraZivotinji(int drID, int zivID)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
 
+                //Zivotinja z = new Zivotinja();
+                Zivotinja z = s.Load<Zivotinja>(zivID);
+                Dreser d = s.Load<Dreser>(drID);
+
+                z.DresiraZivotinju = d;
+
+                s.Update(z);
+
+                s.Flush();
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                Console.WriteLine(ec.Message);
+            }
+
+        }
 
         public static void dodajZivotinju(ZivotinjaBasic zb)
         {
@@ -790,6 +1007,7 @@ namespace CirkusApp1.DTOManagers
             {
                 ISession s = DataLayer.GetSession();
 
+                Dreser dreser = s.Load<Dreser>(zb.DresiraZivotinju.ArtistId);
                 Zivotinja z = new Zivotinja();
 
                 z.IdPerformera = zb.IdPerformera;
@@ -801,6 +1019,7 @@ namespace CirkusApp1.DTOManagers
                 z.Vrsta = zb.Vrsta;
                 z.Tezina = zb.Tezina;
                 z.Starost = zb.Starost;
+                z.DresiraZivotinju = dreser;
 
                 s.SaveOrUpdate(z);
 
@@ -850,7 +1069,7 @@ namespace CirkusApp1.DTOManagers
                 ISession s = DataLayer.GetSession();
 
                 Zivotinja z = s.Load<Zivotinja>(id);
-                zb = new ZivotinjaBasic( z.IdPerformera,z.UmetnickoIme, z.Pol, z.ClanOd, z.Vrsta,z.Tezina,z.Starost);
+                zb = new ZivotinjaBasic(z.IdPerformera, z.UmetnickoIme, z.Pol, z.ClanOd, z.Vrsta, z.Tezina, z.Starost);
 
                 s.Close();
             }
@@ -882,9 +1101,9 @@ namespace CirkusApp1.DTOManagers
         #endregion
         #region CirkuskaPredstava
 
-        public static List<CirkuskaPredstavaPregled> vratiSveCirkuskePredstave()
+        public static List<CirkuskaPredstavaBasic> vratiSveCirkuskePredstave()
         {
-            List<CirkuskaPredstavaPregled> predstaveIzlaz = new List<CirkuskaPredstavaPregled>();
+            List<CirkuskaPredstavaBasic> predstaveIzlaz = new List<CirkuskaPredstavaBasic>();
             try
             {
                 ISession s = DataLayer.GetSession();
@@ -892,13 +1111,17 @@ namespace CirkusApp1.DTOManagers
                 IEnumerable<CirkuskaPredstava> predstave = from p in s.Query<CirkuskaPredstava>()
                                                            select p;
 
-                foreach (var pred in predstave)
+                foreach (CirkuskaPredstava pred in predstave)
                 {
-                    predstaveIzlaz.Add(new CirkuskaPredstavaPregled(pred.IdPredstave, pred.Vreme, pred.BrojKarata));
+                    var predstava = new CirkuskaPredstavaBasic(pred);
+                    predstava.Tacke = pred.Tacke.Select(ntb => new NastupnaTackaBasic(ntb)).ToList();
+                    //mesta.Add(new MestoBoravkaBasic(mb.IdMesta, mb.Grad, mb.Drzava, mb.Opis, mb.VremeUGradu));
+                    predstaveIzlaz.Add(predstava);
+                    //predstaveIzlaz.Add(new CirkuskaPredstavaBasic(pred.IdPredstave, pred.Vreme, pred.BrojKarata));
                 }
             }
             catch (Exception ec)
-            {                
+            {
                 Console.WriteLine(ec.Message);
             }
             return predstaveIzlaz;
@@ -909,10 +1132,11 @@ namespace CirkusApp1.DTOManagers
             try
             {
                 ISession s = DataLayer.GetSession();
-
+                MestoBoravka mesto = s.Load<MestoBoravka>(cirkuskaPredstavaBasic.Mesto.IdMesta);
                 CirkuskaPredstava predstava = new CirkuskaPredstava();
                 predstava.Vreme = cirkuskaPredstavaBasic.Vreme;
                 predstava.BrojKarata = cirkuskaPredstavaBasic.BrojKarata;
+                predstava.Mesto = mesto;
 
                 s.Save(predstava);
                 s.Flush();
@@ -944,26 +1168,26 @@ namespace CirkusApp1.DTOManagers
             }
         }
 
-        public static CirkuskaPredstavaPregled vratiCirkuskuPredstavu(int id)
+        public static CirkuskaPredstavaBasic vratiCirkuskuPredstavu(int id)
         {
-            CirkuskaPredstavaPregled cirkuskaPredstavaPregled=new CirkuskaPredstavaPregled();
+            CirkuskaPredstavaBasic cirkuskaPredstavaBasic = new CirkuskaPredstavaBasic();
             try
             {
                 ISession s = DataLayer.GetSession();
 
                 CirkuskaPredstava pred = s.Load<CirkuskaPredstava>(id);
 
-                cirkuskaPredstavaPregled = new CirkuskaPredstavaPregled(pred.IdPredstave, pred.Vreme, pred.BrojKarata);
+                cirkuskaPredstavaBasic = new CirkuskaPredstavaBasic(pred.IdPredstave, pred.Vreme, pred.BrojKarata);
 
                 s.Close();
 
-                return cirkuskaPredstavaPregled;
+                return cirkuskaPredstavaBasic;
             }
             catch (Exception ec)
             {
                 Console.WriteLine(ec.Message);
                 return null;
-            }   
+            }
         }
 
         public static void obrisiCirkuskuPredstavu(int id)
@@ -982,6 +1206,34 @@ namespace CirkusApp1.DTOManagers
             {
                 Console.WriteLine(ec.Message);
             }
+        }
+        public static List<CirkuskaPredstavaBasic> vratiPredstaveMesta(int mestoId)
+        {
+            List<CirkuskaPredstavaBasic> predstave = new List<CirkuskaPredstavaBasic>();
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                IEnumerable<CirkuskaPredstava> pred = from o in s.Query<CirkuskaPredstava>()
+                                                      where o.Mesto.IdMesta == mestoId
+                                                      select o;
+                foreach (CirkuskaPredstava p in pred)
+                {
+                    CirkuskaPredstavaBasic preddd = new CirkuskaPredstavaBasic(p);
+
+                    preddd.Mesto = new MestoBoravkaBasic(p.Mesto);
+
+                    predstave.Add(preddd);
+
+                }
+
+
+            }
+            catch (Exception ec)
+            {
+                Console.WriteLine(ec.Message);
+            }
+            return predstave;
         }
         #endregion
         #region Klovn
@@ -1074,7 +1326,7 @@ namespace CirkusApp1.DTOManagers
                 ISession s = DataLayer.GetSession();
 
                 Klovn klovn = s.Load<Klovn>(id);
-                mb = new KlovnBasic(klovn.IdPerformera, klovn.JeZaposleni.Ime, klovn.JeZaposleni.Prezime, klovn.UmetnickoIme, klovn.Pol, klovn.Tip,klovn.CimeZabavlja,klovn.ClanOd);
+                mb = new KlovnBasic(klovn.IdPerformera, klovn.JeZaposleni.Ime, klovn.JeZaposleni.Ime_Rod, klovn.JeZaposleni.Prezime, klovn.JeZaposleni.Maticnibr, klovn.UmetnickoIme, klovn.Pol, klovn.Tip, klovn.CimeZabavlja, klovn.ClanOd);
 
                 s.Close();
             }
@@ -1084,6 +1336,31 @@ namespace CirkusApp1.DTOManagers
             }
 
             return mb;
+        }
+        public static List<KlovnBasic> vratiSveKlovnove()
+        {
+            List<KlovnBasic> artisti = new List<KlovnBasic>();
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                IEnumerable<Klovn> sviArtisti = from o in s.Query<Klovn>()
+                                                select o;
+
+                foreach (Klovn klovn in sviArtisti)
+                {
+                    var artist = new KlovnBasic(klovn);
+                    artist.ImeArtista = klovn.JeZaposleni.Ime;
+                    artist.PrezimeArtista = klovn.JeZaposleni.Prezime;
+                    artisti.Add(artist);
+                }
+
+            }
+            catch (Exception ec)
+            {
+                Console.WriteLine(ec.Message);
+            }
+            return artisti;
         }
 
         #endregion
@@ -1177,7 +1454,7 @@ namespace CirkusApp1.DTOManagers
                 ISession s = DataLayer.GetSession();
 
                 Zongler zongler = s.Load<Zongler>(id);
-                mb = new ZonglerBasic(zongler.IdPerformera, zongler.JeZaposleni.Ime, zongler.JeZaposleni.Prezime, zongler.UmetnickoIme, zongler.Pol, zongler.NazivPredmeta, zongler.MaxPredmeta, zongler.ClanOd);
+                mb = new ZonglerBasic(zongler.IdPerformera, zongler.JeZaposleni.Ime, zongler.JeZaposleni.Ime_Rod, zongler.JeZaposleni.Prezime, zongler.JeZaposleni.Maticnibr, zongler.UmetnickoIme, zongler.Pol, zongler.NazivPredmeta, zongler.MaxPredmeta, zongler.ClanOd);
 
                 s.Close();
             }
@@ -1202,12 +1479,12 @@ namespace CirkusApp1.DTOManagers
                 Zaposleni a = s.Load<Zaposleni>(gutac.Zaposleni.IdZaposlenog);
 
                 n.JeZaposleni = a;
-                
+
                 n.UmetnickoIme = gutac.UmetnickoIme;
                 n.Pol = gutac.Pol;
                 n.ClanOd = gutac.ClanOd;
-                
-               
+
+
 
                 s.SaveOrUpdate(n);
 
@@ -1255,7 +1532,7 @@ namespace CirkusApp1.DTOManagers
                 n.UmetnickoIme = mb.UmetnickoIme;
                 n.Pol = mb.Pol;
                 n.ClanOd = mb.ClanOd;
-                
+
 
                 //s.Update(z);
                 s.Update(n);
@@ -1279,7 +1556,7 @@ namespace CirkusApp1.DTOManagers
                 ISession s = DataLayer.GetSession();
 
                 GutacPlamena gutac = s.Load<GutacPlamena>(id);
-                mb = new GutacPlamenaBasic(gutac.IdPerformera, gutac.JeZaposleni.Ime, gutac.JeZaposleni.Prezime, gutac.UmetnickoIme,gutac.Pol,gutac.ClanOd);
+                mb = new GutacPlamenaBasic(gutac.IdPerformera, gutac.JeZaposleni.Ime, gutac.JeZaposleni.Ime_Rod, gutac.JeZaposleni.Prezime, gutac.JeZaposleni.Maticnibr, gutac.UmetnickoIme, gutac.Pol, gutac.ClanOd);
 
                 s.Close();
             }
@@ -1292,25 +1569,112 @@ namespace CirkusApp1.DTOManagers
         }
         #endregion
         #region Dreser
+        public static List<DreserBasic> vratiDresere()
+        {
+            List<DreserBasic> artisti = new List<DreserBasic>();
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                IEnumerable<Dreser> sviArtisti = from o in s.Query<Dreser>()
+                                                 select o;
+                IEnumerable<Zivotinja> sveZivotinje = from o in s.Query<Zivotinja>()
+                                                      select o;
+                IEnumerable<PomocnoOsoblje> sviasisteniti = from o in s.Query<PomocnoOsoblje>()
+                                                            select o;
+
+
+
+                foreach (Dreser art in sviArtisti)
+                {
+                    var artist = new DreserBasic(art);
+                    foreach (Zivotinja ziv in sveZivotinje)
+                    {
+                        if (Equals(ziv.DresiraZivotinju, null))
+                            continue;
+                        if (art.IdPerformera == ziv.DresiraZivotinju.IdPerformera)
+                        {
+                            artist.Zivotinje.Add(new ZivotinjaBasic(ziv));
+                        }
+                    }
+                    foreach (PomocnoOsoblje pom in sviasisteniti)
+                    {
+                        if (Equals(pom.PomazeArtistu, null))
+                            continue;
+                        if (art.IdPerformera == pom.PomazeArtistu.IdPerformera)
+                        {
+                            artist.Asistenti.Add(new PomocnoOsobljeBasic(pom));
+                        }
+                    }
+
+
+                    //artist.Zivotinje = art.Zivotinje.Select(art => new ZivotinjaBasic(art)).ToList();
+                    artist.ImeArtista = art.JeZaposleni.Ime;
+                    artist.PrezimeArtista = art.JeZaposleni.Prezime;
+                    // artisti.Add(new DreserBasic(art.IdPerformera,artist.ImeArtista,artist.PrezimeArtista, art.UmetnickoIme, art.Pol, art.ClanOd));
+                    artisti.Add(artist);
+                }
+
+            }
+            catch (Exception ec)
+            {
+                Console.WriteLine(ec.Message);
+            }
+            return artisti;
+        }
+        /*public static void DodajDreseraIZaposlenog(DreserBasic dreser)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                Dreser n = new Dreser();
+
+                n.IdPerformera = dreser.ArtistId;
+
+                
+                n.JeZaposleni = new Zaposleni();
+                n.JeZaposleni.Ime = dreser.ImeArtista;
+                
+                n.JeZaposleni.Prezime = dreser.PrezimeArtista;
+                n.UmetnickoIme = dreser.UmetnickoIme;
+                n.Pol = dreser.Pol;
+                n.ClanOd = dreser.ClanOd;
+
+
+                s.Save(n.JeZaposleni);
+                s.SaveOrUpdate(n);
+
+                s.Flush();
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                Console.WriteLine(ec.Message);
+            }
+        }*/
         public static void dodajDresera(DreserBasic dreser)
         {
             try
             {
                 ISession s = DataLayer.GetSession();
 
-                GutacPlamena n = new GutacPlamena();
+                Dreser n = new Dreser();
 
                 n.IdPerformera = dreser.ArtistId;
+
                 Zaposleni a = s.Load<Zaposleni>(dreser.Zaposleni.IdZaposlenog);
 
                 n.JeZaposleni = a;
-
+                //n.JeZaposleni = new Zaposleni();
+                //n.JeZaposleni.Ime = dreser.ImeArtista;
                 n.UmetnickoIme = dreser.UmetnickoIme;
                 n.Pol = dreser.Pol;
                 n.ClanOd = dreser.ClanOd;
 
 
-
+                //s.Save(n.JeZaposleni);
                 s.SaveOrUpdate(n);
 
                 s.Flush();
@@ -1381,7 +1745,7 @@ namespace CirkusApp1.DTOManagers
                 ISession s = DataLayer.GetSession();
 
                 Dreser gutac = s.Load<Dreser>(id);
-                mb = new DreserBasic(gutac.IdPerformera, gutac.JeZaposleni.Ime, gutac.JeZaposleni.Prezime, gutac.UmetnickoIme, gutac.Pol, gutac.ClanOd);
+                mb = new DreserBasic(gutac.IdPerformera, gutac.JeZaposleni.Ime, gutac.JeZaposleni.Ime_Rod, gutac.JeZaposleni.Prezime, gutac.JeZaposleni.Maticnibr, gutac.UmetnickoIme, gutac.Pol, gutac.ClanOd);
 
                 s.Close();
             }
@@ -1483,7 +1847,7 @@ namespace CirkusApp1.DTOManagers
                 ISession s = DataLayer.GetSession();
 
                 BacacNozeva bacac = s.Load<BacacNozeva>(id);
-                mb = new BacacNozevaBasic(bacac.IdPerformera, bacac.JeZaposleni.Ime, bacac.JeZaposleni.Prezime, bacac.UmetnickoIme, bacac.Pol, bacac.ClanOd);
+                mb = new BacacNozevaBasic(bacac.IdPerformera, bacac.JeZaposleni.Ime, bacac.JeZaposleni.Ime_Rod, bacac.JeZaposleni.Prezime, bacac.JeZaposleni.Maticnibr, bacac.UmetnickoIme, bacac.Pol, bacac.ClanOd);
 
                 s.Close();
             }
@@ -1496,9 +1860,9 @@ namespace CirkusApp1.DTOManagers
         }
         #endregion
         #region HumanitarnaPredstava
-        public static List<HumanitarnaPredstavaPregled> vratiSveHumanitarnePredstave()
+        public static List<HumanitarnaPredstavaBasic> vratiSveHumanitarnePredstave()
         {
-            List<HumanitarnaPredstavaPregled> predstaveIzlaz = new List<HumanitarnaPredstavaPregled>();
+            List<HumanitarnaPredstavaBasic> predstaveIzlaz = new List<HumanitarnaPredstavaBasic>();
             try
             {
                 ISession s = DataLayer.GetSession();
@@ -1508,7 +1872,7 @@ namespace CirkusApp1.DTOManagers
 
                 foreach (var pred in predstave)
                 {
-                    predstaveIzlaz.Add(new HumanitarnaPredstavaPregled(pred.IdPredstave, pred.Vreme, pred.BrojKarata, pred.Mesto.Grad + "/" + pred.Mesto.Drzava, pred.Prihod, pred.ZaKoga));
+                    predstaveIzlaz.Add(new HumanitarnaPredstavaBasic(pred.IdPredstave, pred.Vreme, pred.BrojKarata, pred.Prihod, pred.ZaKoga));
                 }
             }
             catch (Exception ec)
@@ -1523,12 +1887,13 @@ namespace CirkusApp1.DTOManagers
             try
             {
                 ISession s = DataLayer.GetSession();
-
+                MestoBoravka mesto = s.Load<MestoBoravka>(humanitarnaPredstavaBasic.Mesto.IdMesta);
                 HumanitarnaPredstava predstava = new HumanitarnaPredstava();
                 predstava.Vreme = humanitarnaPredstavaBasic.Vreme;
                 predstava.BrojKarata = humanitarnaPredstavaBasic.BrojKarata;
                 predstava.Prihod = humanitarnaPredstavaBasic.Prihod;
                 predstava.ZaKoga = humanitarnaPredstavaBasic.ZaKoga;
+                predstava.Mesto = mesto;
 
                 s.Save(predstava);
                 s.Flush();
@@ -1563,20 +1928,20 @@ namespace CirkusApp1.DTOManagers
             }
         }
 
-        public static HumanitarnaPredstavaPregled vratiHumanitarnuPredstavu(int id)
+        public static HumanitarnaPredstavaBasic vratiHumanitarnuPredstavu(int id)
         {
-            HumanitarnaPredstavaPregled cirkuskaPredstavaPregled = new HumanitarnaPredstavaPregled();
+            HumanitarnaPredstavaBasic cirkuskaPredstavaBasic = new HumanitarnaPredstavaBasic();
             try
             {
                 ISession s = DataLayer.GetSession();
 
                 HumanitarnaPredstava pred = s.Load<HumanitarnaPredstava>(id);
 
-                cirkuskaPredstavaPregled = new HumanitarnaPredstavaPregled(pred.IdPredstave, pred.Vreme, pred.BrojKarata, pred.Mesto.Grad + "/" + pred.Mesto.Drzava, pred.Prihod, pred.ZaKoga);
+                cirkuskaPredstavaBasic = new HumanitarnaPredstavaBasic(pred.IdPredstave, pred.Vreme, pred.BrojKarata, pred.Prihod, pred.ZaKoga);
 
                 s.Close();
 
-                return cirkuskaPredstavaPregled;
+                return cirkuskaPredstavaBasic;
             }
             catch (Exception ec)
             {
@@ -1604,9 +1969,9 @@ namespace CirkusApp1.DTOManagers
         }
         #endregion
         #region PredstavaPoNarudzbini
-        public static List<PredstavaPoNarudzbiniPregled> vratiSvePredstavePoNarudzbini()
+        public static List<PredstavaPoNarudzbiniBasic> vratiSvePredstavePoNarudzbini()
         {
-            List<PredstavaPoNarudzbiniPregled> predstaveIzlaz = new List<PredstavaPoNarudzbiniPregled>();
+            List<PredstavaPoNarudzbiniBasic> predstaveIzlaz = new List<PredstavaPoNarudzbiniBasic>();
             try
             {
                 ISession s = DataLayer.GetSession();
@@ -1616,7 +1981,7 @@ namespace CirkusApp1.DTOManagers
 
                 foreach (var pred in predstave)
                 {
-                    predstaveIzlaz.Add(new PredstavaPoNarudzbiniPregled(pred.IdPredstave, pred.Vreme, pred.BrojKarata, pred.BrTelNarucioca, pred.NazivNarucioca, pred.AdresaNarucioca));
+                    predstaveIzlaz.Add(new PredstavaPoNarudzbiniBasic(pred.IdPredstave, pred.Vreme, pred.BrojKarata, pred.BrTelNarucioca, pred.NazivNarucioca, pred.AdresaNarucioca));
                 }
             }
             catch (Exception ec)
@@ -1673,20 +2038,20 @@ namespace CirkusApp1.DTOManagers
             }
         }
 
-        public static PredstavaPoNarudzbiniPregled vratiPredstavuPoNarudzbini(int id)
+        public static PredstavaPoNarudzbiniBasic vratiPredstavuPoNarudzbini(int id)
         {
-            PredstavaPoNarudzbiniPregled cirkuskaPredstavaPregled = new PredstavaPoNarudzbiniPregled();
+            PredstavaPoNarudzbiniBasic cirkuskaPredstavaBasic = new PredstavaPoNarudzbiniBasic();
             try
             {
                 ISession s = DataLayer.GetSession();
 
                 PredstavaPoNarudzbini pred = s.Load<PredstavaPoNarudzbini>(id);
 
-                cirkuskaPredstavaPregled = new PredstavaPoNarudzbiniPregled(pred.IdPredstave, pred.Vreme, pred.BrojKarata, pred.BrTelNarucioca, pred.NazivNarucioca, pred.AdresaNarucioca);
+                cirkuskaPredstavaBasic = new PredstavaPoNarudzbiniBasic(pred.IdPredstave, pred.Vreme, pred.BrojKarata, pred.BrTelNarucioca, pred.NazivNarucioca, pred.AdresaNarucioca);
 
                 s.Close();
 
-                return cirkuskaPredstavaPregled;
+                return cirkuskaPredstavaBasic;
             }
             catch (Exception ec)
             {
@@ -1713,7 +2078,7 @@ namespace CirkusApp1.DTOManagers
             }
         }
         #endregion
- #region Vestina
+        #region Vestina
         public static void dodajVestinu(VestinaBasic vestina)
         {
             try
@@ -1729,7 +2094,7 @@ namespace CirkusApp1.DTOManagers
 
                 n.Naziv = vestina.Naziv;
                 n.GodinaIskustva = vestina.GodinaIskustva;
-                
+
 
 
 
@@ -1799,7 +2164,7 @@ namespace CirkusApp1.DTOManagers
                 ISession s = DataLayer.GetSession();
 
                 Vestina vest = s.Load<Vestina>(id);
-                mb = new VestinaBasic(vest.IdVestine,vest.Naziv,vest.GodinaIskustva);
+                mb = new VestinaBasic(vest.IdVestine, vest.Naziv, vest.GodinaIskustva);
 
                 s.Close();
             }
@@ -1810,7 +2175,96 @@ namespace CirkusApp1.DTOManagers
 
             return mb;
         }
+        public static List<VestinaBasic> VratiSveVestineAkrobate(int id)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                var vestine = (from a in s.Query<Akrobata>()
+                               where a.IdPerformera == id
+                               select a.Vestine).SingleOrDefault();
+
+                var vestineIzlaz = new List<VestinaBasic>();
+
+                foreach (var item in vestine)
+                {
+                    vestineIzlaz.Add(new VestinaBasic(item));
+                }
+                return vestineIzlaz;
+            }
+            catch (Exception ec)
+            {
+                Console.WriteLine(ec.Message);
+                return null;
+            }
+        }
+        public static List<AkrobataBasic> vratiSveAkrobateSaOdredjenomVestinom(int id)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                var akrobate = (from v in s.Query<Vestina>()
+                                where v.IdVestine == id
+                                select v.Akrobate).SingleOrDefault();
+
+                var akrobateIzlaz = new List<AkrobataBasic>();
+                foreach (var item in akrobate)
+                {
+                    akrobateIzlaz.Add(new AkrobataBasic(item));
+                }
+                return akrobateIzlaz;
+            }
+            catch (Exception ec)
+            {
+                Console.WriteLine(ec.Message);
+                return null;
+            }
+
+        }
+
+        public static void DodajVestinu(VestinaBasic vestinaBasic, int akrobataID)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                var vestina = new Vestina()
+                {
+                    Naziv = vestinaBasic.Naziv,
+                    GodinaIskustva = vestinaBasic.GodinaIskustva
+                };
+                var akrobata = s.Load<Akrobata>(akrobataID);
+                if (akrobata != null)
+                    vestina.Akrobate.Add(akrobata);
+
+                s.Save(vestina);
+                s.Flush();
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                Console.WriteLine(ec.Message);
+            }
+        }
+        public static void ObrisiVestinu(int id)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                var vestina = s.Load<Vestina>(id);
+                s.Delete(vestina);
+                s.Flush();
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                Console.WriteLine(ec.Message);
+            }
+        }
         #endregion
     }
 }
-   
+

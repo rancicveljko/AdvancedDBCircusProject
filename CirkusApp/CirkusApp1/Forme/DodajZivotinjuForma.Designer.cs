@@ -30,11 +30,14 @@ namespace CirkusApp1.Forme
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.rbZensko = new System.Windows.Forms.RadioButton();
+            this.rbMusko = new System.Windows.Forms.RadioButton();
             this.DodajZivotinju = new System.Windows.Forms.Button();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbStarost = new System.Windows.Forms.TextBox();
+            this.tbTezina = new System.Windows.Forms.TextBox();
+            this.tbUmIme = new System.Windows.Forms.TextBox();
+            this.tbVrsta = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.datum = new System.Windows.Forms.DateTimePicker();
             this.label7 = new System.Windows.Forms.Label();
@@ -43,9 +46,8 @@ namespace CirkusApp1.Forme
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lvSveZivotinje = new System.Windows.Forms.ListView();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -55,10 +57,10 @@ namespace CirkusApp1.Forme
             this.groupBox1.BackColor = System.Drawing.Color.Transparent;
             this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Controls.Add(this.DodajZivotinju);
-            this.groupBox1.Controls.Add(this.textBox5);
-            this.groupBox1.Controls.Add(this.textBox3);
-            this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.tbStarost);
+            this.groupBox1.Controls.Add(this.tbTezina);
+            this.groupBox1.Controls.Add(this.tbUmIme);
+            this.groupBox1.Controls.Add(this.tbVrsta);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.datum);
             this.groupBox1.Controls.Add(this.label7);
@@ -73,6 +75,40 @@ namespace CirkusApp1.Forme
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
             // 
+            // groupBox2
+            // 
+            this.groupBox2.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox2.Controls.Add(this.rbZensko);
+            this.groupBox2.Controls.Add(this.rbMusko);
+            this.groupBox2.Location = new System.Drawing.Point(128, 71);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(200, 48);
+            this.groupBox2.TabIndex = 3;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Pol";
+            // 
+            // rbZensko
+            // 
+            this.rbZensko.AutoSize = true;
+            this.rbZensko.Location = new System.Drawing.Point(118, 18);
+            this.rbZensko.Name = "rbZensko";
+            this.rbZensko.Size = new System.Drawing.Size(76, 21);
+            this.rbZensko.TabIndex = 1;
+            this.rbZensko.TabStop = true;
+            this.rbZensko.Text = "Zensko";
+            this.rbZensko.UseVisualStyleBackColor = true;
+            // 
+            // rbMusko
+            // 
+            this.rbMusko.AutoSize = true;
+            this.rbMusko.Location = new System.Drawing.Point(29, 18);
+            this.rbMusko.Name = "rbMusko";
+            this.rbMusko.Size = new System.Drawing.Size(70, 21);
+            this.rbMusko.TabIndex = 0;
+            this.rbMusko.TabStop = true;
+            this.rbMusko.Text = "Musko";
+            this.rbMusko.UseVisualStyleBackColor = true;
+            // 
             // DodajZivotinju
             // 
             this.DodajZivotinju.Location = new System.Drawing.Point(152, 395);
@@ -83,33 +119,33 @@ namespace CirkusApp1.Forme
             this.DodajZivotinju.UseVisualStyleBackColor = true;
             this.DodajZivotinju.Click += new System.EventHandler(this.DodajZivotinju_Click_1);
             // 
-            // textBox5
+            // tbStarost
             // 
-            this.textBox5.Location = new System.Drawing.Point(152, 294);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 22);
-            this.textBox5.TabIndex = 22;
+            this.tbStarost.Location = new System.Drawing.Point(152, 294);
+            this.tbStarost.Name = "tbStarost";
+            this.tbStarost.Size = new System.Drawing.Size(100, 22);
+            this.tbStarost.TabIndex = 22;
             // 
-            // textBox3
+            // tbTezina
             // 
-            this.textBox3.Location = new System.Drawing.Point(152, 237);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 22);
-            this.textBox3.TabIndex = 20;
+            this.tbTezina.Location = new System.Drawing.Point(152, 237);
+            this.tbTezina.Name = "tbTezina";
+            this.tbTezina.Size = new System.Drawing.Size(100, 22);
+            this.tbTezina.TabIndex = 20;
             // 
-            // textBox2
+            // tbUmIme
             // 
-            this.textBox2.Location = new System.Drawing.Point(154, 43);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 22);
-            this.textBox2.TabIndex = 19;
+            this.tbUmIme.Location = new System.Drawing.Point(154, 43);
+            this.tbUmIme.Name = "tbUmIme";
+            this.tbUmIme.Size = new System.Drawing.Size(100, 22);
+            this.tbUmIme.TabIndex = 19;
             // 
-            // textBox1
+            // tbVrsta
             // 
-            this.textBox1.Location = new System.Drawing.Point(154, 173);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 22);
-            this.textBox1.TabIndex = 18;
+            this.tbVrsta.Location = new System.Drawing.Point(154, 173);
+            this.tbVrsta.Name = "tbVrsta";
+            this.tbVrsta.Size = new System.Drawing.Size(100, 22);
+            this.tbVrsta.TabIndex = 18;
             // 
             // label9
             // 
@@ -184,46 +220,26 @@ namespace CirkusApp1.Forme
             // 
             // lvSveZivotinje
             // 
+            this.lvSveZivotinje.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2});
+            this.lvSveZivotinje.FullRowSelect = true;
             this.lvSveZivotinje.HideSelection = false;
             this.lvSveZivotinje.Location = new System.Drawing.Point(479, 105);
             this.lvSveZivotinje.Name = "lvSveZivotinje";
             this.lvSveZivotinje.Size = new System.Drawing.Size(480, 307);
             this.lvSveZivotinje.TabIndex = 2;
             this.lvSveZivotinje.UseCompatibleStateImageBehavior = false;
+            this.lvSveZivotinje.View = System.Windows.Forms.View.Details;
             // 
-            // groupBox2
+            // columnHeader1
             // 
-            this.groupBox2.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox2.Controls.Add(this.radioButton2);
-            this.groupBox2.Controls.Add(this.radioButton1);
-            this.groupBox2.Location = new System.Drawing.Point(128, 71);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(200, 48);
-            this.groupBox2.TabIndex = 3;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Pol";
+            this.columnHeader1.Text = "ID";
             // 
-            // radioButton1
+            // columnHeader2
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(29, 18);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(70, 21);
-            this.radioButton1.TabIndex = 0;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Musko";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            // 
-            // radioButton2
-            // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(118, 18);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(76, 21);
-            this.radioButton2.TabIndex = 1;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Zensko";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.columnHeader2.Text = "Umetnicko ime";
+            this.columnHeader2.Width = 167;
             // 
             // DodajZivotinjuForma
             // 
@@ -235,6 +251,7 @@ namespace CirkusApp1.Forme
             this.Controls.Add(this.groupBox1);
             this.Name = "DodajZivotinjuForma";
             this.Text = "DodajZivotinjuForma";
+            this.Load += new System.EventHandler(this.DodajZivotinjuForma_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -246,10 +263,10 @@ namespace CirkusApp1.Forme
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbStarost;
+        private System.Windows.Forms.TextBox tbTezina;
+        private System.Windows.Forms.TextBox tbUmIme;
+        private System.Windows.Forms.TextBox tbVrsta;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.DateTimePicker datum;
         private System.Windows.Forms.Label label7;
@@ -260,7 +277,9 @@ namespace CirkusApp1.Forme
         private System.Windows.Forms.Button DodajZivotinju;
         private System.Windows.Forms.ListView lvSveZivotinje;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton rbZensko;
+        private System.Windows.Forms.RadioButton rbMusko;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
     }
 }

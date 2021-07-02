@@ -11,8 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using CirkusApp1.DTOs.Pregledi;
-using CirkusApp1.DTOManagers;
+using CirkusApp1.DTOs.Basics;
 
 namespace CirkusApp1.Forme
 {
@@ -33,10 +32,10 @@ namespace CirkusApp1.Forme
         {
             this.brojartista = 0;
 
-            List<ArtistPregled> listaArtista = DTOManager.vratiSveArtiste();
+            List<ArtistBasic> listaArtista = DTOManager.vratiSveArtiste();
             this.lvSviArtisti.Items.Clear();
 
-            foreach (ArtistPregled art in listaArtista)
+            foreach (ArtistBasic art in listaArtista)
 
             {
                 ListViewItem item = new ListViewItem(new string[] { art.ArtistId.ToString(), art.UmetnickoIme, art.Pol});
@@ -67,7 +66,7 @@ namespace CirkusApp1.Forme
             if (result == DialogResult.OK)
             {
 
-                //DTOManager.obrisiArtista(idProizvoda);
+                DTOManager.obrisiArtista(idProizvoda);
                 MessageBox.Show("Brisanje je uspesno obavljeno!");
                 this.popuniPodacima();
             }

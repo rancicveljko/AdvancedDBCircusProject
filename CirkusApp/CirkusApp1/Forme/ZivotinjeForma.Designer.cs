@@ -30,13 +30,13 @@ namespace CirkusApp1.Forme
         private void InitializeComponent()
         {
             this.lvSveZivotinje = new System.Windows.Forms.ListView();
-            this.btnObrisiZivotinju = new System.Windows.Forms.Button();
-            this.btnIzmeniZivotinju = new System.Windows.Forms.Button();
-            this.btnDodajZivotinju = new System.Windows.Forms.Button();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.btnObrisiZivotinju = new System.Windows.Forms.Button();
+            this.btnIzmeniZivotinju = new System.Windows.Forms.Button();
+            this.btnDodajZivotinju = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lvSveZivotinje
@@ -55,35 +55,6 @@ namespace CirkusApp1.Forme
             this.lvSveZivotinje.UseCompatibleStateImageBehavior = false;
             this.lvSveZivotinje.View = System.Windows.Forms.View.Details;
             // 
-            // btnObrisiZivotinju
-            // 
-            this.btnObrisiZivotinju.Location = new System.Drawing.Point(605, 235);
-            this.btnObrisiZivotinju.Name = "btnObrisiZivotinju";
-            this.btnObrisiZivotinju.Size = new System.Drawing.Size(172, 46);
-            this.btnObrisiZivotinju.TabIndex = 9;
-            this.btnObrisiZivotinju.Text = "Obrisi zivotinju";
-            this.btnObrisiZivotinju.UseVisualStyleBackColor = true;
-            // 
-            // btnIzmeniZivotinju
-            // 
-            this.btnIzmeniZivotinju.Location = new System.Drawing.Point(605, 155);
-            this.btnIzmeniZivotinju.Name = "btnIzmeniZivotinju";
-            this.btnIzmeniZivotinju.Size = new System.Drawing.Size(172, 48);
-            this.btnIzmeniZivotinju.TabIndex = 7;
-            this.btnIzmeniZivotinju.Text = "Izmeni zivotinju";
-            this.btnIzmeniZivotinju.UseVisualStyleBackColor = true;
-            this.btnIzmeniZivotinju.Click += new System.EventHandler(this.btnIzmeniZivotinju_Click_1);
-            // 
-            // btnDodajZivotinju
-            // 
-            this.btnDodajZivotinju.Location = new System.Drawing.Point(605, 86);
-            this.btnDodajZivotinju.Name = "btnDodajZivotinju";
-            this.btnDodajZivotinju.Size = new System.Drawing.Size(172, 46);
-            this.btnDodajZivotinju.TabIndex = 6;
-            this.btnDodajZivotinju.Text = "Dodaj zivotinju";
-            this.btnDodajZivotinju.UseVisualStyleBackColor = true;
-            this.btnDodajZivotinju.Click += new System.EventHandler(this.btnDodajZivotinju_Click_1);
-            // 
             // columnHeader1
             // 
             this.columnHeader1.Text = "ID";
@@ -99,6 +70,37 @@ namespace CirkusApp1.Forme
             // columnHeader4
             // 
             this.columnHeader4.Text = "Starost";
+            // 
+            // btnObrisiZivotinju
+            // 
+            this.btnObrisiZivotinju.Location = new System.Drawing.Point(605, 235);
+            this.btnObrisiZivotinju.Name = "btnObrisiZivotinju";
+            this.btnObrisiZivotinju.Size = new System.Drawing.Size(172, 46);
+            this.btnObrisiZivotinju.TabIndex = 9;
+            this.btnObrisiZivotinju.Text = "Obrisi zivotinju";
+            this.btnObrisiZivotinju.UseVisualStyleBackColor = true;
+            this.btnObrisiZivotinju.Click += new System.EventHandler(this.btnObrisiZivotinju_Click_1);
+            // 
+            // btnIzmeniZivotinju
+            // 
+            this.btnIzmeniZivotinju.Location = new System.Drawing.Point(605, 155);
+            this.btnIzmeniZivotinju.Name = "btnIzmeniZivotinju";
+            this.btnIzmeniZivotinju.Size = new System.Drawing.Size(172, 48);
+            this.btnIzmeniZivotinju.TabIndex = 7;
+            this.btnIzmeniZivotinju.Text = "Izmeni zivotinju";
+            this.btnIzmeniZivotinju.UseVisualStyleBackColor = true;
+            this.btnIzmeniZivotinju.Visible = false;
+            this.btnIzmeniZivotinju.Click += new System.EventHandler(this.btnIzmeniZivotinju_Click_1);
+            // 
+            // btnDodajZivotinju
+            // 
+            this.btnDodajZivotinju.Location = new System.Drawing.Point(605, 86);
+            this.btnDodajZivotinju.Name = "btnDodajZivotinju";
+            this.btnDodajZivotinju.Size = new System.Drawing.Size(172, 46);
+            this.btnDodajZivotinju.TabIndex = 6;
+            this.btnDodajZivotinju.Text = "Dodaj zivotinju";
+            this.btnDodajZivotinju.UseVisualStyleBackColor = true;
+            this.btnDodajZivotinju.Click += new System.EventHandler(this.btnDodajZivotinju_Click_1);
             // 
             // ZivotinjeForma
             // 
