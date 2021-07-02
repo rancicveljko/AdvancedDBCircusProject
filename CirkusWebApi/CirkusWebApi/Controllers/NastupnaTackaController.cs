@@ -16,7 +16,7 @@ namespace CirkusWebApi.Controllers
         [HttpGet]
         [Route("PreuzmiSveNastupneTacke")]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public IActionResult GetNaastupneTacke()
+        public IActionResult GetNastupneTacke()
         {
             try
             {
@@ -31,7 +31,7 @@ namespace CirkusWebApi.Controllers
         [HttpGet]
         [Route("PreuzmiSveNastupneTacke/{predstavaID}")]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public IActionResult getNastupnetackePredstave(int predstavaID)
+        public IActionResult getNastupnetackePredstave([FromRoute] int predstavaID)
         {
             try
             {
@@ -47,7 +47,7 @@ namespace CirkusWebApi.Controllers
         [Route("DodajNastupnuTacku/{predstavaID}")]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public IActionResult DodajNastupnuTacku(int predstavaID, [FromBody] NastupnaTackaBasic tacka)
+        public IActionResult DodajNastupnuTacku([FromRoute] int predstavaID, [FromBody] NastupnaTackaBasic tacka)
         {
             //Iz body-a (ne kroz url) zahteva  prosledimo prodavnicu koju treba da upisemo i sve njene podatke
             try

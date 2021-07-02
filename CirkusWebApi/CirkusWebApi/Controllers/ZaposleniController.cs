@@ -167,7 +167,7 @@ namespace CirkusWebApi.Controllers
         {
             try
             {
-                if (id == 0)
+                if (id <= 0)
                 {
                     return BadRequest("id mora da bude >0");
                 }

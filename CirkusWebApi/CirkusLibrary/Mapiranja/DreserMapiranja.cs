@@ -17,8 +17,8 @@ namespace CirkusApp1.Mapiranja
             KeyColumn("ID_PERFORMERA");
             References(x => x.JeZaposleni).Column("ID_ZAPOSLENOG").LazyLoad();//
 
-            HasMany(x => x.Zivotinje).KeyColumn("ID_PERFORMERA").LazyLoad().Cascade.All().Inverse();
-            // HasMany(x => x.Asistenti).KeyColumn("ID_ZAPOSLENOG").LazyLoad().Cascade.All().Inverse();
+            HasMany(x => x.Zivotinje).KeyColumn("FK_ID_DRESERA").LazyLoad().Cascade.All().Inverse();
+            HasMany(x => x.Asistenti).KeyColumn("FK_ID_ZAPOSLENOG").LazyLoad().Cascade.All().Inverse();
         }
 
     }

@@ -64,7 +64,7 @@ namespace CirkusWebApi.Controllers
         [Route("ObrisiDirektora/{direktorID}")]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public IActionResult DeleteDirektora(int direktorID)
+        public IActionResult DeleteDirektora([FromRoute] int direktorID)
         {
 
             try

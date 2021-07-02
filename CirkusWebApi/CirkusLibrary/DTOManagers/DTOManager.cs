@@ -250,8 +250,8 @@ namespace CirkusApp1.DTOManagers
                 ISession s = DataLayer.GetSession();
 
                 IEnumerable<NastupnaTacka> tacke = from o in s.Query<NastupnaTacka>()
-                                                      where o.Predstava.IdPredstave == predstavaID
-                                                      select o;
+                                                   where o.Predstava.IdPredstave == predstavaID
+                                                   select o;
                 foreach (NastupnaTacka p in tacke)
                 {
                     NastupnaTackaBasic preddd = new NastupnaTackaBasic(p);
@@ -266,7 +266,7 @@ namespace CirkusApp1.DTOManagers
             }
             catch (Exception ec)
             {
-
+                Console.WriteLine(ec.Message);
             }
             return sveTacke;
         }
@@ -906,11 +906,11 @@ namespace CirkusApp1.DTOManagers
                     osoba.Ime_Rod = pomocnoOsobljeBasic.Ime_Rod;
                 if (pomocnoOsobljeBasic.Prezime != null)
                     osoba.Prezime = pomocnoOsobljeBasic.Prezime;
-                if (pomocnoOsobljeBasic.Datum_Rodj != null) 
+                if (pomocnoOsobljeBasic.Datum_Rodj != null)
                     osoba.Datum_Rodj = pomocnoOsobljeBasic.Datum_Rodj;
-                if (pomocnoOsobljeBasic.Mesto_Rodj != null) 
+                if (pomocnoOsobljeBasic.Mesto_Rodj != null)
                     osoba.Mesto_Rodj = pomocnoOsobljeBasic.Mesto_Rodj;
-                if (pomocnoOsobljeBasic.Maticnibr != 0) 
+                if (pomocnoOsobljeBasic.Maticnibr != 0)
                     osoba.Maticnibr = pomocnoOsobljeBasic.Maticnibr;
 
                 s.Update(osoba);
@@ -1181,7 +1181,7 @@ namespace CirkusApp1.DTOManagers
             }
             catch (Exception ec)
             {
-
+                Console.WriteLine(ec.Message);
             }
             return predstave;
         }
@@ -2012,6 +2012,95 @@ namespace CirkusApp1.DTOManagers
             }
 
             return mb;
+        }
+        public static List<VestinaBasic> VratiSveVestineAkrobate(int id)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                var vestine = (from a in s.Query<Akrobata>()
+                               where a.IdPerformera == id
+                               select a.Vestine).SingleOrDefault();
+
+                var vestineIzlaz = new List<VestinaBasic>();
+
+                foreach (var item in vestine)
+                {
+                    vestineIzlaz.Add(new VestinaBasic(item));
+                }
+                return vestineIzlaz;
+            }
+            catch (Exception ec)
+            {
+                Console.WriteLine(ec.Message);
+                return null;
+            }
+        }
+        public static List<AkrobataBasic> vratiSveAkrobateSaOdredjenomVestinom(int id)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                var akrobate = (from v in s.Query<Vestina>()
+                                where v.IdVestine == id
+                                select v.Akrobate).SingleOrDefault();
+
+                var akrobateIzlaz = new List<AkrobataBasic>();
+                foreach (var item in akrobate)
+                {
+                    akrobateIzlaz.Add(new AkrobataBasic(item));
+                }
+                return akrobateIzlaz;
+            }
+            catch (Exception ec)
+            {
+                Console.WriteLine(ec.Message);
+                return null;
+            }
+
+        }
+
+        public static void DodajVestinu(VestinaBasic vestinaBasic, int akrobataID)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                var vestina = new Vestina()
+                {
+                    Naziv = vestinaBasic.Naziv,
+                    GodinaIskustva = vestinaBasic.GodinaIskustva
+                };
+                var akrobata = s.Load<Akrobata>(akrobataID);
+                if (akrobata != null)
+                    vestina.Akrobate.Add(akrobata);
+
+                s.Save(vestina);
+                s.Flush();
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                Console.WriteLine(ec.Message);
+            }
+        }
+        public static void ObrisiVestinu(int id)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                var vestina = s.Load<Vestina>(id);
+                s.Delete(vestina);
+                s.Flush();
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                Console.WriteLine(ec.Message);
+            }
         }
         #endregion
     }

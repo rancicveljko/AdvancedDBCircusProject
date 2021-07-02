@@ -32,7 +32,7 @@ namespace CirkusWebApi.Controllers
         [Route("DodajZivotinju/{dreserId}")]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public IActionResult AddZivotinja(int dreserId,[FromBody] ZivotinjaBasic zivotinja)
+        public IActionResult AddZivotinja([FromRoute]int dreserId,[FromBody] ZivotinjaBasic zivotinja)
         {
             try
             {
@@ -67,7 +67,7 @@ namespace CirkusWebApi.Controllers
         [Route("ObrisiZivotinju/{zivotinjaID}")]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public IActionResult DeleteZivotinju(int zivotinjaID)
+        public IActionResult DeleteZivotinju([FromRoute]int zivotinjaID)
         {
 
             try

@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace CirkusApp1.DTOs.Basics
@@ -15,6 +16,7 @@ namespace CirkusApp1.DTOs.Basics
         public String UmetnickoIme { get; set; }
         public String Pol { get; set; }
         public DateTime ClanOd { get; set; }
+        [JsonIgnore]
         public ZaposleniBasic Zaposleni { get; set; }
         public ArtistBasic()
         {

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CirkusApp1.Entiteti;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,12 @@ namespace CirkusApp1.DTOs.Basics
             this.Naziv = naziv;
             this.GodinaIskustva = god;
             Akrobate = new List<AkrobataBasic>();
+        }
+        public VestinaBasic(Vestina v)
+        {
+            this.IdVestine = v.IdVestine;
+            this.GodinaIskustva = v.GodinaIskustva;
+            this.Naziv = v.Naziv;
         }
     }
 }

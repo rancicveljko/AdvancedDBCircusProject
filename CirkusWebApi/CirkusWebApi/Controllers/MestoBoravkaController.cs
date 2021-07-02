@@ -66,7 +66,7 @@ namespace CirkusWebApi.Controllers
         [Route("ObrisiMestoBoravka/{mestoBoravkaID}")]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public IActionResult ObrisiMestoBoravka(int mestoBoravkaID)
+        public IActionResult ObrisiMestoBoravka([FromRoute] int mestoBoravkaID)
         {
 
             try
