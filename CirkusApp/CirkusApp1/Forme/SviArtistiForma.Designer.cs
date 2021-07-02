@@ -56,6 +56,8 @@ namespace CirkusApp1.Forme
             this.btnIzmeniArtista.TabIndex = 2;
             this.btnIzmeniArtista.Text = "Izmeni artista";
             this.btnIzmeniArtista.UseVisualStyleBackColor = true;
+            this.btnIzmeniArtista.Visible = false;
+            this.btnIzmeniArtista.Click += new System.EventHandler(this.btnIzmeniArtista_Click);
             // 
             // btnObrisiArtista
             // 

@@ -5608,23 +5608,25 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Lazar\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\wexla\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Lazar\\Desktop\\Api Za Baze\\sbpcirkusprojekat\\CirkusWebApi\\CirkusLibrary\\CirkusLibrary.csproj",
+      "projectUniqueName": "E:\\Rabote za fax\\III\\SBP\\sbpcirkusprojekat\\CirkusWebApi\\CirkusLibrary\\CirkusLibrary.csproj",
       "projectName": "CirkusLibrary",
-      "projectPath": "C:\\Users\\Lazar\\Desktop\\Api Za Baze\\sbpcirkusprojekat\\CirkusWebApi\\CirkusLibrary\\CirkusLibrary.csproj",
-      "packagesPath": "C:\\Users\\Lazar\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Lazar\\Desktop\\Api Za Baze\\sbpcirkusprojekat\\CirkusWebApi\\CirkusLibrary\\obj\\",
+      "projectPath": "E:\\Rabote za fax\\III\\SBP\\sbpcirkusprojekat\\CirkusWebApi\\CirkusLibrary\\CirkusLibrary.csproj",
+      "packagesPath": "C:\\Users\\wexla\\.nuget\\packages\\",
+      "outputPath": "E:\\Rabote za fax\\III\\SBP\\sbpcirkusprojekat\\CirkusWebApi\\CirkusLibrary\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Lazar\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\wexla\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -5679,7 +5681,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.200\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -211,3 +211,4 @@ C:\Users\Lazar\Desktop\Api Za Baze\sbpcirkusprojekat\CirkusApp\CirkusApp1\obj\De
 C:\Users\Lazar\Desktop\Api Za Baze\sbpcirkusprojekat\CirkusApp\CirkusApp1\obj\Debug\CirkusApp1.exe
 C:\Users\Lazar\Desktop\Api Za Baze\sbpcirkusprojekat\CirkusApp\CirkusApp1\obj\Debug\CirkusApp1.pdb
 C:\Users\Lazar\Desktop\Api Za Baze\sbpcirkusprojekat\CirkusApp\CirkusApp1\obj\Debug\CirkusApp1.Forme.DodajNastupnuTacku.resources
+E:\Rabote za fax\III\SBP\sbpcirkusprojekat\CirkusApp\CirkusApp1\obj\Debug\CirkusApp1.Forme.DodajNastupnuTacku.resources

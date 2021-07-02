@@ -76,6 +76,7 @@ namespace CirkusApp1.Forme
             // GutacPlamena
             // 
             this.GutacPlamena.AutoSize = true;
+            this.GutacPlamena.Enabled = false;
             this.GutacPlamena.Location = new System.Drawing.Point(6, 130);
             this.GutacPlamena.Name = "GutacPlamena";
             this.GutacPlamena.Size = new System.Drawing.Size(126, 21);
@@ -87,6 +88,7 @@ namespace CirkusApp1.Forme
             // BacacNozeva
             // 
             this.BacacNozeva.AutoSize = true;
+            this.BacacNozeva.Enabled = false;
             this.BacacNozeva.Location = new System.Drawing.Point(6, 103);
             this.BacacNozeva.Name = "BacacNozeva";
             this.BacacNozeva.Size = new System.Drawing.Size(120, 21);
@@ -98,6 +100,7 @@ namespace CirkusApp1.Forme
             // Zongler
             // 
             this.Zongler.AutoSize = true;
+            this.Zongler.Enabled = false;
             this.Zongler.Location = new System.Drawing.Point(6, 76);
             this.Zongler.Name = "Zongler";
             this.Zongler.Size = new System.Drawing.Size(78, 21);
@@ -109,6 +112,7 @@ namespace CirkusApp1.Forme
             // Klovn
             // 
             this.Klovn.AutoSize = true;
+            this.Klovn.Enabled = false;
             this.Klovn.Location = new System.Drawing.Point(6, 49);
             this.Klovn.Name = "Klovn";
             this.Klovn.Size = new System.Drawing.Size(64, 21);

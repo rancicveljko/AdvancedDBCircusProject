@@ -1,5 +1,4 @@
-﻿using CirkusApp1.Entiteti;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -28,14 +27,6 @@ namespace CirkusApp1.DTOs.Basics
             this.Opis = opis;
             this.Vreme_u_gradu = vreme;
             Predstave = new List<CirkuskaPredstavaBasic>();
-        }
-        public MestoBoravkaBasic(MestoBoravka m)
-        {
-            this.IdMesta = m.IdMesta;
-            this.Grad = m.Grad;
-            this.Drzava = m.Drzava;
-            this.Opis = m.Opis;
-            this.Vreme_u_gradu = m.VremeUGradu;
         }
     }
 }

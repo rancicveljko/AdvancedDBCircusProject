@@ -1,4 +1,5 @@
-﻿using CirkusApp1.DTOManagers;
+﻿using CirkusApp1;
+using CirkusApp1.DTOManagers;
 using CirkusApp1.DTOs.Basics;
 using System;
 using System.Collections.Generic;

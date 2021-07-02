@@ -32,10 +32,10 @@ namespace CirkusApp1.Forme
         {
             this.brojartista = 0;
 
-            List<ArtistBasic> listaArtista = DTOManager.vratiSveArtiste();
+            List<ArtistPregled> listaArtista = DTOManager.vratiSveArtiste();
             this.lvSviArtisti.Items.Clear();
 
-            foreach (ArtistBasic art in listaArtista)
+            foreach (ArtistPregled art in listaArtista)
 
             {
                 ListViewItem item = new ListViewItem(new string[] { art.ArtistId.ToString(), art.UmetnickoIme, art.Pol});
@@ -84,6 +84,11 @@ namespace CirkusApp1.Forme
             MessageBox.Show("Prvo morate dodati novog Zaposlenog!");
             DodavanjeZaposlenog forma = new DodavanjeZaposlenog();
             forma.Show();
+        }
+
+        private void btnIzmeniArtista_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

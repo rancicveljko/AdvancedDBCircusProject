@@ -31,10 +31,10 @@ namespace CirkusApp1.Forme
         {
             this.brojProizvoda = 0;
 
-            List<NastupnaTackaBasic> listaTacaka = DTOManager.vratiSveNastupneTacke();
+            List<NastupnaTackaPregled> listaTacaka = DTOManager.vratiSveNastupneTacke();
             this.lvSveNastupneTacke.Items.Clear();
 
-            foreach (NastupnaTackaBasic ntp in listaTacaka)
+            foreach (NastupnaTackaPregled ntp in listaTacaka)
             {
                 ListViewItem item = new ListViewItem(new string[] { ntp.IdTacke.ToString(), ntp.Ime, ntp.Tip, ntp.MinGodina.ToString(), ntp.OpasniEfekti.ToString() });
                 this.lvSveNastupneTacke.Items.Add(item);

@@ -25,10 +25,10 @@ namespace CirkusApp1.Forme
         {
             this.brojzivotinja = 0;
 
-            List<DreserBasic> listaDresera = DTOManager.vratiDresere();
+            List<DreserPregled> listaDresera = DTOManager.vratiDresere();
             this.lvSveZivotinje.Items.Clear();
 
-            foreach (DreserBasic zp in listaDresera)
+            foreach (DreserPregled zp in listaDresera)
             {
                 ListViewItem item = new ListViewItem(new string[] { zp.ArtistId.ToString(), zp.UmetnickoIme });
                 this.lvSveZivotinje.Items.Add(item);

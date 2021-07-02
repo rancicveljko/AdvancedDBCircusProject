@@ -97,6 +97,7 @@ namespace CirkusApp1.Forme
             this.btnIzmeniNastupnuTacku.TabIndex = 6;
             this.btnIzmeniNastupnuTacku.Text = "Izmeni nastupnu tacku";
             this.btnIzmeniNastupnuTacku.UseVisualStyleBackColor = true;
+            this.btnIzmeniNastupnuTacku.Visible = false;
             // 
             // btnDodajNastupnuTacku
             // 

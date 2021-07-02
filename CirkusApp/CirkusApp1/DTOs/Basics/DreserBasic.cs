@@ -1,5 +1,4 @@
-﻿using CirkusApp1.Entiteti;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,15 +16,9 @@ namespace CirkusApp1.DTOs.Basics
             Zivotinje = new List<ZivotinjaBasic>();
             Asistenti = new List<PomocnoOsobljeBasic>();
         }
-        public DreserBasic(int id, String ime, string imeRod, String prez, long matBr, String UmIme, String pol, DateTime clan)
-            : base(id, ime, imeRod, prez, matBr, UmIme, pol, clan)
+        public DreserBasic(int id, in String ime, String prez, String UmIme, String pol, DateTime clan) : base(id, ime, prez, UmIme, pol, clan)
         {
 
-        }
-        public DreserBasic(Dreser d) : base(d)
-        {
-            Zivotinje = new List<ZivotinjaBasic>();
-            Asistenti = new List<PomocnoOsobljeBasic>();
         }
 
     }
