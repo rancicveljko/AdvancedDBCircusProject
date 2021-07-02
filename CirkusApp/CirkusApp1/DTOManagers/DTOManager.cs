@@ -167,7 +167,6 @@ namespace CirkusApp1.DTOManagers
                 n.MinGodina = nt.MinGodina;
                 n.OpasniEfekti = nt.OpasniEfekti;
                 n.Predstava = predstava;
-
                 s.SaveOrUpdate(n);
 
                 s.Flush();
@@ -1169,6 +1168,27 @@ namespace CirkusApp1.DTOManagers
         }
 
         public static CirkuskaPredstavaBasic vratiCirkuskuPredstavu(int id)
+        {
+            CirkuskaPredstavaBasic cirkuskaPredstavaBasic = new CirkuskaPredstavaBasic();
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                CirkuskaPredstava pred = s.Load<CirkuskaPredstava>(id);
+
+                cirkuskaPredstavaBasic = new CirkuskaPredstavaBasic(pred.IdPredstave, pred.Vreme, pred.BrojKarata);
+
+                s.Close();
+
+                return cirkuskaPredstavaBasic;
+            }
+            catch (Exception ec)
+            {
+                Console.WriteLine(ec.Message);
+                return null;
+            }
+        }
+        public static CirkuskaPredstavaBasic vratiCirkuskuPredstavuBasic(int id)
         {
             CirkuskaPredstavaBasic cirkuskaPredstavaBasic = new CirkuskaPredstavaBasic();
             try

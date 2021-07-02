@@ -49,7 +49,7 @@ namespace CirkusWebApi.Controllers
         [Route("DodajAkrobatu/{zaposleniId}")]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public IActionResult DodajNastupnuTacku(int zaposleniId, [FromBody] AkrobataBasic akrobata)
+        public IActionResult dodajakrobatu(int zaposleniId, [FromBody] AkrobataBasic akrobata)
         {
 
             try
@@ -65,11 +65,31 @@ namespace CirkusWebApi.Controllers
                 return BadRequest(ex.ToString());
             }
         }
+        [HttpPost]
+        [Route("DodajAkrobatuIzaposlenog")]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public IActionResult DodajAkrobatuIzaposlenog( [FromBody] AkrobataBasic akrobata)
+        {
+
+            try
+            {
+
+                //var zap = DTOManager.vratiZaposlenog(zaposleniId);
+                //akrobata.Zaposleni = zap;
+                DTOManager.dodajAkrobatuIzaposlenog(akrobata);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.ToString());
+            }
+        }
         [HttpDelete]
         [Route("ObrisiAkrobatu/{akrobataId}")]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public IActionResult obrisiNastupnuTacku(int akrobataId)
+        public IActionResult obrisiAkrobatu(int akrobataId)
         {
 
             try
