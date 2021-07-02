@@ -159,12 +159,12 @@ namespace CirkusApp1.DTOManagers
                 ISession s = DataLayer.GetSession();
 
                 NastupnaTacka n = new NastupnaTacka();
-
+                CirkuskaPredstava predstava = s.Load<CirkuskaPredstava>(nt.Predstava.IdPredstave);
                 n.Ime = nt.Ime;
                 n.Tip = nt.Tip;
                 n.MinGodina = nt.MinGodina;
                 n.OpasniEfekti = nt.OpasniEfekti;
-
+                n.Predstava = predstava;
                 s.SaveOrUpdate(n);
 
                 s.Flush();
@@ -965,6 +965,27 @@ namespace CirkusApp1.DTOManagers
                 return null;
             }   
         }
+        public static CirkuskaPredstavaBasic vratiCirkuskuPredstavuBasic(int id)
+        {
+            CirkuskaPredstavaBasic cirkuskaPredstavaBasic = new CirkuskaPredstavaBasic();
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                CirkuskaPredstava pred = s.Load<CirkuskaPredstava>(id);
+
+                cirkuskaPredstavaBasic = new CirkuskaPredstavaBasic(pred.IdPredstave, pred.Vreme, pred.BrojKarata);
+
+                s.Close();
+
+                return cirkuskaPredstavaBasic;
+            }
+            catch (Exception ec)
+            {
+                Console.WriteLine(ec.Message);
+                return null;
+            }
+        }
 
         public static void obrisiCirkuskuPredstavu(int id)
         {
@@ -1298,19 +1319,21 @@ namespace CirkusApp1.DTOManagers
             {
                 ISession s = DataLayer.GetSession();
 
-                GutacPlamena n = new GutacPlamena();
+                Dreser n = new Dreser();
 
                 n.IdPerformera = dreser.ArtistId;
+
                 Zaposleni a = s.Load<Zaposleni>(dreser.Zaposleni.IdZaposlenog);
 
                 n.JeZaposleni = a;
-
+                //n.JeZaposleni = new Zaposleni();
+                //n.JeZaposleni.Ime = dreser.ImeArtista;
                 n.UmetnickoIme = dreser.UmetnickoIme;
                 n.Pol = dreser.Pol;
                 n.ClanOd = dreser.ClanOd;
 
 
-
+                //s.Save(n.JeZaposleni);
                 s.SaveOrUpdate(n);
 
                 s.Flush();

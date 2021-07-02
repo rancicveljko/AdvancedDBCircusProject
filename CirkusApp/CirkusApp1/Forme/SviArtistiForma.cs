@@ -67,7 +67,7 @@ namespace CirkusApp1.Forme
             if (result == DialogResult.OK)
             {
 
-                //DTOManager.obrisiArtista(idProizvoda);
+                DTOManager.obrisiArtista(idProizvoda);
                 MessageBox.Show("Brisanje je uspesno obavljeno!");
                 this.popuniPodacima();
             }

@@ -130,6 +130,12 @@
     <Compile Include="Forme\DodajKlovnaForma.Designer.cs">
       <DependentUpon>DodajKlovnaForma.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forme\DodajNastupnuTacku.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forme\DodajNastupnuTacku.Designer.cs">
+      <DependentUpon>DodajNastupnuTacku.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forme\DodajZivotinjuForma.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -221,6 +227,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forme\DodajKlovnaForma.resx">
       <DependentUpon>DodajKlovnaForma.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forme\DodajNastupnuTacku.resx">
+      <DependentUpon>DodajNastupnuTacku.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forme\DodajZivotinjuForma.resx">
       <DependentUpon>DodajZivotinjuForma.cs</DependentUpon>

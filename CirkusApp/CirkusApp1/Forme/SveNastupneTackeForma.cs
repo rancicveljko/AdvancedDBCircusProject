@@ -69,7 +69,8 @@ namespace CirkusApp1.Forme
 
         private void btnDodajNastupnuTacku_Click(object sender, EventArgs e)
         {
-            
+            DodajNastupnuTacku forma = new DodajNastupnuTacku();
+            forma.Show();
         }
     }
 }

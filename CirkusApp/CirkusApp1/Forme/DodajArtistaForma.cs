@@ -55,7 +55,17 @@ namespace CirkusApp1.Forme
             }
             else if(Dreser.Checked)
             {
-                //kreiramo dresera i ubacujemo id njegov u tabelu dreser
+                DreserBasic dreser = new DreserBasic();
+
+                dreser.UmetnickoIme = textBox1.Text;
+                dreser.Pol = textBox2.Text;
+                dreser.ClanOd = clanOd.Value;
+
+                dreser.Zaposleni = zaposlen;
+
+                DTOManager.dodajDresera(dreser);
+
+                MessageBox.Show("Uspesno ste dodali novog Dresera!");
             }
             else if(BacacNozeva.Checked)
             {
