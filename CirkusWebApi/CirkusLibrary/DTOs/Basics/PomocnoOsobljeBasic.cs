@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CirkusApp1.Entiteti;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -29,6 +30,10 @@ namespace CirkusApp1.DTOs.Basics
         public PomocnoOsobljeBasic(int id, string ime, string imer, string prez, DateTime datrodj, string mrodj, long mbr, Boolean asistent) : base(id, ime, imer, prez, datrodj, mrodj, mbr)
         {
             this.AsistentFleg = asistent;
+        }
+        public PomocnoOsobljeBasic(PomocnoOsoblje pom):base(pom)
+        {
+            this.AsistentFleg = pom.AsistentFleg;
         }
     }
 }
