@@ -13,6 +13,7 @@ namespace CirkusWebApi.Controllers
     [Route("[controller]")]
     public class ArtistController : ControllerBase
     {
+
         [HttpGet]
         [Route("PreuzmiSveArtiste")]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -85,7 +86,7 @@ namespace CirkusWebApi.Controllers
         [Route("PromeniAkrobatu")]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public IActionResult PromeniNastupnuTacku([FromBody] AkrobataBasic akrobata)
+        public IActionResult PromeniAkrobatu([FromBody] AkrobataBasic akrobata)
         {
             //Iz body-a (ne kroz url) zahteva  prosledimo prodavnicu koju treba da upisemo i sve njene podatke
             try
@@ -98,6 +99,60 @@ namespace CirkusWebApi.Controllers
                 return BadRequest(ex.ToString());
             }
         }
+        #endregion
+        #region Dreser
+        [HttpGet]
+        [Route("PreuzmiSveDresere")]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public IActionResult getDreseri()
+        {
+            try
+            {
+
+                return new JsonResult(DTOManager.vratiDresere());
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.ToString());
+            }
+        }
+        [HttpPost]
+        [Route("DodajDresera/{zaposleniId}")]//dodavanje dresera i povezivanje sa vec postojecim zaposlenim koji nema dodeljenog artista
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public IActionResult DodajDresera(int zaposleniId, [FromBody] DreserBasic dreser)
+        {
+            //Iz body-a (ne kroz url) zahteva  prosledimo prodavnicu koju treba da upisemo i sve njene podatke
+            try
+            {
+                var zaposleni = DTOManager.vratiZaposlenog(zaposleniId);
+                dreser.Zaposleni = zaposleni;
+                DTOManager.dodajDresera(dreser);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.ToString());
+            }
+        }
+        [HttpDelete]
+        [Route("ObrisiDresera/{dreserId}")]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public IActionResult obrisiDresera(int dreserId)
+        {
+
+            try
+            {
+                DTOManager.obrisiDresera(dreserId);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.ToString());
+            }
+        }
+
         #endregion
     }
 }

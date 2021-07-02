@@ -12,6 +12,7 @@ namespace CirkusApp1.DTOs.Basics
     {
         public int ArtistId { get; set; }
         public String ImeArtista { get; set; }
+        
         public String PrezimeArtista { get; set; }
         public String UmetnickoIme { get; set; }
         public String Pol { get; set; }

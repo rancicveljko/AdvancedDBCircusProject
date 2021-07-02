@@ -46,6 +46,24 @@ namespace CirkusWebApi.Controllers
                 return BadRequest(ex.ToString());
             }
         }
+        [HttpPost]
+        [Route("DodajZivotinju")]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public IActionResult dodajZivotinju([FromBody] ZivotinjaBasic zivotinja)
+        {
+            try
+            {
+                //var dreser = DTOManager.vratiDresera(dreserId);
+                //zivotinja.DresiraZivotinju = dreser;
+                DTOManager.dodajZivotinju(zivotinja);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.ToString());
+            }
+        }
         [HttpPut]
         [Route("PromeniZivotinju")]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -73,6 +91,23 @@ namespace CirkusWebApi.Controllers
             try
             {
                 DTOManager.obrisiZivotinju(zivotinjaID);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.ToString());
+            }
+        }
+        [HttpPut]
+        [Route("DodajDreseraZivotinji/{dreserId}/{zivotinjaId}")]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public IActionResult DodajDreseraZivotinji(int dreserId,int zivotinjaId)
+        {
+            try
+            {
+                
+                DTOManager.dodajDreseraZivotinji(dreserId, zivotinjaId);
                 return Ok();
             }
             catch (Exception ex)

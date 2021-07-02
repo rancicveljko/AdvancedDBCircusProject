@@ -516,6 +516,33 @@ namespace CirkusApp1.DTOManagers
 
             return mb;
         }
+        public static void DodajAkrobatuIzaposlenog(AkrobataBasic artist)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                Akrobata n = new Akrobata();
+
+                n.IdPerformera = artist.ArtistId;
+                Zaposleni a = s.Load<Zaposleni>(artist.Zaposleni.IdZaposlenog);
+
+                n.JeZaposleni = a;
+                n.UmetnickoIme = artist.UmetnickoIme;
+                n.Pol = artist.Pol;
+                n.ClanOd = artist.ClanOd;
+
+                s.SaveOrUpdate(n);
+
+                s.Flush();
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                Console.WriteLine(ec.Message);
+            }
+        }
 
         #endregion
         #region Zaposleni
@@ -949,7 +976,30 @@ namespace CirkusApp1.DTOManagers
             }
             return zivotinje;
         }
+        public static void dodajDreseraZivotinji(int drID,int zivID)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
 
+                //Zivotinja z = new Zivotinja();
+                Zivotinja z = s.Load<Zivotinja>(zivID);
+                Dreser d = s.Load<Dreser>(drID);
+
+                z.DresiraZivotinju=d;
+                
+                s.Update(z);
+
+                s.Flush();
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                Console.WriteLine(ec.Message);
+            }
+
+        }
 
         public static void dodajZivotinju(ZivotinjaBasic zb)
         {
@@ -1494,25 +1544,112 @@ namespace CirkusApp1.DTOManagers
         }
         #endregion
         #region Dreser
+        public static List<DreserBasic> vratiDresere()
+        {
+            List<DreserBasic> artisti = new List<DreserBasic>();
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                IEnumerable<Dreser> sviArtisti = from o in s.Query<Dreser>()
+                                                 select o;
+                IEnumerable<Zivotinja> sveZivotinje= from o in s.Query<Zivotinja>()
+                                                     select o;
+                IEnumerable<PomocnoOsoblje> sviasisteniti = from o in s.Query<PomocnoOsoblje>()
+                                                      select o;
+
+
+
+                foreach (Dreser art in sviArtisti)
+                {
+                    var artist = new DreserBasic(art);
+                    foreach (Zivotinja ziv in sveZivotinje)
+                    {
+                        if (Equals(ziv.DresiraZivotinju, null))
+                            continue;
+                        if (art.IdPerformera==ziv.DresiraZivotinju.IdPerformera)
+                        {
+                            artist.Zivotinje.Add(new ZivotinjaBasic(ziv));
+                        }
+                    }
+                    foreach (PomocnoOsoblje pom in sviasisteniti)
+                    {
+                        if (Equals(pom.PomazeArtistu, null))
+                            continue;
+                        if (art.IdPerformera == pom.PomazeArtistu.IdPerformera)
+                        {
+                            artist.Asistenti.Add(new PomocnoOsobljeBasic(pom));
+                        }
+                    }
+
+
+                    //artist.Zivotinje = art.Zivotinje.Select(art => new ZivotinjaBasic(art)).ToList();
+                    artist.ImeArtista = art.JeZaposleni.Ime;
+                    artist.PrezimeArtista = art.JeZaposleni.Prezime;
+                    // artisti.Add(new DreserBasic(art.IdPerformera,artist.ImeArtista,artist.PrezimeArtista, art.UmetnickoIme, art.Pol, art.ClanOd));
+                    artisti.Add(artist);
+                }
+
+            }
+            catch (Exception ec)
+            {
+                Console.WriteLine(ec.Message);
+            }
+            return artisti;
+        }
+        /*public static void DodajDreseraIZaposlenog(DreserBasic dreser)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                Dreser n = new Dreser();
+
+                n.IdPerformera = dreser.ArtistId;
+
+                
+                n.JeZaposleni = new Zaposleni();
+                n.JeZaposleni.Ime = dreser.ImeArtista;
+                
+                n.JeZaposleni.Prezime = dreser.PrezimeArtista;
+                n.UmetnickoIme = dreser.UmetnickoIme;
+                n.Pol = dreser.Pol;
+                n.ClanOd = dreser.ClanOd;
+
+
+                s.Save(n.JeZaposleni);
+                s.SaveOrUpdate(n);
+
+                s.Flush();
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                Console.WriteLine(ec.Message);
+            }
+        }*/
         public static void dodajDresera(DreserBasic dreser)
         {
             try
             {
                 ISession s = DataLayer.GetSession();
 
-                GutacPlamena n = new GutacPlamena();
+                Dreser n = new Dreser();
 
                 n.IdPerformera = dreser.ArtistId;
+
                 Zaposleni a = s.Load<Zaposleni>(dreser.Zaposleni.IdZaposlenog);
 
                 n.JeZaposleni = a;
-
+                //n.JeZaposleni = new Zaposleni();
+                //n.JeZaposleni.Ime = dreser.ImeArtista;
                 n.UmetnickoIme = dreser.UmetnickoIme;
                 n.Pol = dreser.Pol;
                 n.ClanOd = dreser.ClanOd;
 
 
-
+                //s.Save(n.JeZaposleni);
                 s.SaveOrUpdate(n);
 
                 s.Flush();
