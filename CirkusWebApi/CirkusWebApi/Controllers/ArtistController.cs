@@ -11,17 +11,33 @@ namespace CirkusWebApi.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class ZivotinjeController : ControllerBase
+    public class ArtistController : ControllerBase
     {
-
         [HttpGet]
-        [Route("PreuzmiZivotinje")]
+        [Route("PreuzmiSveArtiste")]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public IActionResult GetZivotinje()
+        public IActionResult getPreuzmiArtiste()
         {
             try
             {
-                return new JsonResult(DTOManager.vratiSveZivotinja());
+
+                return new JsonResult(DTOManager.vratiSveArtiste());
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.ToString());
+            }
+        }
+        #region Akrobata
+        [HttpGet]
+        [Route("PreuzmiSveAkrobate")]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public IActionResult getAkrobate()
+        {
+            try
+            {
+
+                return new JsonResult(DTOManager.vratiAkrobate());
             }
             catch (Exception ex)
             {
@@ -29,33 +45,18 @@ namespace CirkusWebApi.Controllers
             }
         }
         [HttpPost]
-        [Route("DodajZivotinju/{dreserId}")]
+        [Route("DodajAkrobatu/{zaposleniId}")]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public IActionResult AddZivotinja(int dreserId,[FromBody] ZivotinjaBasic zivotinja)
+        public IActionResult DodajNastupnuTacku(int zaposleniId, [FromBody] AkrobataBasic akrobata)
         {
+
             try
             {
-                var dreser = DTOManager.vratiDresera(dreserId);
-                zivotinja.DresiraZivotinju = dreser;
-                DTOManager.dodajZivotinju(zivotinja);
-                return Ok();
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.ToString());
-            }
-        }
-        [HttpPut]
-        [Route("PromeniZivotinju")]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        public IActionResult ChangeZivotinja([FromBody] ZivotinjaBasic zivotinja)
-        {
-            //Iz body-a (ne kroz url) zahteva  prosledimo prodavnicu koju treba da upisemo i sve njene podatke
-            try
-            {
-                DTOManager.azurirajZivotinju(zivotinja);
+
+                var zap = DTOManager.vratiZaposlenog(zaposleniId);
+                akrobata.Zaposleni = zap;
+                DTOManager.dodajAkrobatu(akrobata);
                 return Ok();
             }
             catch (Exception ex)
@@ -64,15 +65,15 @@ namespace CirkusWebApi.Controllers
             }
         }
         [HttpDelete]
-        [Route("ObrisiZivotinju/{zivotinjaID}")]
+        [Route("ObrisiAkrobatu/{akrobataId}")]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public IActionResult DeleteZivotinju(int zivotinjaID)
+        public IActionResult obrisiNastupnuTacku(int akrobataId)
         {
 
             try
             {
-                DTOManager.obrisiZivotinju(zivotinjaID);
+                DTOManager.obrisiAkrobatu(akrobataId);
                 return Ok();
             }
             catch (Exception ex)
@@ -80,7 +81,23 @@ namespace CirkusWebApi.Controllers
                 return BadRequest(ex.ToString());
             }
         }
-
+        [HttpPut]
+        [Route("PromeniAkrobatu")]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public IActionResult PromeniNastupnuTacku([FromBody] AkrobataBasic akrobata)
+        {
+            //Iz body-a (ne kroz url) zahteva  prosledimo prodavnicu koju treba da upisemo i sve njene podatke
+            try
+            {
+                DTOManager.AzurirajAkrobatu(akrobata);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.ToString());
+            }
+        }
+        #endregion
     }
 }
-

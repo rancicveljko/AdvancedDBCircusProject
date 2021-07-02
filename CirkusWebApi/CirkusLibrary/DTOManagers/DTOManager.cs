@@ -284,7 +284,10 @@ namespace CirkusApp1.DTOManagers
 
                 foreach (Artist art in sviArtisti)
                 {
-                    artisti.Add(new ArtistBasic(art.IdPerformera, art.UmetnickoIme, art.Pol));
+                    var artist = new ArtistBasic(art);
+                    artist.ImeArtista = art.JeZaposleni.Ime;
+                    artist.PrezimeArtista = art.JeZaposleni.Prezime;
+                    artisti.Add(new ArtistBasic(art.IdPerformera, art.UmetnickoIme, art.Pol, artist.ImeArtista, artist.PrezimeArtista));
                 }
 
             }
@@ -392,6 +395,31 @@ namespace CirkusApp1.DTOManagers
         }
         #endregion
         #region Akrobata
+        public static List<AkrobataBasic> vratiAkrobate()
+        {
+            List<AkrobataBasic> artisti = new List<AkrobataBasic>();
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                IEnumerable<Akrobata> sviArtisti = from o in s.Query<Akrobata>()
+                                                   select o;
+
+                foreach (Akrobata art in sviArtisti)
+                {
+                    var artist = new ArtistBasic(art);
+                    artist.ImeArtista = art.JeZaposleni.Ime;
+                    artist.PrezimeArtista = art.JeZaposleni.Prezime;
+                    artisti.Add(new AkrobataBasic(art.IdPerformera, artist.ImeArtista, artist.PrezimeArtista, art.UmetnickoIme, art.Pol, art.ClanOd));
+                }
+
+            }
+            catch (Exception ec)
+            {
+                Console.WriteLine(ec.Message);
+            }
+            return artisti;
+        }
         public static AkrobataBasic AzurirajAkrobatu(AkrobataBasic mb)
         {
             try
@@ -638,7 +666,9 @@ namespace CirkusApp1.DTOManagers
 
                 foreach (Direktor d in svidirektori)
                 {
-                    direktori.Add(new DirektorBasic(d.IdDirektora, d.Ime, d.Prezime, d.Email, d.Telefon));
+                    var direktor = new DirektorBasic(d);
+                    direktor.Zaposleni = d.Zaposleni.Select(d => new ZaposleniBasic(d)).ToList();
+                    direktori.Add(direktor);
                 }
 
                 s.Close();
@@ -906,7 +936,10 @@ namespace CirkusApp1.DTOManagers
 
                 foreach (Zivotinja z in sveZivotinja)
                 {
-                    zivotinje.Add(new ZivotinjaBasic(z.IdPerformera, z.UmetnickoIme, z.Pol, z.ClanOd, z.Vrsta, z.Tezina, z.Starost));
+                    var zivotinja = new ZivotinjaBasic(z);
+                    zivotinja.ImeDresera = z.DresiraZivotinju.JeZaposleni.Ime;
+                    zivotinje.Add(zivotinja);
+                    //zivotinje.Add(new ZivotinjaBasic(z.IdPerformera, z.UmetnickoIme, z.Pol, z.ClanOd, z.Vrsta, z.Tezina, z.Starost));
                 }
 
             }
@@ -924,6 +957,7 @@ namespace CirkusApp1.DTOManagers
             {
                 ISession s = DataLayer.GetSession();
 
+                Dreser dreser = s.Load<Dreser>(zb.DresiraZivotinju.ArtistId);
                 Zivotinja z = new Zivotinja();
 
                 z.IdPerformera = zb.IdPerformera;
@@ -935,6 +969,7 @@ namespace CirkusApp1.DTOManagers
                 z.Vrsta = zb.Vrsta;
                 z.Tezina = zb.Tezina;
                 z.Starost = zb.Starost;
+                z.DresiraZivotinju = dreser;
 
                 s.SaveOrUpdate(z);
 

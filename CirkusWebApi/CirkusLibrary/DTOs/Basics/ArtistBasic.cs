@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CirkusApp1.Entiteti;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -33,6 +34,23 @@ namespace CirkusApp1.DTOs.Basics
             this.ArtistId = id;
             this.UmetnickoIme = umIme;
             this.Pol = pol;
+        }
+        public ArtistBasic(int id, string umIme, string pol, String ime, String prezime)
+        {
+            this.ImeArtista = ime;
+            this.PrezimeArtista = prezime;
+            this.ArtistId = id;
+            this.UmetnickoIme = umIme;
+            this.Pol = pol;
+        }
+        public ArtistBasic(Artist art)
+        {
+            this.ArtistId = art.IdPerformera;
+            this.ImeArtista = art.JeZaposleni.Ime;
+            this.PrezimeArtista = art.JeZaposleni.Prezime;
+            this.UmetnickoIme = art.UmetnickoIme;
+            this.Pol = art.Pol;
+            this.ClanOd = art.ClanOd;
         }
 
     }
